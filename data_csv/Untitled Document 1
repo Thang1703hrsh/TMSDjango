@@ -1,0 +1,269 @@
+db: ttdbeta_data
+order_detail: 	+ code_order
+		+ is_complete:
+		+ tolerence:
+		
+
+order_status	+ status
+
+
+order_quota	+ position
+		+ quota
+		+ total_quota
+		
+		
+product_detail	+ code
+		+ name
+		+ quantity
+		+ 
+		
+db: ttdbeta_report
+material_report:	+ is_stock = quantity in product_detail
+			+ temporary_quantity
+
+
+from django.db import models
+
+
+class Book(models.Model):
+    name = models.CharField(max_length=200)
+    public_at = models.DateField()
+    author = models.ForeignKey('Author', on_delete=models.CASCADE)
+    categories = models.ManyToManyField('Category', related_name='books')
+
+    def __str__(self):
+        return self.name
+
+
+class Author(models.Model):
+    full_name = models.CharField(max_length=200)
+    dob = models.DateField()
+
+    def __str__(self):
+        return self.full_name
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+        
+        
+        
+        
+Script: --database=data_db 
+inspectdb > models.py -- database = data_db
+
+
+import pandas as pd
+import numpy as np
+pd.options.display.max_columns = None
+pd.options.mode.chained_assignment = None  # default='warn'
+import time
+
+dfChild = pd.read_csv("Child.csv")
+dfParent = pd.read_csv("Parent.csv")
+dfOrder = pd.read_csv("Order.csv")
+dfChild
+dfParent
+dfOrder
+def mergeMaterialOrder(dfChild, dfParent, dfOrder):
+   dfChild2 = dfChild.drop_duplicates(keep='first').reset_index(drop = True)
+   dfChild2 = dfChild2.sort_values(by=['product_parent']).reset_index(drop = True)
+   dfChild3 = pd.merge(dfChild2 , dfParent[['product_parent','quantity_product','temporary_quantity']], left_on='product_child', right_on='product_parent', how='inner').drop(columns = ['product_parent_y']).rename(columns = {"product_parent_x":"product_parent"})
+   dfChild3 = dfChild3.reset_index(drop = True)
+   g = dfChild3.groupby(["product_parent"]).cumcount().add(1)
+   dfChildMerge = dfChild3.set_index(["product_parent", g]).unstack(fill_value=0).sort_index(axis=1, level=1)
+   dfChildMerge.columns = ["{}{}".format(a, b) for a, b in dfChildMerge.columns]
+
+   dfChildMerge = dfChildMerge.reset_index()
+
+   dfChildMerge = dfChildMerge.replace(np.nan, 0)
+   dfTotalMate = pd.merge(dfParent, dfChildMerge, on='product_parent', how='left')
+   dfTotalMate = dfTotalMate.replace(np.nan, 0)
+   
+   dfTotalMate = dfTotalMate.drop(dfTotalMate[(dfTotalMate['product_child1'] == 0) & (dfTotalMate['is_outsourcing'] == 1)].index).reset_index(drop = True)
+   new_col1 = ['product_parent','code_product' , 'quantity_product' ,'temporary_quantity', 'is_outsourcing', 
+      'code_product1', 'product_child1', 'quantity1',
+      'quantity_product1', 'temporary_quantity1', 'code_product2',
+      'product_child2', 'quantity2', 'quantity_product2',
+      'temporary_quantity2', 'code_product3', 'product_child3', 'quantity3',
+      'quantity_product3', 'temporary_quantity3', 'code_product4',
+      'product_child4', 'quantity4', 'quantity_product4',
+      'temporary_quantity4', 'code_product5', 'product_child5', 'quantity5',
+      'quantity_product5', 'temporary_quantity5']
+   
+   dfTotalMate= dfTotalMate.reindex(columns=new_col1)
+   dfTotalMate = dfTotalMate.sort_values(by= ['product_parent']).reset_index(drop = True)
+
+   dfTotal = pd.merge(dfOrder , dfTotalMate, left_on='code_product', right_on='code_product', how='left')
+   dfTotal = dfTotal.reset_index(drop = True)
+   new_col2 = ['code_order' , 'position' , 'total_quota', 'quantity_out',
+      'product_parent' , 'code_product' , 'quantity_product',
+      'temporary_quantity', 'is_outsourcing' , 'code_product1', 'product_child1', 'quantity1',
+      'quantity_product1', 'temporary_quantity1', 'code_product2',
+      'product_child2', 'quantity2', 'quantity_product2',
+      'temporary_quantity2', 'code_product3', 'product_child3', 'quantity3',
+      'quantity_product3', 'temporary_quantity3', 'code_product4',
+      'product_child4', 'quantity4', 'quantity_product4',
+      'temporary_quantity4', 'code_product5', 'product_child5', 'quantity5',
+      'quantity_product5', 'temporary_quantity5']
+   
+   dfTotal=dfTotal.reindex(columns=new_col2)
+
+   dfTotalReverse = dfTotal[::-1]
+   dfTotalReverse = dfTotalReverse.reset_index(drop = True)
+   dfTotalReverse = dfTotalReverse.drop(dfTotalReverse[np.isnan(dfTotalReverse['product_parent']) == True].index).reset_index(drop = True)
+   dfTotalReverse = dfTotalReverse[:10000] 
+   return dfTotalMate, dfTotalReverse
+dfTotalMate, dfTotalReverse = mergeMaterialOrder(dfChild , dfParent, dfOrder)
+dfTotalMate
+dict_evaluated = {"code_order":[] , "position":[], "code_product":[] ,  "quantity" : [] , "temporary_quantity" : []}
+listColMateTtReverse = [9,14,19,24,29]
+listColMate = [5,10,15,20,25] 
+
+def updateDictEvaluated(dict_evaluated, aMate , string, temporary_quantity):
+    dict_evaluated["code_order"].append(aMate['code_order'])
+    dict_evaluated["position"].append(aMate['position'])
+    dict_evaluated["code_product"].append(aMate['code_product'])
+    dict_evaluated["quantity"].append(string)
+    dict_evaluated["temporary_quantity"].append(temporary_quantity)
+
+def calLevel1(ahat, dfParent, dict_evaluated):
+    sub = ahat['temporary_quantity'] - ahat['total_quota'] 
+    indexCode = dfParent[dfParent['code_product'] == ahat['code_product']].index[0] 
+    dfParent.at[indexCode , 'temporary_quantity'] = sub
+    return sub, dfParent
+# update the quantity of material after using it
+def replaceNewValue(aMate, dfParent , sub):
+    update_sub = 0
+    for i in listColMate: 
+        if(aMate[i] != 0):
+            indexCode = dfParent[dfParent['code_product'] == aMate[i]].index[0]
+            update_sub = aMate[i+4] - sub * aMate[i+2]
+            dfParent.at[indexCode , 'temporary_quantity'] = update_sub
+        else:
+            break
+    return dfParent
+def calLevel2(ahat , product_id, dfTotalMate , sub, dict_evaluated, dfParent, dfTotalReverse):
+    dict_notenough = {"product_id": [], "index_min": [] , "quantity": [] , "temp_quantity": []}
+    count = negative = positive = 0
+    aMate = dfTotalMate.loc[np.where(dfTotalMate['product_parent'] == product_id)[0][0]] 
+    for i in listColMate: 
+        if (aMate[5] == 0):
+            return updateDictEvaluated(dict_evaluated, ahat, "not enough", sub)
+            
+        elif(aMate[i] != 0):
+            slSC = aMate[i+4] * aMate[i+2]
+            if((slSC + sub) < 0):
+                dict_notenough['product_id'].append(aMate[i+1]) 
+                dict_notenough['index_min'].append(i) 
+                dict_notenough['quantity'].append(slSC) 
+                dict_notenough['temp_quantity'].append(slSC + sub) 
+                negative = negative + 1
+            else:
+                positive = positive + 1
+            count = count + 1
+        else:
+            break
+    if(count == positive):
+        return updateDictEvaluated(dict_evaluated, ahat, "enough", sub)   
+                
+    df_notenough = pd.DataFrame(dict_notenough)
+        
+    dfParent = replaceNewValue(aMate, dfParent , sub)
+    dfTotalMate,dfTotalReverse = mergeMaterialOrder(dfChild , dfParent, dfOrder)
+    
+    for i in range(0, negative):
+        return calLevel2(ahat, df_notenough.loc[i]['product_id'], dfTotalMate , df_notenough.loc[i]['temp_quantity'], dict_evaluated, dfParent, dfTotalReverse)
+        
+
+def primary(dfTotalReverse , dfParent, dfTotalMate, index):
+    ahat = dfTotalReverse.loc[index]
+    if((ahat['quantity_out'] - ahat['total_quota']) >= 0.0):
+        updateDictEvaluated(dict_evaluated, ahat, "enough", np.NAN)
+    else: 
+        if(ahat['is_outsourcing'] == 0):
+            sub, dfParent = calLevel1(ahat, dfParent , dict_evaluated)
+            if(sub > 0):
+                updateDictEvaluated(dict_evaluated, ahat, "enough", sub)
+            else:
+                updateDictEvaluated(dict_evaluated, ahat, "not enough", sub)
+        else:
+            sub1, dfParent = calLevel1(ahat, dfParent , dict_evaluated)
+            calLevel2(ahat , ahat['product_parent'], dfTotalMate , sub1, dict_evaluated, dfParent, dfTotalReverse)
+    return dfTotalMate, dfTotalReverse
+            
+for i in range(0, len(dfTotalReverse)):
+    dfTotalMate, dfTotalReverse = primary(dfTotalReverse ,dfParent, dfTotalMate, i)
+dfEvaluted = pd.DataFrame.from_dict(dict_evaluated)
+dfEvaluted
+listOrder = dfEvaluted['code_order'].unique()
+newDictEvalue = {"code_order": [] , "quantity": []}
+for i in listOrder:
+    listEva = dfEvaluted.loc[dfEvaluted['code_order'] == i]['quantity'].unique()
+    if (len(listEva) == 1):
+        newDictEvalue["quantity"].append(listEva[0])
+        newDictEvalue["code_order"].append(i)
+    else:
+        if(listEva[0] != listEva[1]):
+            newDictEvalue["quantity"].append("not enough")
+            newDictEvalue["code_order"].append(i)
+        else:
+            newDictEvalue["quantity"].append(listEva)
+        
+dfEvalutedTt = pd.DataFrame.from_dict(newDictEvalue)
+dfEvalutedTt
+dfEvalutedTt.loc[dfEvalutedTt["quantity"] == "enough"]
+dfEvalutedTt.loc[dfEvalutedTt["quantity"] == "not enough"]
+
+
+
+def readdfOrder():
+        dfOrder = OrderQuota.objects.raw("""  
+                SELECT 1 id, OD.code as order_code , OQ.position, PD.code as product_code , OQ.total_quota, PSO.quantity as quota
+                FROM order_quota AS OQ JOIN order_detail AS OD 
+                                                ON OQ.order_id = OD.order_id 
+                                        JOIN product_detail AS PD ON 
+                                                OQ.product_id = PD.product_id  
+                                        LEFT JOIN production_stock_out AS PSO ON 
+                                                OQ.product_id = PSO.product_id AND OQ.order_id = PSO.order_id
+                WHERE OD.deleted_at IS NULL 
+                        AND OQ.deleted_at IS NULL 
+                        AND PD.deleted_at IS NULL
+                        AND PSO.deleted_at IS NULL
+                ORDER BY OD.order_id DESC
+                """)
+        dfOrder = pd.DataFrame([item.__dict__ for item in dfOrder]).drop(['_state', 'id'], axis=1)
+        return dfOrder
+
+def readdfChild():
+        dfChild = OutsourcingProductMaterials.objects.raw("""  
+                SELECT 1 id, OPM.outsourcing_product_id AS parent_product, OPM.product_id AS child_product, PD.code as product_code , OPM.quantity as quota
+                FROM outsourcing_product_materials AS OPM JOIN product_detail AS PD 
+                                                ON OPM.product_id = PD.product_id 
+                WHERE OPM.deleted_at IS NULL 
+                AND PD.deleted_at IS NULL 
+                
+                """)
+        dfChild = pd.DataFrame([item.__dict__ for item in dfChild]).drop(['_state', 'id'], axis=1)
+        return dfChild
+
+def readdfParent():
+        dfParent = ProductDetail.objects.raw("""  
+                SELECT 1 id, PD.product_id AS parent_product, PD.code as product_code , PD.quantity AS product_quantity, MR.temporary_quantity , PD.is_outsourcing
+                FROM ttdbeta_data.product_detail PD JOIN ttdbeta_report.material_reports MR
+                                                ON PD.product_id = MR.product_id 
+                WHERE MR.deleted_at IS NULL 
+                AND PD.deleted_at IS NULL 
+
+                """)
+        dfParent = pd.DataFrame([item.__dict__ for item in dfParent]).drop(['_state', 'id'], axis=1)
+        return dfParent
+
+# print(dfParent)
+# print(dfParent.dtypes)
+# dfParent.to_csv('Parent.csv', index= False)
+

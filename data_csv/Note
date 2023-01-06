@@ -1,0 +1,196 @@
+I> Tồn tạm sản xuất:
+
+Tồn tạm sản xuất = tồn kho - (tổng sản xuất cần - tổng đã xuất)
+
+tồn kho: Số tồn trong kho hiện tại
+
+tổng sản xuất cần: Tổng số lượng NPL cần cho lsx đã duyệt + yêu cầu xuất kho + số lượng GCN + yêu cầu xuất đổi trả
+
+tổng đã xuất: Tổng số lượng NPL đã xuất cho LSX + yêu cầu xuất kho + GCN + yêu cầu xuất đổi trả
+
++) Xuất kho:
+		+) assign_product_stockout
+		+) production_stock_out
+
++) Nhập kho: 
+		+) product_stock_in_real_details
+		+) product_stock_in
+		+) product_stock_in_reals
+		
++) Quản lý LSX: Lên LXS + Đã xuất
+	 	+) production_order_detail: Đã chạy thao tác xuất bù, hủy NPL, hủy LSX
+	 	+) production_stock_out
+	 	+) order_detail
+
+		
++) Gia công ngoài :
+		+) outsourcing_infos:
+		+) outsourcing_detail:
+		+) outsourcing_outsourcing_quota: Xuất NPL đi GCN
+
++) Yêu cầu đổi trả:
+		+) return_product_id
+		+) production_stock_out
+		+) assign_product_stockout
+		
++) Yêu cầu xuất kho: 
+		+) req_stockout_product_info
+		+) req_stockout_product_detail
+		+) production_stock_out
+		NOTE: Yêu cầu xuất npl: Không ảnh hưởng đơn hàng, xuất không cần qt :))
+
+
+Note: 	Đã duyệt có tích: Tác nghiệp đã lập định mức
+	Đã duyệt không có tích: Tác nghiệp chưa lập định mức. sale mới xuống đơn hàng
+	
+	
++ material report:
+		+) need quantity: số lượng Cần
+		+) order quantity: số lượng đã đặt
+		+) need order quantity: số lượng Cần đi gia công cho Thứ cấp
+		+) in stock: Tồn kho
+		+) need for outsourcing: cần cho thứ cấp 
+		+) outsourcing stockout: Xuất cho GCN
+		
+
+II> Trừ tạm		
+TH1: Đã xuất GCN nhỏ hơn số cần TC -> ( Tồn kho + Đã xuất gcn + đã đặt (chưa về)) - ( Cần + cần of TC ) => Trừ tạm
+TH2: (Đã xuất GCN lớn hơn Số cần TC) -> Số cần TC = 0 (tự triệt tiêu) =>  Số tồn - Số cần => Trừ tạm
+
+
+Cần mua:
+TH1 : Cần + cần of TC - Xuất GCN – Kho > Đã đặt => Cần + cần of TC - Xuất GCN – Kho					
+TH2 : Cần + cần of TC - Xuất GCN – Kho < Đã đặt => Đã đặt					
+
+request change material status: Change order/material status
+
+
++) Đã đặt: 
+		+) purchase order 
+		+) purchase_order_detail: purchase order id
+		+) purchase_order_detail_status
+		+) packing_list: product_id for purchase_order_id: Note: Xuất bù, bổ sung, ... đã cập nhập thẳng
+		+) product_detail
+		+) Đã đặt là đặt nhưng chưa nhập kho, trừ cho lượng nhập kho ra lượng cần đặt
+
++) Tồn kho:
+
+
++) Đã xuất GCN: Note: Xuất cấu thành -> Nhập về thứ cấp -> Nhập vào kho.
+
+
+
+
++) Công thức tính số cần:
+	+) Cần - XKTT:	
+		-) Đơn hàng bán(múi + SA):	- sau khi nghiep vu tao dinh muc: Khi cập nhật thay đổi định mức thì order_quota cũng thay đổi theo.
+						- Sau khi phieu yeu cau xuat bu xuat kho: thì được cập nhập thẳng vào production_stock_out
+						- production_order_id: Là id cuả lệnh sản xuất
+		-) PYC Xuất kho
+		-) YC xuất bù LSX
+		-) Xuất đổi trả(chỉ tính sơ cấp)
+		
+		
+		
+	+) Cần của Thứ cấp 
+		-) Đơn hàng bán của TC
+		-) Phiếu yêu cầu xuất kho của TC
+		-) YC xuất bù LSX
+
+		
+
+
+
+				** Gia công ngoài **
+outsourcing_infos: Thông tin gia công ngoài: code, name, outsourcing_order_id
+outsourcing_detail: Thông tin gia công ngoài: số lượng gia công ngoài quantity,  is_complete
+
+
+				** Chứng từ nhập kho **
+
+import_purchase_order
+import_purchase_order_detail
+import_purchase_order_status
+
+
+				** Nhập kho thực tế ** 
+
+product_stock_in
+product_stock_in_reals
+product_stock_in_real_details: Nhập kho thực tế của gia công ngoài 
+
+
+assign_product_stockout: Cho biết xuất kho thì xuất cho nhiệm vụ nào(đổi trả, yêu cầu, ...) 
+		return_product_id: yêu cầu đổi trả.
+
+
+Note: Xuất cần: nằm trong các table 
+	và đã xuất: nằm trong table stock_out.
+	
+	
+	
+	
+Phòng ban: 
+Marketing ---------------> Thu mua ---------------> Nghiệp vụ ---------------> Kế hoạch ---------------> Kho
+
+Quy trình:
+ ĐƠn hàng ---------------> Thu mua ---------------> - Tạo ĐH ---------------->  Lên LSX  ---------------> Xuất nhập NPL
+
+
+Thay đổi số liệu trong kho:
+	+) Lệnh sản xuất xuất bù --------> Kho xuất
+	
+	+) Phòng mẫu --------> Phòng kế hoạch --------> Kho
+	
+	+) Thu mua --------> Kho
+	
+	+) GCN Nghiệp vụ --------> Kho --------> Xuất SC/TC --------> Nhập TC
+	
+	+) Thu mua --------> Đổi trả --------> Kho xuất 
+	
+	+) Điều chỉnh kho
+	
+	+) Tăng giảm chứng từ nhập kho
+	
+	+) Chứng từ nhập kho
+	
+
+Nguyên phụ liệu: 
+	+) Đầu vào: 
+		-) ĐH thu mua: Mua về NPL Sơ cấp
+		-) ĐH gia công ngoài: Đưa đi sơ cấp hoặc thứ cấp đưa về thứ cấp
+	
+	+) Đầu ra: 
+		-) Định mức đơn hàng sau khi tác nghiệp duyệt - Lên lệnh sản xuất
+		-) Xuất bù lệnh sản xuất 
+		-) Đơn hàng gia công ngoài
+		-) PYC xuất kho
+		-) PYC đổi trả
+	
+	+) Tồn tại
+	
+	
+	
+Quy trình tính lại trừ tạm: Tính lại từ đầu đến cuối
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+

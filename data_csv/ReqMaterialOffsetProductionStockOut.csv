@@ -1,0 +1,5 @@
+product_id,order_id,request_id,production_order_id,is_exported,quantity_req_material_offset_production,assign_product_stockout_id,quantity_exported_req_material_offset_production
+74,1,2,15,0,1.000000,,
+77,1,1,29,0,0.700000,,
+122,1,2,15,0,1.000000,,
+124,1,1,29,0,0.700000,,

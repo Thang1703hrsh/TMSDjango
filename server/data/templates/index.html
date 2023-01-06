@@ -1,0 +1,20 @@
+{% comment %} <html lang= 'en'>
+
+<head>
+    <meta charset = "UTF-8">
+    <title> Title </title>
+</head>
+<body>
+    <h1> Day la template </h1>
+<p> 
+
+</p>
+<body>
+</html> {% endcomment %}
+
+{% comment %} {{total}}  {% endcomment %}
+
+
+{% for i in total %}
+    <div>{{ i.code_order }} --- {{ i.code_product }} -- {{i.position}} -- {{i.quantity}} -- {{i.is_outsourcing}}</div>
+{% endfor %} 
