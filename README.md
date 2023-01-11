@@ -28,6 +28,26 @@ $ cd mysite
 $ python manage.py runserver
 
 ```
+## Generated models from database:
+
+```bash
+$ python3 manage.py inspectdb --database=data_db > backend/models.py
+
+```
+## Activate model
+- Đầu tiên chúng ta cần phải báo cho project của chúng ta biết là app của chúng ta đã được cài đặt. Bằng cách câu lệnh makemigrations, bạn đã thông báo cho Django biết đã có sự thay đổi với các model của bạn và các thay đổi sẽ được lưu như là 1 migration.
+
+```bash
+$ python3 manage.py makemigrations
+
+```
+- Bây giờ chạy câu lệnh:
+
+```bash
+
+python3 manage.py migrate
+```
+
 
 ## Tích hợp vuejs với Django bằng cách sử dụng Vue CLI độc lập
 

@@ -1,0 +1,279 @@
+[
+    {
+        "name": "1-CVAC32-BGE-L1-HV",
+        "children": [
+            {
+                "name": "1-CVAC32-BGE-00-HV"
+            },
+            {
+                "name": "1-LUOIMA-WHI-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-P983UV-LIL-N0-22",
+        "children": [
+            {
+                "name": "1-P983UV-LIL-00-EV"
+            }
+        ]
+    },
+    {
+        "name": "1-WOOMEL-OWH-L1-CA",
+        "children": [
+            {
+                "name": "1-WOOMEL-OWH-00-CA"
+            },
+            {
+                "name": "1-LUOIMA-WHI-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-P22158-FGD-N0-36",
+        "children": [
+            {
+                "name": "1-P22158-FGD-00-HG"
+            }
+        ]
+    },
+    {
+        "name": "1-P2585Q-BLK-V1-EV",
+        "children": [
+            {
+                "name": "1-P2585Q-BLK-00-EV"
+            },
+            {
+                "name": "1-KATE00-BLK-00-HV"
+            }
+        ]
+    },
+    {
+        "name": "1-MICRO0-WHI-L3-AT",
+        "children": [
+            {
+                "name": "1-MICRO0-WHI-00-AT"
+            },
+            {
+                "name": "1-LUOIMA-WHI-28-CM"
+            }
+        ]
+    },
+    {
+        "name": "1-CVAC09-GRP-M5-HV",
+        "children": [
+            {
+                "name": "1-CVAC09-GRP-00-HV"
+            }
+        ]
+    },
+    {
+        "name": "4-CT2413-BGE-N2-17",
+        "children": [
+            {
+                "name": "1-CT2413-BGE-L2-PO",
+                "children": [
+                    {
+                        "name": "1-CT2413-BGE-00-PO"
+                    },
+                    {
+                        "name": "1-LUOIMA-BLK-80-CM"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "4-P21478-SST-N0-28",
+        "children": [
+            {
+                "name": "1-P21478-SST-00-HG"
+            }
+        ]
+    },
+    {
+        "name": "1-P983UV-IRI-L1-EV",
+        "children": [
+            {
+                "name": "1-P983UV-IRI-00-EV"
+            },
+            {
+                "name": "1-LUOIMA-WHI-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-SUEDE0-BRE-N0-28",
+        "children": [
+            {
+                "name": "1-SUEDE0-BRE-00-AK"
+            }
+        ]
+    },
+    {
+        "name": "1-NY0086-DVO-L1-UL",
+        "children": [
+            {
+                "name": "1-NY0086-DVO-00-UL"
+            },
+            {
+                "name": "1-LUOIMA-WHI-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "1-CVAC19-STO-WS-HV",
+        "children": [
+            {
+                "name": "1-CVAC19-STO-00-HV"
+            }
+        ]
+    },
+    {
+        "name": "1-SUEDE0-NUD-L2-AD",
+        "children": [
+            {
+                "name": "1-SUEDE0-NUD-00-AD"
+            },
+            {
+                "name": "1-LUOIMA-BLK-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-P2585Q-CTG-L3-32",
+        "children": [
+            {
+                "name": "1-P2585Q-CTG-L3-EV",
+                "children": [
+                    {
+                        "name": "1-P2585Q-CTG-00-EV"
+                    },
+                    {
+                        "name": "1-LUOIMA-WHI-28-CM"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "4-P983RR-RBG-N0-36",
+        "children": [
+            {
+                "name": "1-P983RR-RBG-00-EV"
+            }
+        ]
+    },
+    {
+        "name": "4-P2585Q-BTC-L3-28",
+        "children": [
+            {
+                "name": "1-P2585Q-BTC-L3-EV",
+                "children": [
+                    {
+                        "name": "1-P2585Q-BTC-00-EV"
+                    },
+                    {
+                        "name": "1-LUOIMA-WHI-28-CM"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "1-P983RR-PPM-L1-EV",
+        "children": [
+            {
+                "name": "1-P983RR-PPM-00-EV"
+            },
+            {
+                "name": "1-LUOIMA-WHI-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-PH0757-BLK-D0-35",
+        "children": [
+            {
+                "name": "9-PH0757-BLK-00-84",
+                "children": [
+                    {
+                        "name": "1-PH0757-BLK-00-UL"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "4-CVAC08-WHI-N0-22",
+        "children": [
+            {
+                "name": "1-CVAC08-WHI-00-HV"
+            }
+        ]
+    },
+    {
+        "name": "1-CVAC52-WHE-L5-HV",
+        "children": [
+            {
+                "name": "1-CVAC52-WHE-00-HV"
+            },
+            {
+                "name": "1-LUOIMA-BLK-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "1-CVAC59-OSB-L2-KJ",
+        "children": [
+            {
+                "name": "1-CVAC59-OSB-00-KJ"
+            },
+            {
+                "name": "1-LUOIMA-BLK-80-CM"
+            }
+        ]
+    },
+    {
+        "name": "4-6343IN-WHI-D7-30",
+        "children": [
+            {
+                "name": "9-6343IN-WHI-L1-78",
+                "children": [
+                    {
+                        "name": "1-6343IN-WHI-L1-NH",
+                        "children": [
+                            {
+                                "name": "1-6343IN-WHI-00-NH",
+                                "children": [
+                                    {
+                                        "name": "1-P46343-WHI-00-NH"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "1-LUOIMA-WHI-80-CM"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "9-GOLDAI-WHI-30-TA",
+                "children": [
+                    {
+                        "name": "1-GOLDAI-WHI-00-EP"
+                    }
+                ]
+            },
+            {
+                "name": "9-GIA80G-WHI-30-TA",
+                "children": [
+                    {
+                        "name": "9-GIA80G-WHI-00-TQ"
+                    }
+                ]
+            }
+        ]
+    }
+]

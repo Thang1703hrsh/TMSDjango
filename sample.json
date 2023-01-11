@@ -1,0 +1,101 @@
+{
+    "name": "Root",
+    "children": [
+        {
+            "name": "1-CVAC04-SCA-M2-IW",
+            "children": [
+                {
+                    "name": "1-CVAC04-SCA-00-IW"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC04-SCA-CN-IW",
+            "children": [
+                {
+                    "name": "1-CVAC04-SCA-00-IW"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC14-NAV-CN-HV",
+            "children": [
+                {
+                    "name": "1-CVAC14-NAV-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC09-GRP-M2-HV",
+            "children": [
+                {
+                    "name": "1-CVAC09-GRP-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC08-WHI-M5-HV",
+            "children": [
+                {
+                    "name": "1-CVAC08-WHI-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC12-ROL-M5-IW",
+            "children": [
+                {
+                    "name": "1-CVAC12-ROL-00-IW"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC09-GRP-CN-HV",
+            "children": [
+                {
+                    "name": "1-CVAC09-GRP-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC09-GRP-M5-HV",
+            "children": [
+                {
+                    "name": "1-CVAC09-GRP-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC05-DBN-CN-IW",
+            "children": [
+                {
+                    "name": "1-CVAC05-DBN-00-IW"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC07-GRY-M2-HV",
+            "children": [
+                {
+                    "name": "1-CVAC07-GRY-00-HV"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC04-SCA-M5-IW",
+            "children": [
+                {
+                    "name": "1-CVAC04-SCA-00-IW"
+                }
+            ]
+        },
+        {
+            "name": "1-CVAC12-ROL-M2-IW",
+            "children": [
+                {
+                    "name": "1-CVAC12-ROL-00-IW"
+                }
+            ]
+        }
+    ]
+}

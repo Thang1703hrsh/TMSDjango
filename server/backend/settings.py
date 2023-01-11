@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'data',
+    'backend',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -213,7 +214,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DATABASE_ROUTERS = ['routers.db_routers.AuthRouter',
                     'routers.db_routers.DataRouter',
                     'routers.db_routers.ReportRouter'
-                    
                     ]
 
 

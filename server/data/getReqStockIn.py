@@ -2,14 +2,20 @@
 # import pandas as pd
 
 
+# # Request stockin product status
 # dfReqStockInProduct= ProductDetail.objects.raw("""  
-#         SELECT 1 id, RSPD.product_id, RSPD.request_id, RSPD.quantity AS quantity_req_stockin, RSPD.is_complete AS is_complete_req_detail, RSP.is_complete AS is_complete_req
-#                 FROM req_stockin_product AS RSP JOIN req_stockin_product_detail AS RSPD
-#                                 ON RSP.id = RSPD.request_id
-
-#                 WHERE RSP.deleted_at IS NULL
-#                     AND RSPD.deleted_at IS NULL
-
+#         SELECT 1 id, RSP.id as request_id, RSPS.status, RSP.is_complete AS complete_req,  RSPI.code AS req_code, RSPI.reason ,  RSPD.product_id , RSPD.quantity, RSPD.is_complete AS complete_detail
+#                 FROM req_stockin_product AS RSP JOIN req_stockin_product_status AS RSPS 
+#                                 ON RSPS.request_id = RSP.id
+#                                 JOIN req_stockin_product_info as RSPI  
+#                                 ON RSPI.request_id = RSP.id
+#                                 JOIN req_stockin_product_detail AS RSPD
+#                                 ON RSPD.request_id = RSP.id
+#                 WHERE RSPD.deleted_at IS NULL
+#                         AND RSPS.deleted_at IS NULL
+#                         AND RSP.deleted_at IS NULL
+#                         AND RSPI.deleted_at IS NULL 
+                
 #         """)
 
 # dfReqStockInProduct = pd.DataFrame([item.__dict__ for item in dfReqStockInProduct]).drop(['_state', 'id'], axis=1)
