@@ -110,12 +110,12 @@
             <!-- <div v-if="isVisible" class="dropdown-popover"> -->
             <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
               <input v-model = "searchQuery" type = "text" placeholder="Search for Material">
-              <span v-if = "filteredUsers.length == 0">No Data Available</span>
+              <span v-if = "filteredMat.length == 0"><br>No Data Available<br></span>
               <div class = "options">
                 <ul>
                   <li 
-                    @click="selectItem(material)" 
-                    v-for="material in filteredUsers" 
+                    v-on:click="selectItem(material)" 
+                    v-for="material in filteredMat" 
                     :key="material.name">
                       {{material.name}}
                   </li>
@@ -123,33 +123,33 @@
               </div>
             </div>
           </section>
+        </div>
       </div>
-    </div>
 
 
-    <div class="col-md-9 panel panel-default">
-      <tree
-        :data="data"
-        ref="tree"
-        v-model="currentData"
-        class="tree"
-        :nodeTextDisplay="nodeTextDisplay"
-        :nodeTextMargin="nodeTextMargin"
-        :zoomable="zoomable"
-        :leafTextMargin="leafTextMargin"
-        :node-text="nodeText"
-        :margin-x="marginX"
-        :margin-y="marginY"
-        :radius="radius"
-        :layoutType="layout"
-        :type="type"
-        :duration="duration"
-        :minZoom="minZoom"
-        :maxZoom="maxZoom"
-        :linkLayout="linkLayout"
-        contextMenuPlacement="bottom-start"
-      ></tree>
-    </div>
+      <div class="col-md-9 panel panel-default">
+        <tree
+          :data= prod
+          ref="tree"
+          v-model="currentData"
+          class="tree"
+          :nodeTextDisplay="nodeTextDisplay"
+          :nodeTextMargin="nodeTextMargin"
+          :zoomable="zoomable"
+          :leafTextMargin="leafTextMargin"
+          :node-text="nodeText"
+          :margin-x="marginX"
+          :margin-y="marginY"
+          :radius="radius"
+          :layoutType="layout"
+          :type="type"
+          :duration="duration"
+          :minZoom="minZoom"
+          :maxZoom="maxZoom"
+          :linkLayout="linkLayout"
+          contextMenuPlacement="bottom-start"
+        ></tree>
+      </div>
   </div>
 </template>
 
@@ -167,7 +167,7 @@ export default {
   },
   data: function() {
     return {
-      treeData: json_data,
+      treeData: [],
       type: "tree",
       layout: "horizontal",
       duration: 750,
@@ -189,40 +189,34 @@ export default {
       searchQuery: "",
       selectedItem: null ,
       isVisible: false,
-      data: null ,
+      prod: null ,
     };
   },
   mounted() {
     this.getOutsourcingProductMaterials()
-  },
-  computed: {
-    filteredUsers() {
-      const query = this.searchQuery.toLowerCase();
-      if(this.searchQuery == "") { 
-        return this.treeData;
-      }
-      return this.treeData.filter((material) => {
-        return Object.values(material).some((word) => 
-          String(word).toLowerCase().includes(query)
-        );
-      });
-    },
   },
   methods: {
     getOutsourcingProductMaterials() {
       axios
         .get('/api/v1/outsourcing_product_materials/')
         .then(response => {
-          this.json_data = response.data
+          this.treeData = response.data
         })
         .catch(error => {
           console.log(error)
         })
     },
+    reRender(){
+        this.$forceUpdate()
+    },
+
     selectItem(material){
       this.selectedItem = material;
-      this.data = material;
+      console.log(material)
+      this.prod = material;
       this.isVisible = false;
+      this.$forceUpdate();
+      
     },
     resetZoom() {
       if (!this.$refs["tree"]) {
@@ -238,6 +232,19 @@ export default {
         scale: 3,
         format: "png",
         quality: 1,
+      });
+    },
+  },
+  computed: {
+    filteredMat() {
+      const query = this.searchQuery.toLowerCase();
+      if(this.searchQuery == "") { 
+        return this.treeData;
+      }
+      return this.treeData.filter((material) => {
+        return Object.values(material).some((word) => 
+          String(word).toLowerCase().includes(query)
+        );
       });
     },
   },

@@ -6,6 +6,7 @@ from .models import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import timeit
 
 from django.db import connection
 from django.core.cache import cache 
@@ -33,15 +34,57 @@ def get_children(links , node):
                 
                 
 class OutsourcingProductMaterialsAPIView(APIView):
+        
+
         model = OutsourcingProductMaterials
+        model = ProductDetail
         def get(self, request):
-                queryset_list = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').select_related('product_detail').values_list('outsourcing_product_id' , 'product_id')
-                links = list(queryset_list)
+                start = timeit.default_timer()
+
+                OutProdMate = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').values_list('outsourcing_product_id' , 'product_id')
+                dfOutProdMate = pd.DataFrame(OutProdMate , columns= ['outsourcing_product_id' , 'product_id'])
+                proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id')
+                dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id'])
+                stop = timeit.default_timer()
+                print('Time1: ', stop - start)  
+                
+                start = timeit.default_timer()
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code']] , on = 'product_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id"})
+                dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" } )
+                
+                stop = timeit.default_timer()
+                print('Time2: ', stop - start)  
+
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code']] , on = 'parent_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.dropna().reset_index(drop = True)
+                dfOutProdMate[dfOutProdMate['parent_code'].isna()]
+                
+                start = timeit.default_timer()
+
+                links = []
+                for i in range(0 , dfOutProdMate.shape[0]):
+                        a = dfOutProdMate.loc[i]
+                        links.append((a['parent_code'] , a['child_code']))
+                print(dfOutProdMate.shape[0])
+                        
+                stop = timeit.default_timer()
+                print('Time3: ', stop - start)  
+                start = timeit.default_timer()
+                
                 parents, children = zip(*links)
                 root_nodes = {x for x in parents if x not in children}
                 for node in root_nodes:
                         links.append(('Root', node))
+                        
+                stop = timeit.default_timer()
+                print('Time4: ', stop - start)  
+                
+                start = timeit.default_timer()
                 tree = get_nodes(links , 'Root')
+                stop = timeit.default_timer()
+                print('Time5: ', stop - start)  
+                
                 tree = tree['children']
                 return Response(tree)
 
