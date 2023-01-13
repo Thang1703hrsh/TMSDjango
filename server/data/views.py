@@ -22,15 +22,17 @@ import json
     
     
 def get_nodes(links , node):
-        d = {}
-        d['name'] = node
-        children = get_children(links , node)
-        if children:
-                d['children'] = [get_nodes(links , child) for child in children]
-        return d
+    d = {}
+    d['name'] = node[0]
+    d['title'] = node[1]
+    children = get_children(links, node)
+    if children:
+        d['children'] = [get_nodes(links , child) for child in children]
+    return d
 
 def get_children(links , node):
-        return [x[1] for x in links if x[0] == node]
+    return [(x[2],x[3]) for x in links if x[0] == node[0]]
+
                 
                 
 class OutsourcingProductMaterialsAPIView(APIView):
@@ -39,52 +41,33 @@ class OutsourcingProductMaterialsAPIView(APIView):
         model = OutsourcingProductMaterials
         model = ProductDetail
         def get(self, request):
-                start = timeit.default_timer()
-
                 OutProdMate = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').values_list('outsourcing_product_id' , 'product_id')
                 dfOutProdMate = pd.DataFrame(OutProdMate , columns= ['outsourcing_product_id' , 'product_id'])
                 proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id')
                 dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id'])
-                stop = timeit.default_timer()
-                print('Time1: ', stop - start)  
                 
-                start = timeit.default_timer()
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code']] , on = 'product_id', how = 'left')
-                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id"})
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name']] , on = 'product_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id" , 'name' : 'child_name'})
                 dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" } )
                 
-                stop = timeit.default_timer()
-                print('Time2: ', stop - start)  
-
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code']] , on = 'parent_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code' , 'name']] , on = 'parent_id', how = 'left')
                 dfOutProdMate = dfOutProdMate.dropna().reset_index(drop = True)
                 dfOutProdMate[dfOutProdMate['parent_code'].isna()]
                 
-                start = timeit.default_timer()
-
                 links = []
                 for i in range(0 , dfOutProdMate.shape[0]):
                         a = dfOutProdMate.loc[i]
-                        links.append((a['parent_code'] , a['child_code']))
-                print(dfOutProdMate.shape[0])
+                        links.append((a['parent_code'] , a['name'] ,a['child_code'] , a['child_name']))
                         
-                stop = timeit.default_timer()
-                print('Time3: ', stop - start)  
-                start = timeit.default_timer()
-                
-                parents, children = zip(*links)
+                parents, pr_name , children, child_name  = zip(*links)
+                parents = list(zip(parents , pr_name))
+                children = list(zip(children , child_name))
                 root_nodes = {x for x in parents if x not in children}
+
                 for node in root_nodes:
-                        links.append(('Root', node))
+                        links.append(('Root', '' , node[0] , node[1]))
                         
-                stop = timeit.default_timer()
-                print('Time4: ', stop - start)  
-                
-                start = timeit.default_timer()
-                tree = get_nodes(links , 'Root')
-                stop = timeit.default_timer()
-                print('Time5: ', stop - start)  
-                
+                tree = get_nodes(links , ('Root' , ''))
                 tree = tree['children']
                 return Response(tree)
 
