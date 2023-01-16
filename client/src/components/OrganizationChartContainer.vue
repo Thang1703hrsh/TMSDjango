@@ -1,4 +1,5 @@
 <template>
+  <a-card :bordered="false" class="dashboard-bar-chart">
   <div v-bind="{ scopedSlots: $scopedSlots }"
     class="orgchart-container"
     @wheel="zoom && zoomHandler($event)"
@@ -11,12 +12,15 @@
       @mousemove="pan && panning && panHandler($event)"
     >
       <organization-chart-node :datasource="datasource" :handle-click="handleClick">
+        
         <template v-for="slot in Object.keys($scopedSlots)" :slot="slot" slot-scope="scope">
+          
           <slot :name="slot" v-bind="scope"/>
         </template>
       </organization-chart-node>
     </div>
   </div>
+</a-card>
 </template>
 
 <script>
@@ -165,17 +169,18 @@ export default {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 980px;
+  height: 800px;
   width: calc(100% - 24px);
   border: 0px dashed #aaa;
   border-radius: 5px;
   overflow: auto;
   text-align: center;
+  background-image: linear-gradient(to right, #3a103b, #1d0b24, #474550 ) ;
 }
 .orgchart {
   box-sizing: border-box;
   display: inline-block;
-  min-height: 202px;
+  min-height: 21px;
   min-width: 202px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -186,7 +191,7 @@ export default {
 
   background-size: 10px 10px;
   border: 1px dashed rgba(0, 0, 0, 0);
-  padding: 20px;
+  padding: 10px;
 }
 
 .orgchart .hidden,
@@ -215,7 +220,7 @@ export default {
 }
 .orgchart .verticalNodes > td::before {
   content: "";
-  border: 1px solid rgba(217, 83, 79, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 .orgchart .verticalNodes > td > ul > li:first-child::before {
   box-sizing: border-box;
@@ -233,7 +238,7 @@ export default {
   content: "";
   position: absolute;
   left: -6px;
-  border-color: rgba(217, 83, 79, 0.8);
+  border-color: rgba(0, 0, 0, 0.8);
   border-style: solid;
   border-width: 0 0 2px 2px;
 }
@@ -286,29 +291,29 @@ export default {
 
 .orgchart .lines:nth-child(3) td {
   box-sizing: border-box;
-  height: 30px;
+  height: 20px;
 }
 
 .orgchart .lines .topLine {
-  border-top: 3px solid rgba(217, 83, 79, 0.8);
+  border-top: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 .orgchart .lines .rightLine {
-  border-right: 1px solid rgba(217, 83, 79, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
   float: none;
   border-radius: 0;
 }
 
 .orgchart .lines .leftLine {
-  border-left: 1px solid rgba(217, 83, 79, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
   float: none;
   border-radius: 0;
 }
 
 .orgchart .lines .downLine {
-  background-color: rgba(217, 83, 79, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 0 auto;
-  height: 40px;
+  height: 25px;
   width: 2px;
   float: none;
 }
@@ -328,7 +333,7 @@ export default {
 .orgchart.l2r .node,
 .orgchart.r2l .node {
   width: 50px;
-  height: 130px;
+  height: 10px;
 }
 
 .orgchart .node > .spinner {
@@ -341,14 +346,14 @@ export default {
 }
 
 .orgchart .node:hover {
-  background-color: rgba(238, 217, 54, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
   cursor: default;
   z-index: 20;
 }
 
 .orgchart .node.focused {
-  background-color: rgba(238, 217, 54, 0.5);
+  background-color: rgba(255, 204, 0, 0.5);
 }
 
 .orgchart .ghost-node {
@@ -375,7 +380,8 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: rgba(82, 6, 69, 0.8);
+  background: linear-gradient(to top, #9966b6 0%, #86306a 100%);
+
   color: #fff;
   border-radius: 8px 8px 0 0;
 }
@@ -408,12 +414,12 @@ export default {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   width: 100%;
-  height: 88px;
-  padding: 10px;
+  height: 70px;
+  padding: 4px;
   font-size: 14px;
   line-height: 20px;
 
-  border: 2px solid rgba(217, 83, 79, 0.8);
+  border: 2px solid rgba(0, 81, 255, 0.8);
   border-radius: 0 0 8px 8px;
   text-align: center;
   background-color: #fff;

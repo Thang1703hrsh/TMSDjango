@@ -1,68 +1,123 @@
 <template>
-  <div id="app" class="container-fluid">
-    <div class="col-md-3">
-
-      <div class="panel panel-default">
+  <div>
+    <!-- <a-row :gutter="24">
+      <a-col :span="24" :lg="12" :xl="6" class="mb-24">
         <section class = "dropdown-wrapper">
-          <div @click="isVisible = !isVisible" class="selected-item">
-            <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
-            <span v-else>Select Material</span>
-            <svg 
-            :class = "isVisible ? 'dropdown' : ''"
-            class = "drop-down-icon"
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            width="24" 
-            height="24">
-
-              <path fill="none" d="M0 0h24v24H0z"/>
-              <path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/>
-            </svg>
-        
-          </div>
-          <!-- <div v-if="isVisible" class="dropdown-popover"> -->
-          <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
-            <input v-model = "searchQuery" type = "text" placeholder="Search for Material">
-            <span v-if = "filteredMat.length == 0"><br>No Data Available<br></span>
-            <div class = "options">
-              <ul>
-                <li 
-                  v-on:click="selectItem(material)" 
-                  v-for="material in filteredMat" 
-                  :key="material.name">
-                    {{material.name}}
-                </li>
-              </ul>
+            <div @click="isVisible = !isVisible" class="selected-item">
+              <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
+              <span v-else>Select Material</span>
+              <svg 
+              :class = "isVisible ? 'dropdown' : ''"
+              class = "drop-down-icon"
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              width="24" 
+              height="24">
+  
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/>
+              </svg>
+          
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
-      <div class="col-md-9 panel panel-default">
+            <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
+              <input v-model = "searchQuery" type = "text" placeholder="Search for Material">
+              <span v-if = "filteredMat.length == 0"><br>No Data Available<br></span>
+              <div class = "options">
+                <ul>
+                  <li 
+                    v-on:click="selectItem(material)" 
+                    v-for="material in filteredMat" 
+                    :key="material.name">
+                      {{material.name}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+      </a-col>
+    </a-row> -->
+    
+    <a-row :gutter="24" type="flex" align="stretch">
+      <a-col :span="24" :lg="24" class="mb-24">
         <org-chart 
           :datasource="ds" 
-          @node-click="selectNode">
+          @node-click="selectedNode">
         </org-chart>
-      </div>
-    </div>
+      </a-col>
+    </a-row>
+  </div>
+
 </template>
 
 <script>
-import OrgChart from './components/OrganizationChartContainer.vue'
+import OrgChart from './components/OrganizationChartContainer.vue';
+import WidgetCounter from './components/Widgets/WidgetCounter' ;
 import axios from 'axios'
 
 export default {
-  name: 'app',
   components: {
-    OrgChart
+    OrgChart,
+    WidgetCounter,
   },
   data () {
     return {
       treeData: [],
-      ds: null , 
+      ds: {
+        "name": "4-MICRIN-WHI-D7-30",
+        "title": "Đai Microfiber 4 đường 3.0cm White in sub ép lưới màn 80G White úp mí lót gòn - lót giấy 80G White",
+        "children": [
+              {
+                  "name": "9-MICRIN-WHI-L2-78",
+                  "title": "BTP 7.8cm vải Microfiber White in sub ép lưới màn 80G Black",
+                  "children": [
+                      {
+                          "name": "1-MICRIN-WHI-L1-HV",
+                          "title": "Vải Microfiber White in sub ép lưới màn 80G White",
+                          "children": [
+                              {
+                                  "name": "1-MICRIN-WHI-00-HV",
+                                  "title": "Vải Microfiber White in sub",
+                                  "children": [
+                                      {
+                                          "name": "1-MICRO0-WHI-00-HV",
+                                          "title": "Vải Microfiber White"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "name": "1-LUOIMA-WHI-80-CM",
+                                  "title": "Lưới màn 80G White"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "name": "9-GIA80G-WHI-30-TA",
+                  "title": "BTP 3.0cm Giấy 80g White",
+                  "children": [
+                      {
+                          "name": "9-GIA80G-WHI-00-TQ",
+                          "title": "Giấy 80g White"
+                      }
+                  ]
+              },
+              {
+                  "name": "9-GOLDAI-WHI-30-TA",
+                  "title": "BTP 3.0cm Goong lót đai",
+                  "children": [
+                      {
+                          "name": "1-GOLDAI-WHI-00-EP",
+                          "title": "Goong lót đai (Gòng 2SRVHNP màu trắng 100g/m2 khổ 60\")"
+                      }
+                  ]
+              }
+          ]
+      }, 
       searchQuery: "",
       selectedItem: null ,
       isVisible: false,
+      selectedNode: null,
     }
   },
   mounted() {
@@ -92,6 +147,10 @@ export default {
       // this.$forceUpdate();
       
     },
+    selectNode (nodeData) {
+      this.selectNode = nodeData.name 
+    }
+
   },
   computed: {
     filteredMat() {
@@ -107,13 +166,12 @@ export default {
     },
   },
 
-  // methods: {
-  //   selectNode (nodeData) {
-  //     alert('node ' + nodeData.name + ' is selected')
-  //   }
-  // }
 }
 </script>
+
+<style lang="scss">
+</style>
+
 
 <style>
 #app {
@@ -127,9 +185,9 @@ export default {
 
 <style scoped lang = "scss">
 .dropdown-wrapper {
-  max-width: 100%;
   position: relative;
-  margin: 0 auto;
+  margin: 1 auto;
+  width: 300px;
 
   .selected-item {
   height: 40px;
@@ -139,8 +197,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 300;
 
   .drop-down-icon{
     transform: rotate(0deg);
@@ -184,7 +242,7 @@ export default {
       ul{
         list-style: none;
         text-align: left;
-        padding-left: 21px;
+        padding-left: 0px;
         max-height: 300px;
         overflow-y: scroll;
         overflow-x: hidden;

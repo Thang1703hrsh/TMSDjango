@@ -14,12 +14,21 @@
 
 
 import Vue from 'vue';
+
 import App from './App.vue';
 import axios from 'axios'
 
-import 'bootstrap/dist/css/bootstrap.css'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 
-import "./index.css"
+import 'bootstrap/dist/css/bootstrap.css'
+import './scss/app.scss';
+import './assets/tailwind.css'
+
+// import "./index.css"
+
+Vue.use(Antd);
+
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
