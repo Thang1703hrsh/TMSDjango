@@ -5,6 +5,7 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
+  
     <div
       class="orgchart"
       :style="{ transform: transformVal, cursor: cursorVal }"
@@ -12,7 +13,6 @@
       @mousemove="pan && panning && panHandler($event)"
     >
       <organization-chart-node :datasource="datasource" :handle-click="handleClick">
-        
         <template v-for="slot in Object.keys($scopedSlots)" :slot="slot" slot-scope="scope">
           
           <slot :name="slot" v-bind="scope"/>
@@ -169,13 +169,13 @@ export default {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 800px;
-  width: calc(100% - 24px);
+  height: 900px;
+  width: 100%;
   border: 0px dashed #aaa;
-  border-radius: 5px;
+  border-radius: 2px;
   overflow: auto;
   text-align: center;
-  background-image: linear-gradient(to right, #3a103b, #1d0b24, #474550 ) ;
+  background-image:  linear-gradient(to right, #00369E, #005CFD, #A18DFF ) ;
 }
 .orgchart {
   box-sizing: border-box;

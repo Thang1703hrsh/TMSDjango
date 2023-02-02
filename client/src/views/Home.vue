@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="home">
     <section class="hero is-small is-dark mb-2">
@@ -30,9 +32,7 @@
 </template>
 
 <script> 
-
 import axios from 'axios'
-
 // import ProductBox from '@/components/ProductBox'
 export default {
   name: 'Home',
@@ -60,4 +60,3 @@ export default {
   }
 }
 </script> 
-

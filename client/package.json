@@ -1,40 +1,57 @@
 {
-  "name": "muse-vue-ant-design-dashboard",
-  "version": "1.0.0",
+  "name": "client",
+  "version": "0.1.0",
   "private": true,
-  "description": "A user-friendly, open source and beautiful dashboard based on Ant Design Vue.",
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "dev": "npm run serve"
+    "lint": "vue-cli-service lint",
+    "deploy": "sh deploy.sh"
   },
-  "main": "src/main.js",
   "dependencies": {
-    "ant-design-vue": "1.7.6",
-    "autoprefixer": "^9.8.8",
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
     "axios": "^1.2.2",
-    "bootstrap": "^5.2.3",
-    "bootstrap-vue": "^2.23.1",
-    "chart.js": "3.4.1",
-    "core-js": "3.15.2",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "v-tooltip": "^2.1.3",
-    "vue": "^2.6.14",
-    "vue-github-buttons": "^3.1.0",
-    "vue-js-popover": "^1.2.1",
-    "vue-router": "3.5.2"
+    "bootstrap": "^3.4.1",
+    "core-js": "^3.6.5",
+    "d3-svg-to-png": "^0.1.6",
+    "jquery": "^3.6.3",
+    "postcss": "^7.0.35",
+    "react-bootstrap": "^2.7.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "vue": "^2.6.11",
+    "vued3tree": "^5.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4.5.13",
-    "@vue/cli-plugin-router": "4.5.13",
-    "@vue/cli-service": "4.5.13",
-    "node-sass": "6.0.1",
-    "sass-loader": "^10",
-    "vue-cli-plugin-tailwind": "~3.0.0",
-    "vue-template-compiler": "2.6.14"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.57.1",
+    "sass-loader": "^10.1.1",
+    "vue-template-compiler": "^2.6.11"
   },
-  "homepage": "https://demos.creative-tim.com/muse-ant-design-dashboard/",
-  "license": "MIT",
-  "repository": "https://github.com/creativetimofficial/muse-ant-design-dashboard"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
