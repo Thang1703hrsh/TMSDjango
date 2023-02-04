@@ -172,7 +172,7 @@ export default {
   height: 900px;
   width: 100%;
   border: 0px dashed #aaa;
-  border-radius: 2px;
+  border-radius: 15px;
   overflow: auto;
   text-align: center;
   background-image:  linear-gradient(to right, #00369E, #005CFD, #A18DFF ) ;

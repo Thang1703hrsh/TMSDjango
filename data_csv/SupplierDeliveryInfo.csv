@@ -1,0 +1,241 @@
+supplier_id,supplier_delivery_id,supplier_code,supplier_name
+1,1,HG,Hans Global
+2,2,EV,Everest Shang Hai
+3,3,EW,Everest Tai Wan
+4,4,MC,Men Chuen
+5,5,FT,Flying Tex
+6,6,YP,Yuan Peing
+7,7,ML,Minlan
+8,8,NC,Nifco Taiwan Corporation
+9,9,YK,Ykk
+10,10,GP,Gpp
+11,11,UL,U Long
+12,12,DS,Daesung
+13,13,LG,Leigo
+14,14,WW,Win Win
+15,15,HT,High-Tex
+16,16,SA,Sunday Afternoon
+17,17,KJ,Kyung Jin
+18,18,SY,Synnix
+19,19,BT,Burlington
+20,20,AR,Artco
+21,21,SE,Gcc Sealon
+22,22,HS,Hwasoo
+23,23,MA,Maxim Chinna
+24,24,SH,Shinjin Textile
+25,25,UT,Universal Trim Supply (Uts)
+26,26,CT,Carr Textile
+27,27,CW,"Chun Wo Ho Co ., Ltd"
+28,28,AV,Avery Dennison
+29,29,WD,Weidean Weave Belt Factory
+30,30,CO,Cool Core
+31,31,GK,Giant Kniting
+32,32,PY,Prym Fashion Asia Pacific & Co
+33,33,PR,Primaloft
+34,34,DX,"Dry Tex Lamination Co ., Ltd"
+35,35,KW,Kingwhale Corp
+36,36,RI,Ripstop
+37,37,PE,Peany
+38,38,CV,Carvico
+39,39,IB,IBQ Fabric
+40,40,NG,Nexgen
+41,41,TR,Trimco Group
+42,42,KK,"K And K Clothing Accessories Co., Ltd"
+43,43,IF,"Ifabrix Taiwan Co.,Ltd"
+44,44,CA,Capboy
+45,45,HF,Hung'S Fortune
+46,46,DF,Duraflex
+47,47,TY,Toray
+48,48,WS,Woojinsa
+49,49,WL,Wahlung
+50,50,AP,Apex Textile
+51,51,OK,Ok Sung Vina
+52,52,CE,Cheng Mei
+53,53,JR,Jrc Reflex
+54,54,YH,Yunshing Hardware Ltd.
+55,55,LM,Lemar
+56,56,IL,Iljin Light Metal Company
+57,57,AA,Ariaprene
+58,58,AS,Asahi Kasei Advance Corporation Japan
+59,59,ER,Erictex
+60,60,VJ,V&A Japan Cooporation
+61,61,AK,A Khiêm
+62,62,CY,Chenyes
+63,63,TT,Tâm Thành
+64,64,CB,Công Bằng
+65,65,DI,Dong IL
+66,66,IW,IL-Kwang
+67,67,TL,TTL
+68,68,PI,Paiho
+69,69,PP,Phong Phú
+70,70,VS,Việt Kim San
+71,71,55,5.5cm
+72,72,HN,Hải Nam
+73,73,CM,C&M 1.6.8
+74,74,MX,Maxim
+75,75,PL,Phan Long Việt Nam
+76,76,KP,Khánh Phong
+77,77,VT,Văn thụ
+78,78,SO,Sống Mới
+79,79,SV,Sông Vàng
+80,80,HO,Hoa Liên
+81,81,NT,Nhuận Thành
+82,82,EP,Everpia
+83,83,DA,Đài Đạt
+84,84,TM,Tim Đỏ
+85,85,SU,Sunprint
+86,86,KH,Cô Vân Kỳ Hòa
+87,87,VI,Việt Thuận
+88,88,MH,Mỹ hòa
+89,89,KA,Kiến An
+90,90,SM,Lê Hùng Sao Mai
+91,91,AI,An Tiên
+92,92,ĐH,Đại Hưng
+93,93,DD,Dae duck
+94,94,75,7.5cm
+95,95,TO,Thiên Phú
+96,96,AE,A & E
+97,97,WA,Weidan
+98,98,NN,NN
+99,99,AN,Anh Khôi
+100,100,TP,Tín Phát
+101,101,TĐ,TTD
+102,102,VK,Vỹ Kỳ
+103,103,TG,Thời gian việt tiến
+104,104,OP,Optitex (C.S.P)
+105,105,NP,Năm Gia Phát
+106,106,DT,Danh Tường
+107,107,ĐK,Đoàn Kết
+108,108,YG,Young chang
+109,109,FR,Forever
+110,110,AT,Anh Thư
+111,111,HV,Hàn Việt
+112,112,NA,Naru
+113,113,YS,You sung
+114,114,ST,Sáng Tạo
+115,115,SK,Song Kim Long Hải
+116,116,TQ,T.Q.A
+117,117,KV,Khang Vy
+118,118,BI,Biostarch
+119,119,VP,Vĩnh Phát
+120,120,GL,Glorytex
+121,121,SQ,Sung Quang
+122,122,HU,Thiên Phú
+123,123,DO,Đông Sinh
+124,124,TA,Tân Thành Đạt
+125,125,36,3.6cm
+126,126,30,3.0cm
+127,127,28,2.8cm
+128,128,22,2.2cm
+129,129,18,1.8cm
+130,130,17,1.7cm
+131,131,38,3.8cm
+132,132,20,2.0cm
+133,133,15,1.5cm
+134,134,32,3.2cm
+135,135,31,3.1cm
+136,136,35,3.5cm
+137,137,24,2.4cm
+138,138,27,2.7cm
+139,139,40,4.0cm
+140,140,45,4.5cm
+141,141,47,4.7cm
+142,142,7M,7 Mesh
+143,143,AD,Gold Hats
+144,144,BF,CapeCap
+145,145,BV,Bis
+146,146,BX,Bex
+147,147,CI,Ciele
+148,148,CZ,CZ68
+149,149,DY,DYC
+150,150,GF,Grace Folly
+151,151,HM,Hat Makers
+152,152,JP,Glory
+153,153,MD,M-Deluxe
+154,154,PA,Parapack
+155,155,PH,Platinum Hats
+156,156,PO,Proper Cloth
+157,157,RB,R2B
+158,158,RV,ROV
+159,159,XA,Many Ways
+160,160,YA,Hayabusa
+161,161,00,00
+162,162,TW,TW
+163,163,HA,HA
+164,164,OF,OF
+165,165,UN,UN
+166,166,FS,FS
+167,167,HI,HI
+168,168,ET,ET
+169,169,EY,EY
+170,170,NE,NE
+172,172,MT,MT
+173,173,EF,EF
+174,174,NI,Nhuận Ích
+175,175,WE,WE
+176,176,PQ,PQ
+177,177,SD,SD
+178,178,DH,Đại Hưng
+179,179,CH,CH
+180,180,BD,BD
+181,181,JS,JS
+182,182,VN,VN
+183,183,DE,DE
+184,184,DP,DP
+185,185,TF,Tiến Đường
+186,186,BN,Bình Tuấn
+187,187,DK,DK
+188,188,LN,LN
+189,189,BT,CÔNG TY TNHH THƯƠNG MẠI MAY MẶC BẢO TÍN
+190,195,N2,Nguyễn Huệ
+191,196,8J,8JS
+192,197,TH,CÔNG TY TNHH MỘT THÀNH VIÊN SẢN XUẤT LASER THANH VÂN
+193,198,84,8.4CM
+194,199,74,74 cm
+195,200,78,7.8cm
+196,201,TV,CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI TRUNG VIỆT
+197,202,TD,Tân Thành Đạt
+198,203,HP,CÔNG TY TNHH IN ẤN KỸ THUẬT SỐ HẰNG PHONG
+199,204,CH,Công ty TNHH Sản Xuất Thương Mại Và Dịch Vụ CH
+200,205,43,4.3cm
+201,206,50,5.0cm
+202,207,TG,Thời gian việt tiến
+203,208,KQ,CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ KIÊN QUANG
+204,209,QV,CÔNG TY TNHH IN ẤN KỸ THUẬT SỐ QUẢNG VIỄN
+205,210,SP,CÔNG TY TNHH SUN PRINT VIỆT NAM
+206,211,92,9.2cm
+207,212,TN,Trang Ngọc
+208,213,63,6.3cm
+209,214,AH,Cơ Sở Cào Nhung Anh Hùng
+210,215,NH,NAM ANH
+211,216,82,8.2cm
+211,217,82,8.2cm
+212,218,SX,Singtex
+213,219,TJ,Teijin
+214,220,11,11cm
+215,221,98,9.8cm
+215,222,98,9.8cm
+216,223,12,11.8
+217,224,EP,Everpia GCN
+218,225,TP,Tín Phát GCN
+219,226,LK,"Shanghai Lingkai Textile Technology CO.,ltd"
+220,227,BN,Công Ty TNHH May Mặc & Giặc Tẩy Bến Nghé
+221,228,DM,Diyang Merino
+222,229,MI,Miti
+223,230,LI,TIONG LIONG
+224,231,26,2.6cm
+225,232,53,5.3cm
+226,233,WO,Taewoon Textile
+227,234,29,2.9cm
+228,235,SC,Công Ty TNHH Soca Lái Thiếu
+229,236,XC,Xưởng Cắt Viền Anh Sơn
+230,237,CS,CSP
+231,238,46,4.6cm
+232,239,SL,SD- labels
+233,240,14,1.4cm
+234,241,FL,Fairyland
+235,242,DU,Duel
+236,243,PT,PERTEX
+237,244,HB,Shishi HaoBao
+239,246,YM,YIMA
+240,247,95,9.5cm

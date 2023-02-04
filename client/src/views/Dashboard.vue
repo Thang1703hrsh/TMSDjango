@@ -52,7 +52,6 @@ import OrgChart from './components/OrganizationChartContainer.vue'
 import axios from 'axios'
 
 export default {
-  name: 'app',
   components: {
     OrgChart
   },

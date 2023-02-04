@@ -25,13 +25,14 @@ def get_nodes(links , node):
     d = {}
     d['name'] = node[0]
     d['title'] = node[1]
+    d['quantity'] = node[2]
     children = get_children(links, node)
     if children:
         d['children'] = [get_nodes(links , child) for child in children]
     return d
 
 def get_children(links , node):
-    return [(x[2],x[3]) for x in links if x[0] == node[0]]
+    return [(x[3],x[4],x[5]) for x in links if x[0] == node[0]]
 
 class OutsourcingProductMaterialsAPIView(APIView):
         model = OutsourcingProductMaterials
@@ -39,40 +40,54 @@ class OutsourcingProductMaterialsAPIView(APIView):
         def get(self, request):
                 OutProdMate = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').values_list('outsourcing_product_id' , 'product_id')
                 dfOutProdMate = pd.DataFrame(OutProdMate , columns= ['outsourcing_product_id' , 'product_id'])
-                proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id')
-                dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id'])
-                # print(len(dfOutProdMate['outsourcing_product_id'].drop_duplicates().reset_index(drop= True)))
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name']] , on = 'product_id', how = 'left')
-                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id" , 'name' : 'child_name'})
-                dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" } )
+                proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id' , 'quantity')
+                dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id' , 'quantity'])
                 
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code' , 'name']] , on = 'parent_id', how = 'left')
+                # print(len(dfOutProdMate['outsourcing_product_id'].drop_duplicates().reset_index(drop= True)))
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name', 'quantity']] , on = 'product_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id" , 'name' : 'child_name' , 'quantity': 'child_quantity'})
+                
+                dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" , 'quantity': 'parent_quantity' } )
+                
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code' , 'name' , 'parent_quantity']] , on = 'parent_id', how = 'left')
                 dfOutProdMate = dfOutProdMate.dropna().reset_index(drop = True)
                 dfOutProdMate[dfOutProdMate['parent_code'].isna()]
                 
-                print(dfOutProdMate)
                 
                 links = []
                 for i in range(0 , dfOutProdMate.shape[0]):
                         a = dfOutProdMate.loc[i]
-                        links.append((a['parent_code'] , a['name'] ,a['child_code'] , a['child_name']))
+                        links.append((a['parent_code'] , a['name'] , a['parent_quantity'] ,a['child_code'] , a['child_name'] , a['child_quantity']))
                         
-                parents, pr_name , children, child_name  = zip(*links)
-                parents = list(zip(parents , pr_name))
-                children = list(zip(children , child_name))
+                parents, pr_name , parent_quantity, children, child_name, child_quantity = zip(*links)
+                parents = list(zip(parents , pr_name, parent_quantity))
+                children = list(zip(children , child_name, child_quantity))
                 root_nodes = {x for x in parents if x not in children}
 
                 for node in root_nodes:
-                        links.append(('Root', '' , node[0] , node[1]))
-                tree = get_nodes(links , ('Root' , ''))
-                tree2 = {"total product": len(dfproDetail) , "total product is parent" : len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
-                         "total product is child" : len(dfproDetail) - len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
-                         }
-                tree2.update(tree)
+                        links.append(('Root', '' , '' , node[0] , node[1] , node[2]))
+                tree = get_nodes(links , ('Root' , '' , ''))
                 
-                return Response(tree2)
+                # tree2 = {"total product": len(dfproDetail) , "total product is parent" : len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
+                #          "total product is child" : len(dfproDetail) - len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
+                #          }
+                # tree2.update(tree)
+                
+                return Response(tree)
         
-        
+def get_nodes1(links , node):
+    d = {}
+    d['name'] = node[0]
+    d['title'] = node[1]
+    children = get_children1(links, node)
+    if children:
+        d['children'] = [get_nodes1(links , child) for child in children]
+    return d
+
+def get_children1(links , node):
+    return [(x[2],x[3]) for x in links if x[0] == node[0]]
+
+       
 class OutsourcingProductAPIView(APIView):
         model = OutsourcingProductMaterials
         model = ProductDetail
@@ -97,7 +112,6 @@ class OutsourcingProductAPIView(APIView):
                 for i in range(0 , dfOutProdMate.shape[0]):
                         a = dfOutProdMate.loc[i]
                         links.append((a['parent_code'] , a['name'] ,a['child_code'] , a['child_name']))
-                        
                 parents, pr_name , children, child_name  = zip(*links)
                 parents = list(zip(parents , pr_name))
                 children = list(zip(children , child_name))
@@ -105,7 +119,7 @@ class OutsourcingProductAPIView(APIView):
 
                 for node in root_nodes:
                         links.append(('Root', '' , node[0] , node[1]))
-                tree = get_nodes(links , ('Root' , ''))
+                tree = get_nodes1(links , ('Root' , ''))
                 tree2 = {"total product": len(dfproDetail) , "total product is parent" : len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
                          "total product is child" : len(dfproDetail) - len(dfOutProdMate['parent_id'].drop_duplicates().reset_index(drop= True)),
                          }

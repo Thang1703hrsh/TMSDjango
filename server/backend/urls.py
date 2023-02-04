@@ -2,10 +2,9 @@
 from django.contrib import admin
 from django.urls import path, include
 from data.views import OrderAPIView, OutsourcingProductMaterialsAPIView, OutsourcingProductAPIView
-from data import readdata, admin_DA, getPurchaseOrder, getOutsourcing, getReqStockIn, getNeedQuantity, getMaterialReports, getProductUnit, temporary_quantity, views
+from data import admin_DA, get_purchase_order, get_req_stock_in, get_need_quantity, get_material_reports, get_product_unit, temporary_quantity, views, get_ttd_auth
 
 from django.views.generic import TemplateView
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -20,11 +19,11 @@ urlpatterns = [
     # path("data/orderdetail/" , OrderDetailAPIView.as_view()),
     # path("data/outsourcing/" , outsourcingProductMaterialsAPIView.as_view()),
     # path("" , temporary_quantity),
-    # path("" , getProductUnit),
+    # path("" , get_product_unit),
     # path("" , admin_DA),
-    # path("" , getPurchaseOrder),
+    # path("" , get_purchase_order),
     # path("" , getOutsourcing),
-    # path("" , getReqStockIn),
-    # path("" , getNeedQuantity),
-    # path("" , getMaterialReports),
+    # path("" , get_req_stock_in),
+    # path("" , get_need_quantity),
+    # path("" , get_material_reports),
 ]
