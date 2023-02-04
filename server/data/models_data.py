@@ -1593,24 +1593,6 @@ class ProductDetail(models.Model):
         db_table = 'product_detail'
 
 
-class ProductExistingReport(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    unique_id = models.CharField(max_length=255, blank=True, null=True)
-    code = models.CharField(max_length=255, blank=True, null=True)
-    note = models.TextField(blank=True, null=True)
-    creator_id = models.PositiveBigIntegerField(blank=True, null=True)
-    file_path = models.CharField(max_length=255, blank=True, null=True)
-    total_record = models.BigIntegerField(blank=True, null=True)
-    current_record = models.BigIntegerField(blank=True, null=True)
-    percent = models.BigIntegerField(blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
-    deleted_at = models.DateTimeField(blank=True, null=True)
-    is_report_product = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'product_existing_report'
 
 
 class ProductInvoiceDetails(models.Model):

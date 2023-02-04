@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
-from .models import *
+from .models_data import *
+from .models_auth import *
+from .models_report import *
+
 
 class orderDetailSerializer(serializers.ModelSerializer):
     class Meta:

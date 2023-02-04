@@ -1,8 +1,10 @@
 from django.shortcuts import render
-# from .models import Orders,OrderQuota, OrderBooking, OrderDetail
 from django.template import loader
 from django.http import HttpResponse, JsonResponse
-from .models import *
+from .models_data import *
+from .models_report import *
+from .models_auth import *
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -37,11 +39,20 @@ def get_children(links , node):
 class OutsourcingProductMaterialsAPIView(APIView):
         model = OutsourcingProductMaterials
         model = ProductDetail
+        model = MaterialReports
         def get(self, request):
                 OutProdMate = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').values_list('outsourcing_product_id' , 'product_id')
                 dfOutProdMate = pd.DataFrame(OutProdMate , columns= ['outsourcing_product_id' , 'product_id'])
+                
                 proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id' , 'quantity')
                 dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id' , 'quantity'])
+                
+                MateRepo = MaterialReports.objects.using('report_db').filter(deleted_at__isnull = True).order_by('product_id').values_list('product_id' , 'ordered_quantity', 
+                                                                'need_quantity' , 'need_for_outsourcing' , 'outsourcing_stock_out' , 'temporary_quantity')
+                dfMateRepo = pd.DataFrame(MateRepo , columns= ['product_id' , 'ordered_quantity', 
+                                        'need_quantity' , 'need_for_outsourcing' , 'outsourcing_stock_out' , 'temporary_quantity'])
+                
+                print(dfMateRepo)
                 
                 # print(len(dfOutProdMate['outsourcing_product_id'].drop_duplicates().reset_index(drop= True)))
                 dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name', 'quantity']] , on = 'product_id', how = 'left')

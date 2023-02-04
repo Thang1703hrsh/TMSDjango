@@ -107,7 +107,7 @@ DATABASES = {
     "default": {
     },
     'auth_db':{
-        "NAME": "django",
+        "NAME": "ttd_staging_auth",
         "ENGINE": "django.db.backends.mysql",
         "USER": 'django',
         "PASSWORD": "ttd2021!",

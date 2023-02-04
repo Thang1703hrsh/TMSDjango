@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Orders,OrderQuota, OrderBooking, OrderDetail
+from .models_data import Orders,OrderQuota, OrderBooking, OrderDetail
 
 
 # class OrderDetail(admin.ModelAdmin):

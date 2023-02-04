@@ -3,12 +3,23 @@
     <div class="col-md-2">
       <div class="panel panel-default">
         <div class="panel-heading">Thông tin nguyên phụ liệu</div>
-        <div class="panel-body" @click="selectNode(material)">
+        <div class="panel-body">
           <div class="form-group" @click="selectNode(material)">
-              <p v-if = "selectedNode"><b>Mã NPL:</b> {{selectedNode.name}} <br><b>Tên NPL:</b> {{selectedNode.title}}
-                  <br><b> Số lượng tồn kho:</b> {{selectedNode.quantity}}
-                  </p>
-              </div>
+            <div class = "options">
+              <ul>
+                <li v-if = "selectedNode">
+                  <b>Mã NPL:</b> {{selectedNode.name}} <br>
+    
+                </li>
+                <li v-if = "selectedNode">
+                  <b>Tên NPL:</b> {{selectedNode.title}} <br>
+                </li>
+                <li v-if = "selectedNode">
+                  <b>Tồn kho:</b> {{selectedNode.quantity}}
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -32,8 +43,8 @@
           </div>
           <!-- <div v-if="isVisible" class="dropdown-popover"> -->
           <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
-            <input v-model = "searchQuery" type = "text" placeholder="Search for Material">
-            <span v-if = "filteredMat.length == 0"><br>No Data Available<br></span>
+            <input id = 'add' v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL">
+            <span v-if = "filteredMat.length == 0"><br><br>No Data Available<br></span>
             <div class = "options">
               <ul>
                 <li 
@@ -192,6 +203,17 @@ selectNode (material){
   color: #2c3e50;
   margin-top: 20px;
 }
+
+#add{
+      text-align: center; 
+      width: 100%;
+      height: 35px;
+      margin: 0 auto;
+      border: none;
+      border:solid 1px #ccc;
+      border-radius: 10px;
+    }
+
 </style>
 
 <style scoped lang = "scss">
@@ -218,6 +240,33 @@ border-style: solid;
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
+}
+
+.options{
+  width: 100%;
+  ul{
+    border-radius: 10px;
+    list-style: none;
+    text-align: left;
+    padding-left: 0px;
+    max-height: 300px;
+
+    li {
+      border-radius: 10px;
+      width: 100%;
+      border-bottom: 1px solid lightgray;
+      padding: 8px;
+      background-color:  #f1f1f1;
+      cursor: pointer;
+      font-size: 16px;
+      &:hover{
+        background-color: #70878a;
+        color: #fff;
+        font-weight: bold;
+
+      }
+    }
+  }
 }
 
 
@@ -274,21 +323,22 @@ border-style: solid;
       font-size: 16px;
       padding-left: center;
     }
-    
     .options{
-      width: 95%;
+      width: 100%;
       ul{
+        border-radius: 10px;
         list-style: none;
         text-align: left;
-        padding-left: 21px;
+        padding-left: 0px;
         max-height: 300px;
         overflow-y: scroll;
         overflow-x: hidden;
 
         li {
+          border-radius: 10px;
           width: 100%;
           border-bottom: 1px solid lightgray;
-          padding: 10px;
+          padding: 8px;
           background-color:  #f1f1f1;
           cursor: pointer;
           font-size: 16px;
@@ -301,6 +351,7 @@ border-style: solid;
         }
       }
     }
+    
   }
 }
 </style>
