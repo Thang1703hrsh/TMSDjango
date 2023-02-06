@@ -169,7 +169,7 @@ export default {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 900px;
+  height: 100%;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 15px;

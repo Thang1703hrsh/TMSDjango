@@ -289,7 +289,7 @@ selectNode (material){
 <style scoped lang = "scss">
 .panel-body {
 /* height: 480px; */
-height: calc(100vh - 523px);
+height: 300px;
 overflow-y: auto; 
 }
 
@@ -393,7 +393,7 @@ border-style: solid;
     overflow: hidden;
 
     &.visible{
-      max-height: 450px;
+      max-height: 400px;
       visibility: visible;
     }
 
@@ -411,7 +411,7 @@ border-style: solid;
         list-style: none;
         text-align: left;
         padding-left: 0px;
-        max-height: 300px;
+        max-height: 280px;
         overflow-y: scroll;
         overflow-x: hidden;
 
