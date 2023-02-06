@@ -175,7 +175,7 @@ export default {
   border-radius: 15px;
   overflow: auto;
   text-align: center;
-  background-image:  linear-gradient(to right, #00369E, #005CFD, #A18DFF ) ;
+  background-image:  linear-gradient(to right, #1a49a0, #6499f5, #A18DFF ) ;
 }
 .orgchart {
   box-sizing: border-box;
@@ -346,10 +346,12 @@ export default {
 }
 
 .orgchart .node:hover {
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
-  cursor: default;
+  cursor: pointer;
   z-index: 20;
+  transform: scale(1.08);
 }
 
 .orgchart .node.focused {
@@ -380,7 +382,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: linear-gradient(to top, #9966b6 0%, #86306a 100%);
+  background: linear-gradient(to top, #b62c4e 0%, #d8679c 100%);
 
   color: #fff;
   border-radius: 8px 8px 0 0;

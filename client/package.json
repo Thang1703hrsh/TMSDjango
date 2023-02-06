@@ -23,6 +23,8 @@
     "react-bootstrap": "^2.7.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^2.6.11",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^3.6.5",
     "vued3tree": "^5.1.0"
   },
   "devDependencies": {

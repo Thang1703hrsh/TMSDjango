@@ -1,27 +1,19 @@
 import Vue from 'vue'
+
 import VueRouter from 'vue-router'
-// import Hello from '@/components/HelloWorld' // @pashute: I added this later...
+import Traceback from '../views/Traceback.vue' 
+import Dashboard from '../views/Dashboard.vue' 
 
 Vue.use(VueRouter)
 
-const routes = [
-    // { 
-    //    path: '/',
-    //    name: 'Hello',
-    //    component: Hello
-    // }
-]
-
-// eslint-disable-next-line no-new
 const router = new VueRouter({
-   routes
+    routes:[
+        { path:'/traceback', component: Traceback },
+        { path:'/dashboard', component: Dashboard }
+    ]
+    
 })
-
 export default router
-
-
-
-
 
 // import { createRouter, createWebHistory } from 'vue-router'
 
