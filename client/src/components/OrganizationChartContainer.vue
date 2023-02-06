@@ -287,6 +287,7 @@ export default {
   text-align: center;
   vertical-align: top;
   padding: 0;
+  
 }
 
 .orgchart .lines:nth-child(3) td {
@@ -298,14 +299,14 @@ export default {
   border-top: 3px solid rgba(255, 255, 255, 0.8);
 }
 
-.orgchart .lines .rightLine {
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
+.orgchart .lines .leftLine {
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
   float: none;
   border-radius: 0;
 }
 
-.orgchart .lines .leftLine {
-  border-left: 1px solid rgba(255, 255, 255, 0.8);
+.orgchart .lines .rightLine {
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
   float: none;
   border-radius: 0;
 }
@@ -327,7 +328,7 @@ export default {
   padding: 1px;
   border: 3px dashed transparent;
   text-align: center;
-  width: 300px;
+  width: 280px;
 }
 
 .orgchart.l2r .node,
