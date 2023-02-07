@@ -22,9 +22,9 @@
         </tr>
         <tr class="lines">
           <td class="rightLine"></td>
-         <template v-for="n in (datasource.children.length-1)">
-            <td class="leftLine topLine"></td>
-            <td class="rightLine topLine"></td>
+         <template v-for="n in (datasource.children.length-1)" >
+            <td class="leftLine topLine" :key="n"></td>
+            <td class="rightLine topLine" :key="n"></td>
          </template>
           <td class="leftLine"></td>
         </tr>

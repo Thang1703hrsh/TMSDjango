@@ -5,7 +5,7 @@
         <div class="panel-heading">Thông tin nguyên phụ liệu</div>
         <div class="panel-body">
           <div class="form-group">
-            <div @click="selectNode(material)">
+            <div @node-click="selectNode(material)">
               <div  v-if = "selectedNode" class = "options1">
                 <ul>
                   <li>
@@ -82,7 +82,6 @@
           :zoomin-limit = "1"
           :zoomout-limit = "0.5"
           >
-          
         </org-chart>
       </div>
     </div>
@@ -289,27 +288,25 @@ selectNode (material){
 <style scoped lang = "scss">
 .panel-body {
 /* height: 480px; */
-height: 300px;
+height: 460px;
 overflow-y: auto; 
 }
-
 .col-md-10 {
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
 }
-
 .panel-default {
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
 }
 
-
 .panel-heading {
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
+font-size: 16px;
 }
 
 .options1{
@@ -322,19 +319,23 @@ border-style: solid;
     max-height: 300px;
 
     li {
+      color: #333333;
+      border: 1px solid  #b8b8b8;
+      background-color: #dddddd;
+      line-height: 20px;
+      width: 100%;
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+      
       margin: 0 6px 6px 0;
       border-radius: 10px;
       width: 100%;
-      border-bottom: 4px solid lightgray;
-      padding: 8px;
+      padding: 10px;
       background-color:  #f1f1f1;
       cursor: pointer;
       font-size: 16px;
       &:hover{
-        background-color: #70878a;
+        background-color: #6499f5;
         color: #fff;
-        font-weight: bold;
-
       }
     }
   }
@@ -411,7 +412,7 @@ border-style: solid;
         list-style: none;
         text-align: left;
         padding-left: 0px;
-        max-height: 280px;
+        max-height: 180px;
         overflow-y: scroll;
         overflow-x: hidden;
 
@@ -424,7 +425,7 @@ border-style: solid;
           cursor: pointer;
           font-size: 16px;
           &:hover{
-            background-color: #70878a;
+            background-color: #6499f5;
             color: #fff;
             font-weight: bold;
 
