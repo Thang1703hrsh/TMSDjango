@@ -224,7 +224,7 @@ export default {
       axios
         .get('/api/v1/outsourcing_product_materials/')
         .then(response => {
-          this.treeData = response.data['children'];
+          this.treeData = response.data;
         })
         .catch(error => {
           console.log(error)
