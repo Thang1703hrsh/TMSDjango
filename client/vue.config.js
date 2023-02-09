@@ -12,7 +12,7 @@ module.exports = {
 		config
 			.plugin('html')
 			.tap(args => {
-				args[0].title = 'Muse Vue Ant Design - by Creative Tim'
+				args[0].title = 'Tân Thành Đạt'
 				return args
 			})
 	}

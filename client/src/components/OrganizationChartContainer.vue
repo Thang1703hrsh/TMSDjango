@@ -10,10 +10,14 @@
       :style="{ transform: transformVal, cursor: cursorVal }"
       @mousedown="pan && panStartHandler($event)"
       @mousemove="pan && panning && panHandler($event)"
+
     >
-      <organization-chart-node :datasource="datasource" :handle-click="handleClick">
-        <template v-for="slot in Object.keys($scopedSlots)" :slot="slot" slot-scope="scope">
-          
+      <organization-chart-node 
+        :datasource="datasource" 
+        :handle-click="handleClick" 
+        >
+        <template v-for="slot in Object.keys($scopedSlots)" 
+                  :slot="slot" slot-scope="scope">
           <slot :name="slot" v-bind="scope"/>
         </template>
       </organization-chart-node>
@@ -328,17 +332,22 @@ export default {
   font-size: 30px;
   color: rgba(68, 157, 68, 0.8);
 }
+
 .orgchart .node:hover {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
   cursor: pointer;
   z-index: 20;
-  transform: scale(1.11);
+  transform: scale(1.15);
 }
-.orgchart .node.focused {
-  background-color: rgba(255, 204, 0, 0.5);
-}
+
+/* .orgchart .node:focus {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
+} */
+
 .orgchart .ghost-node {
   position: fixed;
   left: -10000px;
@@ -348,9 +357,11 @@ export default {
   fill: #ffffff;
   stroke: #bf0000;
 }
+
 .orgchart .node.allowedDrop {
   border-color: rgba(68, 157, 68, 0.9);
 }
+
 .orgchart .node .title {
   text-align: center;
   font-size: 15px;
@@ -360,9 +371,13 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: linear-gradient(to top, #5386e4 0%, #6499f5 100%);
+  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
   color: #fff;
   border-radius: 8px 8px 0 0;
+}
+
+.orgchart .node .title:focus {
+  background: rgb(255, 0, 0);
 }
 
 .orgchart.b2t .node .title {
@@ -406,6 +421,22 @@ export default {
   align-items: center;
   justify-content: center;
   color: #333333;
+  border: 1px solid  #b8b8b8;
+  background-color: #ececec;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  padding: 4px;
+  height: 70px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+.orgchart .node .contentclick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff0000;
   border: 1px solid  #b8b8b8;
   background-color: #ececec;
   font-size: 14px;

@@ -15,6 +15,7 @@
        </td>
       </tr>
       <template v-if="datasource.children && datasource.children.length">
+        
         <tr class="lines">
           <td :colspan="datasource.children.length*2">
             <div class="downLine"></div>

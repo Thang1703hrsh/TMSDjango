@@ -9,25 +9,25 @@
               <div  v-if = "selectedNode" class = "options1">
                 <ul>
                   <li>
-                    <b>Mã NPL:</b> {{ selectedNode.name}} <br>
+                    <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
                   </li>
                   <li>
-                    <b>Tên NPL:</b> {{selectedNode.title}} <br>
+                    <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
                   </li>
                   <li>
-                    <b>Tồn kho:</b> {{selectedNode.quantity}}
+                     <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
                   </li>
                   <li>
-                    <b>Đã đặt:</b> {{selectedNode.ordered_quantity}}
+                     <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
                   </li>
                   <li>
-                    <b>SL cần:</b> {{selectedNode.need_quantity}}
+                     <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
                   </li>
                   <li>
-                    <b>SL cần theo TC:</b> {{selectedNode.need_for_outsourcing}}
+                     <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
                   </li>
                   <li>
-                    <b>Đã xuất kho GCN:</b> {{selectedNode.outsourcing_stock_out}}
+                     <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
                   </li>
 
                 </ul>
@@ -259,6 +259,7 @@ selectNode (material){
         );
       });
     },
+    
   },
 }
 </script>
@@ -286,16 +287,24 @@ selectNode (material){
 </style>
 
 <style scoped lang = "scss">
+
 .panel-body {
 /* height: 480px; */
-height: 460px;
+height: 500px;
 overflow-y: auto; 
 }
 .col-md-10 {
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
+width: calc(100% - 380px);
 }
+
+.col-md-2 {
+width: 380px;
+}
+
+
 .panel-default {
 border-radius: 15px;
 border-width: 0.5px;
@@ -307,6 +316,15 @@ border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
 font-size: 16px;
+}
+
+.dotted{
+  border-bottom: 1px dashed #999;
+  text-decoration: none; 
+}
+
+.focus {
+  background: rgb(255, 0, 0);
 }
 
 .options1{
@@ -326,7 +344,7 @@ font-size: 16px;
       width: 100%;
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
       
-      margin: 0 6px 6px 0;
+      margin: 0 12px 12px 0;
       border-radius: 10px;
       width: 100%;
       padding: 10px;
@@ -412,7 +430,7 @@ font-size: 16px;
         list-style: none;
         text-align: left;
         padding-left: 0px;
-        max-height: 180px;
+        max-height: 150px;
         overflow-y: scroll;
         overflow-x: hidden;
 
