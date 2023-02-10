@@ -219,6 +219,7 @@ export default {
   content: "";
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
+
 .orgchart .verticalNodes > td > ul > li:first-child::before {
   box-sizing: border-box;
   top: -4px;
@@ -239,6 +240,18 @@ export default {
   border-style: solid;
   border-width: 0 0 2px 2px;
 }
+
+.orgchart .verticalNodes ul > li::after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  left: -6px;
+  border-color: rgba(0, 0, 0, 0.8);
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+}
+
+
 .orgchart .verticalNodes ul > li::before {
   top: -4px;
   height: 30px;
@@ -317,7 +330,7 @@ export default {
   padding: 1px;
   border: 3px dashed transparent;
   text-align: center;
-  width: 240px;
+  width: 260px;
 }
 .orgchart.l2r .node,
 .orgchart.r2l .node {
@@ -376,10 +389,6 @@ export default {
   border-radius: 8px 8px 0 0;
 }
 
-.orgchart .node .title:focus {
-  background: rgb(255, 0, 0);
-}
-
 .orgchart.b2t .node .title {
   transform: rotate(-180deg);
   transform-origin: center bottom;
@@ -399,22 +408,22 @@ export default {
   margin-top: 4px;
   margin-left: 2px;
 }
-/* .orgchart .node .content {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  width: 100%;
-  height: 70px;
-  padding: 4px;
+
+.orgchart .node .contentclick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  border: 1px solid  #b8b8b8;
+  background-color: rgb(255, 255, 166);
   font-size: 14px;
   line-height: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.8);
-  border-radius: 0 0 8px 8px;
-  text-align: center;
-  background-color: #fff;
-  color: #333;
-  overflow: hidden;
-} */
+  width: 100%;
+  padding: 4px;
+  height: 75px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
+}
 
 .orgchart .node .content {
   display: flex;
@@ -427,23 +436,7 @@ export default {
   line-height: 20px;
   width: 100%;
   padding: 4px;
-  height: 70px;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
-}
-
-.orgchart .node .contentclick {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ff0000;
-  border: 1px solid  #b8b8b8;
-  background-color: #ececec;
-  font-size: 14px;
-  line-height: 20px;
-  width: 100%;
-  padding: 4px;
-  height: 70px;
+  height: 75px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
 }

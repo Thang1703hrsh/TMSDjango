@@ -3,15 +3,21 @@
     <tbody>
       <tr>
        <td :colspan="datasource.children && datasource.children.length ? datasource.children.length*2 : null">
-        <div class="node" :id="datasource.id" @click.stop="handleClick(datasource)">
-          <slot :node-data="datasource">
-            <div class="title">
-              <i class="fa fa-users symbol"></i>
-              {{ datasource.name }}
-            </div>
-            <div class="content">{{ datasource.title }}</div>
-          </slot>
-        </div>
+        
+          <div class="node" :id="datasource.id">
+            <button class = "save_button" v-on:click="handleClick(datasource) ; handleClick1()">
+              <slot :node-data="datasource">
+                <div class="title">
+                  <i class="fa fa-users symbol"></i>
+                  {{ datasource.name }}
+                </div>
+                <div>
+                  <p v-if = "!active" class="content">{{ datasource.title }}</p>
+                  <p v-else class="contentclick">{{ datasource.title }}</p>
+                </div>
+              </slot>
+            </button>
+          </div>
        </td>
       </tr>
       <template v-if="datasource.children && datasource.children.length">
@@ -50,10 +56,26 @@ export default {
     datasource: Object,
     handleClick: Function
   },
+  data(){
+    return {
+      active:false,
+    };
+  },
   methods: {
-  }
+    handleClick1() {
+      this.active = !this.active;
+    },
+  },
 };
 </script>
 
-<style>
+<style >
+
+.save_button {
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
 </style>

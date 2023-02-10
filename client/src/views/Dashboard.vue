@@ -83,6 +83,7 @@
           :zoomout-limit = "0.5"
           >
         </org-chart>
+        <!-- <button @node-click="selectNode"></button> -->
       </div>
     </div>
 </template>
@@ -243,8 +244,9 @@ export default {
       // this.$forceUpdate();
       
     },
-selectNode (material){
-  this.selectedNode = material;
+    selectNode (material){
+      this.selectedNode = material;
+      
     },
   },
   computed: {
@@ -304,6 +306,16 @@ width: calc(100% - 380px);
 width: 380px;
 }
 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: 2px;
+  color: rgb(255, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 .panel-default {
 border-radius: 15px;
@@ -339,7 +351,7 @@ font-size: 16px;
     li {
       color: #333333;
       border: 1px solid  #b8b8b8;
-      background-color: #dddddd;
+      background-color: rgb(255, 255, 213);
       line-height: 20px;
       width: 100%;
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
@@ -348,7 +360,6 @@ font-size: 16px;
       border-radius: 10px;
       width: 100%;
       padding: 10px;
-      background-color:  #f1f1f1;
       cursor: pointer;
       font-size: 16px;
       &:hover{
