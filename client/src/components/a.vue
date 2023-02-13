@@ -5,15 +5,20 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
+  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
     <div
       class="orgchart"
       :style="{ transform: transformVal, cursor: cursorVal }"
       @mousedown="pan && panStartHandler($event)"
       @mousemove="pan && panning && panHandler($event)"
+
     >
-      <organization-chart-node :datasource="datasource" :handle-click="handleClick">
-        <template v-for="slot in Object.keys($scopedSlots)" :slot="slot" slot-scope="scope">
-          
+      <organization-chart-node 
+        :datasource="datasource" 
+        :handle-click="handleClick" 
+        >
+        <template v-for="slot in Object.keys($scopedSlots)" 
+                  :slot="slot" slot-scope="scope">
           <slot :name="slot" v-bind="scope"/>
         </template>
       </organization-chart-node>
@@ -24,7 +29,7 @@
 
 <script>
 import $ from 'jquery'
-import OrganizationChartNode from './OrganizationChartNode.vue'
+import OrganizationChartNode from './b.vue'
 export default {
   name: 'Container',
   props: {
@@ -164,10 +169,25 @@ export default {
 </script>
 
 <style>
+
+hr { 
+  width:100%;
+  height:1px; 
+  background: #ddd9d9 
+}
+
+
+.titlechart {
+  height: 35px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 800px;
+  height: 100%;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 15px;
@@ -188,7 +208,7 @@ export default {
   user-select: none;
   background-size: 10px 10px;
   border: 1px dashed rgba(0, 0, 0, 0);
-  padding: 10px;
+  padding: 2px;
 }
 .orgchart .hidden,
 .orgchart ~ .hidden {
@@ -215,6 +235,7 @@ export default {
   content: "";
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
+
 .orgchart .verticalNodes > td > ul > li:first-child::before {
   box-sizing: border-box;
   top: -4px;
@@ -235,6 +256,18 @@ export default {
   border-style: solid;
   border-width: 0 0 2px 2px;
 }
+
+.orgchart .verticalNodes ul > li::after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  left: -6px;
+  border-color: rgba(0, 0, 0, 0.8);
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+}
+
+
 .orgchart .verticalNodes ul > li::before {
   top: -4px;
   height: 30px;
@@ -313,7 +346,7 @@ export default {
   padding: 1px;
   border: 3px dashed transparent;
   text-align: center;
-  width: 240px;
+  width: 260px;
 }
 .orgchart.l2r .node,
 .orgchart.r2l .node {
@@ -328,17 +361,22 @@ export default {
   font-size: 30px;
   color: rgba(68, 157, 68, 0.8);
 }
+
 .orgchart .node:hover {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
   cursor: pointer;
   z-index: 20;
-  transform: scale(1.11);
+  transform: scale(1.15);
 }
-.orgchart .node.focused {
-  background-color: rgba(255, 204, 0, 0.5);
-}
+
+/* .orgchart .node:focus {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
+} */
+
 .orgchart .ghost-node {
   position: fixed;
   left: -10000px;
@@ -348,9 +386,11 @@ export default {
   fill: #ffffff;
   stroke: #bf0000;
 }
+
 .orgchart .node.allowedDrop {
   border-color: rgba(68, 157, 68, 0.9);
 }
+
 .orgchart .node .title {
   text-align: center;
   font-size: 15px;
@@ -360,7 +400,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: linear-gradient(to top, #5386e4 0%, #6499f5 100%);
+  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
   color: #fff;
   border-radius: 8px 8px 0 0;
 }
@@ -384,22 +424,22 @@ export default {
   margin-top: 4px;
   margin-left: 2px;
 }
-/* .orgchart .node .content {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  width: 100%;
-  height: 70px;
-  padding: 4px;
+
+.orgchart .node .contentclick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  border: 1px solid  #b8b8b8;
+  background-color: rgb(255, 255, 166);
   font-size: 14px;
   line-height: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.8);
-  border-radius: 0 0 8px 8px;
-  text-align: center;
-  background-color: #fff;
-  color: #333;
-  overflow: hidden;
-} */
+  width: 100%;
+  padding: 4px;
+  height: 75px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
+}
 
 .orgchart .node .content {
   display: flex;
@@ -412,7 +452,7 @@ export default {
   line-height: 20px;
   width: 100%;
   padding: 4px;
-  height: 70px;
+  height: 75px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
 }

@@ -1,10 +1,15 @@
-<template>
+<template>rectangle1
   <a-card :bordered="false" class="dashboard-bar-chart">
   <div v-bind="{ scopedSlots: $scopedSlots }"
-    class="orgchart-container"
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
+  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
+  <div class = "sub_div">
+    <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn 
+    <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
+    <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
+  </div>
     <div
       class="orgchart"
       :style="{ transform: transformVal, cursor: cursorVal }"
@@ -21,7 +26,9 @@
           <slot :name="slot" v-bind="scope"/>
         </template>
       </organization-chart-node>
+      
     </div>
+    
   </div>
 </a-card>
 </template>
@@ -168,10 +175,72 @@ export default {
 </script>
 
 <style>
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 00px;
+}
+
+
+hr { 
+  width:100%;
+  height:1px; 
+  background: #ddd9d9 
+}
+
+
+.titlechart {
+  height: 40px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold
+}
+
+.sub_div {
+  font-size: 16px;
+  position:absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.rectangle1 {
+  border-radius: 3px;
+  position: relative;
+  height: 13px;
+  width: 19px;
+  background-color: rgb(255, 255, 166);
+}
+
+.rectangle2 {
+  border-radius: 3px;
+  border: 2px solid rgb(0, 0, 0);
+  position: relative;
+  height: 13px;
+  width: 19px;
+  background-color: rgb(255, 255, 166);
+}
+
+.rectangle3 {
+  border-radius: 3px;
+  border: 2px solid #b8b8b8;
+  position: relative;
+  height: 13px;
+  width: 19px;
+  background-color: #ececec;
+}
+
+
+
+
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 800px;
+  height: 825.46px;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 15px;
@@ -190,9 +259,8 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-size: 10px 10px;
   border: 1px dashed rgba(0, 0, 0, 0);
-  padding: 10px;
+  padding: 2px;
 }
 .orgchart .hidden,
 .orgchart ~ .hidden {

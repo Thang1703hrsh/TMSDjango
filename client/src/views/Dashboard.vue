@@ -321,6 +321,7 @@ width: 380px;
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
+padding: 0px 0px;
 }
 
 .panel-heading {

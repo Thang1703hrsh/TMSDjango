@@ -3,12 +3,11 @@
     <tbody>
       <tr>
        <td :colspan="datasource.children && datasource.children.length ? datasource.children.length*2 : null">
-        
           <div class="node" :id="datasource.id">
             <button class = "save_button" v-on:click="handleClick(datasource) ; handleClick1()">
               <slot :node-data="datasource">
                 <div class="title">
-                  <i class="fa fa-users symbol"></i>
+                  <font-awesome-icon icon="fas fa-cogs" /> 
                   {{ datasource.name }}
                 </div>
                 <div>
@@ -21,7 +20,6 @@
        </td>
       </tr>
       <template v-if="datasource.children && datasource.children.length">
-        
         <tr class="lines">
           <td :colspan="datasource.children.length*2">
             <div class="downLine"></div>

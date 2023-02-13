@@ -6,7 +6,7 @@
 // Cards
 
 .ant-card-body {
-    padding: 12px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 .layout-dashboard {
@@ -229,6 +229,7 @@
 	}
 
 	.ant-card-head {
+		border-radius: 15px;
 		border-bottom: 0;
 		padding: 0 16px;
 
