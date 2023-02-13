@@ -1,12 +1,12 @@
-<template>rectangle1
-  <a-card :bordered="false" class="dashboard-bar-chart">
+<template>
+  <a-card id="app" :bordered="false" class="dashboard-bar-chart">
   <div v-bind="{ scopedSlots: $scopedSlots }"
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
   <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
   <div class = "sub_div">
-    <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn 
+    <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
     <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
     <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
   </div>
@@ -175,7 +175,6 @@ export default {
 </script>
 
 <style>
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -184,22 +183,17 @@ export default {
   color: #2c3e50;
   margin-top: 00px;
 }
-
-
 hr { 
   width:100%;
   height:1px; 
   background: #ddd9d9 
 }
-
-
 .titlechart {
   height: 40px;
   padding: 10px 20px;
   font-size: 18px;
   font-weight: bold
 }
-
 .sub_div {
   font-size: 16px;
   position:absolute;
@@ -207,36 +201,32 @@ hr {
   bottom: 10px;
   transform: translateX(-50%);
 }
-
 .rectangle1 {
-  border-radius: 3px;
+  border-radius: 4px;
   position: relative;
+  border: 1px solid #b8b8b8;
   height: 13px;
   width: 19px;
   background-color: rgb(255, 255, 166);
 }
-
 .rectangle2 {
-  border-radius: 3px;
+  margin-left: 20px;
+  border-radius: 4px;
   border: 2px solid rgb(0, 0, 0);
   position: relative;
   height: 13px;
   width: 19px;
   background-color: rgb(255, 255, 166);
 }
-
 .rectangle3 {
-  border-radius: 3px;
-  border: 2px solid #b8b8b8;
+  margin-left: 20px;
+  border-radius: 4px;
+  border: 1px solid #b8b8b8;
   position: relative;
   height: 13px;
   width: 19px;
   background-color: #ececec;
 }
-
-
-
-
 .orgchart-container {
   position: relative;
   display: inline-block;
@@ -251,7 +241,7 @@ hr {
 .orgchart {
   box-sizing: border-box;
   display: inline-block;
-  min-height: 21px;
+  min-height: 10px;
   min-width: 202px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -287,7 +277,6 @@ hr {
   content: "";
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
-
 .orgchart .verticalNodes > td > ul > li:first-child::before {
   box-sizing: border-box;
   top: -4px;
@@ -308,7 +297,6 @@ hr {
   border-style: solid;
   border-width: 0 0 2px 2px;
 }
-
 .orgchart .verticalNodes ul > li::after {
   box-sizing: border-box;
   content: "";
@@ -318,8 +306,6 @@ hr {
   border-style: solid;
   border-width: 0 0 2px 2px;
 }
-
-
 .orgchart .verticalNodes ul > li::before {
   top: -4px;
   height: 30px;
@@ -395,7 +381,7 @@ hr {
   display: inline-block;
   position: relative;
   margin: 0;
-  padding: 1px;
+  padding: 0px;
   border: 3px dashed transparent;
   text-align: center;
   width: 260px;
@@ -413,7 +399,6 @@ hr {
   font-size: 30px;
   color: rgba(68, 157, 68, 0.8);
 }
-
 .orgchart .node:hover {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -422,13 +407,11 @@ hr {
   z-index: 20;
   transform: scale(1.15);
 }
-
 /* .orgchart .node:focus {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
 } */
-
 .orgchart .ghost-node {
   position: fixed;
   left: -10000px;
@@ -438,11 +421,9 @@ hr {
   fill: #ffffff;
   stroke: #bf0000;
 }
-
 .orgchart .node.allowedDrop {
   border-color: rgba(68, 157, 68, 0.9);
 }
-
 .orgchart .node .title {
   text-align: center;
   font-size: 15px;
@@ -456,7 +437,6 @@ hr {
   color: #fff;
   border-radius: 8px 8px 0 0;
 }
-
 .orgchart.b2t .node .title {
   transform: rotate(-180deg);
   transform-origin: center bottom;
@@ -476,7 +456,6 @@ hr {
   margin-top: 4px;
   margin-left: 2px;
 }
-
 .orgchart .node .contentclick {
   display: flex;
   align-items: center;
@@ -492,7 +471,6 @@ hr {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
 }
-
 .orgchart .node .content {
   display: flex;
   align-items: center;
@@ -508,7 +486,6 @@ hr {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
 }
-
 .orgchart.b2t .node .content {
   transform: rotate(180deg);
   transform-origin: center top;

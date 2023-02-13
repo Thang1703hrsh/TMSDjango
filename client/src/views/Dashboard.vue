@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <div class="col-md-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Thông tin nguyên phụ liệu</div>
+        <div class = "titlechart" align="left">Thông tin nguyên phụ liệu</div> <hr />
         <div class="panel-body">
           <div class="form-group">
             <div @node-click="selectNode(material)">
@@ -325,6 +325,7 @@ padding: 0px 0px;
 }
 
 .panel-heading {
+height: 40px;
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
