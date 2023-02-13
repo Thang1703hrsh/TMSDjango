@@ -5,34 +5,42 @@
         <div class = "titlechart" align="left">Thông tin nguyên phụ liệu</div> <hr />
         <div class="panel-body">
           <div class="form-group">
-            <div @node-click="selectNode(material)">
-              <div  v-if = "selectedNode" class = "options1">
-                <ul>
-                  <li>
-                    <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
-                  </li>
-                  <li>
-                    <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
-                  </li>
+            <div class="bg-gradient-to-r from-blue-300 to-blue-500 min-h-screen">
+              <app-tabs class="w-11/12 lg:w-11/12 mx-auto mb-16" :tabList="tabList">
+                <template v-slot:tabPanel-1> 
+                  <div @node-click="selectNode(material)">
+                    <div  v-if = "selectedNode" class = "options1">
+                      <ul>
+                        <li>
+                          <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
+                        </li>
+                        <li>
+                          <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
+                        </li>
+                        <li>
+                          <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
+                        </li>
+                        <li>
+                          <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
+                        </li>
+                        <li>
+                          <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
+                        </li>
+                        <li>
+                          <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
+                        </li>
+                        <li>
+                          <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
+                        </li>
 
-                </ul>
-              </div>
+                      </ul>
+                    </div>
+                  </div>
+                </template>
+                <template v-slot:tabPanel-2> Content 2 </template>
+              </app-tabs>
             </div>
+            
           </div>
         </div>
       </div>
@@ -91,13 +99,16 @@
 <script>
 import OrgChart from '../components/OrganizationChartContainer.vue'
 import axios from 'axios'
+import AppTabs from "../components/Tabs";
 
 export default {
   components: {
-    OrgChart
+    OrgChart,
+    AppTabs
   },
   data () {
     return {
+      tabList: ["Chi tiết NPL", "NPL cấu thành"],
       treeData: [],
       ds: {
             "name": "4-MICRIN-WHI-D7-30",
@@ -294,6 +305,7 @@ export default {
 /* height: 480px; */
 height: 500px;
 overflow-y: auto; 
+padding: 0px
 }
 .col-md-10 {
 border-radius: 15px;
@@ -353,11 +365,10 @@ font-size: 16px;
     li {
       color: #333333;
       border: 1px solid  #b8b8b8;
-      background-color: rgb(255, 255, 213);
+      background-color: rgb(238, 238, 238);
       line-height: 20px;
       width: 100%;
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
-      
       margin: 0 12px 12px 0;
       border-radius: 10px;
       width: 100%;

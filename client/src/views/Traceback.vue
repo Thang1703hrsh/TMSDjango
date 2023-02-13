@@ -2,9 +2,15 @@
   <div id="app" class="container-fluid">
     <div class="col-md-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Thông tin nguyên phụ liệu</div>
+        <div class = "titlechart" align="left">Thông tin nguyên phụ liệu</div> <hr />
         <div class="panel-body">
           <div class="form-group">
+            <!-- <nav class="tabs">
+              <button class="tabs__item tabs__item_active"> Tab 1 </button> 
+              <button class="tabs__item"> Tab 2 </button>
+              <button class="tabs__item"> Tab 3 </button>
+              <div class="tabs__active-line"></div>
+            </nav> -->
             <div @node-click="selectNode(material)">
               <div  v-if = "selectedNode" class = "options1">
                 <ul>
@@ -83,6 +89,7 @@
           :zoomout-limit = "0.5"
           >
         </org-chart>
+        <!-- <button @node-click="selectNode"></button> -->
       </div>
     </div>
 </template>
@@ -243,8 +250,9 @@ export default {
       // this.$forceUpdate();
       
     },
-selectNode (material){
-  this.selectedNode = material;
+    selectNode (material){
+      this.selectedNode = material;
+      
     },
   },
   computed: {
@@ -259,6 +267,7 @@ selectNode (material){
         );
       });
     },
+    
   },
 }
 </script>
@@ -286,6 +295,7 @@ selectNode (material){
 </style>
 
 <style scoped lang = "scss">
+
 .panel-body {
 /* height: 480px; */
 height: 500px;
@@ -302,14 +312,26 @@ width: calc(100% - 380px);
 width: 380px;
 }
 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: 2px;
+  color: rgb(255, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 .panel-default {
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
+padding: 0px 0px;
 }
 
 .panel-heading {
+height: 40px;
 border-radius: 15px;
 border-width: 0.5px;
 border-style: solid;
@@ -319,6 +341,10 @@ font-size: 16px;
 .dotted{
   border-bottom: 1px dashed #999;
   text-decoration: none; 
+}
+
+.focus {
+  background: rgb(255, 0, 0);
 }
 
 .options1{
@@ -333,16 +359,14 @@ font-size: 16px;
     li {
       color: #333333;
       border: 1px solid  #b8b8b8;
-      background-color: #dddddd;
+      background-color: rgb(238, 238, 238);
       line-height: 20px;
       width: 100%;
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
-      
       margin: 0 12px 12px 0;
       border-radius: 10px;
       width: 100%;
       padding: 10px;
-      background-color:  #f1f1f1;
       cursor: pointer;
       font-size: 16px;
       &:hover{

@@ -1,13 +1,13 @@
 <template>
   <a-card id="app" :bordered="false" class="dashboard-bar-chart">
-  <div v-bind="{ scopedSlots: $scopedSlots }"
+  <div v-bind="{ scopedSlots: $scopedSlots }" class="orgchart-container"
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
   <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
   <div class = "sub_div">
     <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
-    <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
+    <!-- <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn -->
     <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
   </div>
     <div
@@ -236,7 +236,6 @@ hr {
   border-radius: 15px;
   overflow: auto;
   text-align: center;
-  background-color: rgba(241, 241, 241, 0.8);
 }
 .orgchart {
   box-sizing: border-box;
@@ -381,10 +380,10 @@ hr {
   display: inline-block;
   position: relative;
   margin: 0;
-  padding: 0px;
+  padding: 0px 8px 0px 8px;
   border: 3px dashed transparent;
   text-align: center;
-  width: 260px;
+  width: 280px;
 }
 .orgchart.l2r .node,
 .orgchart.r2l .node {
@@ -401,7 +400,6 @@ hr {
 }
 .orgchart .node:hover {
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
   transition: 0.5s;
   cursor: pointer;
   z-index: 20;

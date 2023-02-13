@@ -7,7 +7,7 @@
             <button class = "save_button" v-on:click="handleClick(datasource) ; handleClick1()">
               <slot :node-data="datasource">
                 <div class="title">
-                  <i class="fa fa-users symbol"></i>
+                  <font-awesome-icon icon="fas fa-cogs" /> 
                   {{ datasource.name }}
                 </div>
                 <div>
