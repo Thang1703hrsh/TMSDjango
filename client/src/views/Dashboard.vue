@@ -2,10 +2,9 @@
   <div id="app" class="container-fluid">
     <div class="col-md-2">
       <div class="panel panel-default">
-        <div class = "titlechart" align="left">Thông tin nguyên phụ liệu</div> <hr />
         <div class="panel-body">
           <div class="form-group">
-            <div class="bg-gradient-to-r from-blue-300 to-blue-500 min-h-screen">
+            <div class="rounded-2xl bg-gradient-to-r from-blue-300 to-blue-500 h-full">
               <app-tabs class="w-11/12 lg:w-11/12 mx-auto mb-16" :tabList="tabList">
                 <template v-slot:tabPanel-1> 
                   <div @node-click="selectNode(material)">
@@ -303,7 +302,7 @@ export default {
 
 .panel-body {
 /* height: 480px; */
-height: 500px;
+height: 580px;
 overflow-y: auto; 
 padding: 0px
 }
@@ -313,6 +312,11 @@ border-width: 0.5px;
 border-style: solid;
 width: calc(100% - 380px);
 }
+
+.form-group {
+height: 100%
+}
+
 
 .col-md-2 {
 width: 380px;
