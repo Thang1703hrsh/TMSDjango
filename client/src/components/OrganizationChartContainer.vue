@@ -454,6 +454,17 @@ hr {
   margin-top: 4px;
   margin-left: 2px;
 }
+
+
+.orgchart .node .save_button {
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 2px;
+  border-color: black;
+}
+
+
 .orgchart .node .contentclick {
   display: flex;
   align-items: center;

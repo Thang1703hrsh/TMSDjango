@@ -5,15 +5,15 @@
     }"
   >
     <ul
-      class="list-none bg-blue-900 bg-opacity-30 p-1.5 rounded-lg text-center overflow-auto whitespace-nowrap"
+      class="list-none bg-blue-500 bg-opacity-90 p-1.5 rounded-2xl text-center overflow-auto whitespace-nowrap"
       :class="{
-        'flex items-center mb-6': variant === 'vertical',
+        'flex items-center mb-4 mt-4': variant === 'vertical',
       }"
     >
       <li
         v-for="(tab, index) in tabList"
         :key="index"
-        class="w-full px-4 py-1.5 rounded-lg"
+        class="w-full px-4 py-1.5 rounded-2xl"
         :class="{
           'text-blue-600 bg-white shadow-xl': index + 1 === activeTab,
           'text-white': index + 1 !== activeTab,

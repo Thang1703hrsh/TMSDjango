@@ -69,11 +69,4 @@ export default {
 
 <style >
 
-.save_button {
-    min-width: 100%;
-    max-width: 100%;
-    border-radius: 10px;
-    border: none;
-}
-
 </style>

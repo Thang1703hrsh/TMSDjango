@@ -2,42 +2,52 @@
   <div id="app" class="container-fluid">
     <div class="col-md-2">
       <div class="panel panel-default">
-        <div class = "titlechart" align="left">Thông tin nguyên phụ liệu</div> <hr />
         <div class="panel-body">
-          <div class="form-group">
-            <!-- <nav class="tabs">
-              <button class="tabs__item tabs__item_active"> Tab 1 </button> 
-              <button class="tabs__item"> Tab 2 </button>
-              <button class="tabs__item"> Tab 3 </button>
-              <div class="tabs__active-line"></div>
-            </nav> -->
+          <div>
             <div @node-click="selectNode(material)">
-              <div  v-if = "selectedNode" class = "options1">
-                <ul>
-                  <li>
-                    <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
-                  </li>
-                  <li>
-                    <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
-                  </li>
-                  <li>
-                     <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
-                  </li>
+              <app-tabs class="w-11/12 lg:w-11/12 mx-auto mb-16" :tabList="tabList">
+                <template v-slot:tabPanel-1> 
+                  <div  v-if = "selectedNode" class = "options1">
+                    <ul>
+                      <li>
+                        <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
+                      </li>
+                      <li>
+                        <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
+                      </li>
+                      <li>
+                        <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
+                      </li>
+                      <li>
+                        <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
+                      </li>
+                      <li>
+                        <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
+                      </li>
+                      <li>
+                        <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
+                      </li>
+                      <li>
+                        <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
+                      </li>
 
-                </ul>
-              </div>
+                    </ul>
+                  </div>
+                </template>
+                <template v-slot:tabPanel-2> 
+                  <div v-if = "searchQueryParent" class = "options1">
+                    <ul>
+                      <div 
+                        v-for="materialParent in filteredParent" 
+                        :key="materialParent.name">
+                        <li v-for="(materialParent , index) in materialParent.children" :key = "index">
+                          <b><u class = "dotted">Mã NPL:</u></b> {{materialParent.name}}
+                        </li> 
+                      </div>
+                    </ul>
+                  </div>
+                </template>
+              </app-tabs>
             </div>
           </div>
         </div>
@@ -84,9 +94,6 @@
           :datasource="ds" 
           @node-click="selectNode"
           :pan = "true"
-          :zoom = "true"
-          :zoomin-limit = "1"
-          :zoomout-limit = "0.5"
           >
         </org-chart>
         <!-- <button @node-click="selectNode"></button> -->
@@ -97,13 +104,16 @@
 <script>
 import OrgChart from '../components/OrganizationChartContainer.vue'
 import axios from 'axios'
+import AppTabs from "../components/Tabs";
 
 export default {
   components: {
-    OrgChart
+    OrgChart,
+    AppTabs
   },
   data () {
     return {
+      tabList: ["Chi tiết NPL", "NPL cấu thành"],
       treeData: [],
       ds: {
             "name": "4-MICRIN-WHI-D7-30",
@@ -218,13 +228,17 @@ export default {
             ]
         },
       searchQuery: "",
+      searchQueryParent: "",
       selectedItem: null ,
       selectedNode: null,
+      parentNode: [],
       isVisible: true,
+      parentData: [],
     }
   },
   mounted() {
     this.getOutsourcingProductMaterials()
+    this.getParent()
   },
   methods: {
     getOutsourcingProductMaterials() {
@@ -232,6 +246,16 @@ export default {
         .get('/api/v1/outsourcing_product/')
         .then(response => {
           this.treeData = response.data;
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    getParent() {
+      axios
+        .get('/api/v1/outsourcing_product_materials/')
+        .then(response => {
+          this.parentData = response.data;
         })
         .catch(error => {
           console.log(error)
@@ -252,8 +276,12 @@ export default {
     },
     selectNode (material){
       this.selectedNode = material;
-      
+      this.searchQueryParent = material.name;
+      console.log(this.searchQueryParent)
     },
+    showParent(materialParent){
+      this.parentNode = materialParent
+    }
   },
   computed: {
     filteredMat() {
@@ -264,6 +292,17 @@ export default {
       return this.treeData.filter((material) => {
         return Object.values(material).some((word) => 
           String(word).toLowerCase().includes(query)
+        );
+      });
+    },
+    filteredParent() {
+      const query = this.searchQueryParent;
+      if(this.searchQueryParent == "") { 
+        return this.parentData;
+      }
+      return this.parentData.filter((material) => {
+        return Object.values(material).some((word) => 
+          String(word).includes(query)
         );
       });
     },
@@ -298,8 +337,9 @@ export default {
 
 .panel-body {
 /* height: 480px; */
-height: 500px;
+height: 580px;
 overflow-y: auto; 
+padding: 0px
 }
 .col-md-10 {
 border-radius: 15px;
@@ -307,6 +347,11 @@ border-width: 0.5px;
 border-style: solid;
 width: calc(100% - 380px);
 }
+
+.form-group {
+height: 100%
+}
+
 
 .col-md-2 {
 width: 380px;
@@ -354,7 +399,7 @@ font-size: 16px;
     list-style: none;
     text-align: left;
     padding-left: 0px;
-    max-height: 300px;
+    height: 100%;
 
     li {
       color: #333333;
@@ -369,10 +414,10 @@ font-size: 16px;
       padding: 10px;
       cursor: pointer;
       font-size: 16px;
-      &:hover{
-        background-color: #6499f5;
-        color: #fff;
-      }
+      // &:hover{
+      //   background-color: #6499f5;
+      //   color: #fff;
+      // }
     }
   }
 }
@@ -430,7 +475,7 @@ font-size: 16px;
     overflow: hidden;
 
     &.visible{
-      max-height: 400px;
+      max-height: 175px;
       visibility: visible;
     }
 

@@ -1,10 +1,10 @@
-<template>rectangle1
+<template>
   <a-card :bordered="false" class="dashboard-bar-chart">
   <div v-bind="{ scopedSlots: $scopedSlots }"
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
-  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
+  <div class="titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
     <div
       class="orgchart"
       :style="{ transform: transformVal, cursor: cursorVal }"
