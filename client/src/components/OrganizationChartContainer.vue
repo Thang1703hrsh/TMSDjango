@@ -232,7 +232,7 @@ hr {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 825.46px;
+  height: 750px;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 15px;
@@ -242,7 +242,7 @@ hr {
 .orgchart {
   box-sizing: border-box;
   display: inline-block;
-  min-height: 10px;
+  min-height: 21px;
   min-width: 202px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -426,9 +426,9 @@ hr {
 }
 .orgchart .node .title {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
-  height: 28px;
+  height: 26px;
   line-height: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -481,11 +481,11 @@ hr {
   color: #333333;
   border: 1px solid  #b8b8b8;
   background-color: rgb(255, 255, 166);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   width: 100%;
   padding: 0px;
-  height: 75px;
+  height: 62px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
   
@@ -497,11 +497,11 @@ hr {
   color: #333333;
   border: 1px solid  #b8b8b8;
   background-color: #ececec;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   width: 100%;
   padding: 0px;
-  height: 75px;
+  height: 62px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
 }

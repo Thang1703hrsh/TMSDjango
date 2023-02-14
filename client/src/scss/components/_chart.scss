@@ -4,7 +4,7 @@
 // 
 
 .dashboard-bar-chart {
-	height: 825.46px;
+	height: calc(100% - 90px);
 	border-radius: 15px;
 	canvas {
 		border-radius: 8px;

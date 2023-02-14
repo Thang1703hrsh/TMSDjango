@@ -245,7 +245,7 @@ export default {
       axios
         .get('/api/v1/outsourcing_product/')
         .then(response => {
-          this.treeData = response.data;
+          this.treeData = response.data["children"];
         })
         .catch(error => {
           console.log(error)
@@ -255,7 +255,7 @@ export default {
       axios
         .get('/api/v1/outsourcing_product_materials/')
         .then(response => {
-          this.parentData = response.data;
+          this.parentData = response.data["children"];
         })
         .catch(error => {
           console.log(error)
