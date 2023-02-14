@@ -4,10 +4,10 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
-  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div> <hr />
+  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div>
   <div class = "sub_div">
     <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
-    <!-- <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn -->
+    <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
     <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
   </div>
     <div
@@ -186,13 +186,15 @@ export default {
 hr { 
   width:100%;
   height:1px; 
-  background: #ddd9d9 
+  background: #ddd9d9;
+  overflow: auto;
 }
 .titlechart {
   height: 40px;
+  width: auto;
   padding: 10px 20px;
   font-size: 18px;
-  font-weight: bold
+  font-weight: bold;
 }
 .sub_div {
   font-size: 16px;
@@ -249,7 +251,7 @@ hr {
   -ms-user-select: none;
   user-select: none;
   border: 1px dashed rgba(0, 0, 0, 0);
-  padding: 2px;
+  padding: 0px;
 }
 .orgchart .hidden,
 .orgchart ~ .hidden {
@@ -381,7 +383,7 @@ hr {
   position: relative;
   margin: 0;
   padding: 0px 8px 0px 8px;
-  border: 3px dashed transparent;
+  border: 0px dashed transparent;
   text-align: center;
   width: 280px;
 }
@@ -455,14 +457,21 @@ hr {
   margin-left: 2px;
 }
 
-
-.orgchart .node .save_button {
+/* .orgchart .node .btn {
   min-width: 100%;
   max-width: 100%;
   border-radius: 10px;
-  border: 2px;
-  border-color: black;
-}
+  cursor: pointer;
+  border: 2px black;
+} */
+
+/* .orgchart .node .save_button {
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid black;
+} */
 
 
 .orgchart .node .contentclick {
@@ -475,10 +484,11 @@ hr {
   font-size: 14px;
   line-height: 20px;
   width: 100%;
-  padding: 4px;
+  padding: 0px;
   height: 75px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  
 }
 .orgchart .node .content {
   display: flex;
@@ -490,7 +500,7 @@ hr {
   font-size: 14px;
   line-height: 20px;
   width: 100%;
-  padding: 4px;
+  padding: 0px;
   height: 75px;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.3);

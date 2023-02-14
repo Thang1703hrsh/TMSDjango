@@ -4,7 +4,7 @@
       <tr>
        <td :colspan="datasource.children && datasource.children.length ? datasource.children.length*2 : null">
           <div class="node" :id="datasource.id">
-            <button class = "save_button" v-on:click="handleClick(datasource) ; handleClick1()">
+            <button class = "btn" v-on:click="handleClick(datasource) ; handleClick1()">
               <slot :node-data="datasource">
                 <div class="title">
                   <font-awesome-icon icon="fas fa-cogs" /> 
@@ -68,5 +68,15 @@ export default {
 </script>
 
 <style >
+
+.btn {
+  white-space: normal;
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px black;
+  padding: 0px ;
+}
 
 </style>

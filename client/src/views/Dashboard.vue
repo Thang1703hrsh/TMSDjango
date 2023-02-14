@@ -415,10 +415,10 @@ font-size: 16px;
       padding: 10px;
       cursor: pointer;
       font-size: 16px;
-      // &:hover{
-      //   background-color: #6499f5;
-      //   color: #fff;
-      // }
+      &:hover{
+        background-color: #6499f5;
+        color: #fff;
+      }
     }
   }
 }
