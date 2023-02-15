@@ -235,7 +235,7 @@ hr {
   height: 750px;
   width: 100%;
   border: 0px dashed #aaa;
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: auto;
   text-align: center;
 }

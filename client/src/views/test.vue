@@ -99,9 +99,6 @@
     </div>
       <div class="col-md-10">
         <div class="panel panel-default">
-          a
-        </div>
-        <div class="panel panel-default">
           <org-chart 
             :datasource="ds" 
             @node-click="selectNode"
@@ -356,6 +353,7 @@ padding: 0px
 }
 .col-md-10 {
 width: calc(100% - 380px);
+padding: 0px;
 }
 
 .form-group {

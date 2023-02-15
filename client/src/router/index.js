@@ -5,6 +5,7 @@ import Traceback from '../views/Traceback.vue'
 import Dashboard from '../views/Dashboard.vue' 
 import test from '../views/test.vue' 
 import tabs from '../views/tabs.vue' 
+import loading from '../views/loading.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,8 @@ const router = new VueRouter({
         { path:'/traceback', component: Traceback },
         { path:'/dashboard', component: Dashboard },
         { path:'/test', component: test }, 
-        { path:'/tabs', component: tabs }
+        { path:'/tabs', component: tabs },
+        { path:'/loading', component: loading }
     ]
     
 })

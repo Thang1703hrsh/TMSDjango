@@ -30,8 +30,15 @@
                       <li>
                         <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
                       </li>
-
+                      <li>
+                        <b><u class = "dotted">Trừ tạm:</u></b> {{selectedNode.temporary_quantity}}
+                      </li>
                     </ul>
+                  </div>
+                  <div v-else> 
+                    <br><br><br>
+                    <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                    </vue-loading>
                   </div>
                 </template>
                 <template v-slot:tabPanel-2> 
@@ -49,10 +56,15 @@
                         v-for="materialParent in filteredParent" 
                         :key="materialParent.name">
                         <li v-for="(materialParent , index) in materialParent.children" :key = "index">
-                          <b><u class = "dotted">Mã NPL:</u></b> {{materialParent.name}}
+                          <b><u class = "dotted">NPL:</u></b> {{materialParent.name}}
                         </li> 
                       </div>
                     </ul>
+                  </div>
+                  <div v-else> 
+                    <br><br><br>
+                    <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                    </vue-loading>
                   </div>
                 </template>
               </app-tabs>
@@ -82,6 +94,11 @@
           <!-- <div v-if="isVisible" class="dropdown-popover"> -->
           <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
             <input id = 'add' v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL">
+            <div v-if = "treeData.length == 0"> 
+              <br><br>
+              <vue-loading type="spiningDubbles" color="black" :size="{ width: '50px', height: '50px' }">
+              </vue-loading>
+            </div>
             <span v-if = "filteredMat.length == 0"><br><br>Không tồn tại NPL<br></span>
             <div class = "options">
               <ul>
@@ -97,42 +114,74 @@
         </section>
       </div>
     </div>
-      <div class="col-md-10">
-          <div class="row">
-            <div class="col-sm-2 panel panel-row" id = "info">Tổng số NPL:<br>
-              <div> {{allData["total product"]}} </div>
-            </div>
-            <div class="col-sm-2 panel panel-row" id = "info">Số NPL sơ cấp:<br>
-              <div> {{allData["total product isn't outsouring"]}} </div>
-
-            </div>
-            <div class="col-sm-2 panel panel-row" id = "info">Số NPL thứ cấp:<br>
-              <div> {{allData["total product is outsouring"]}} </div>
-            </div>
-            <div class="col-sm-2 panel panel-row" id = "info"></div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-sm-2 panel panel-row">Tổng số NPL<br>
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
           </div>
-        <div class="panel panel-default">
-          <org-chart 
-            :datasource="ds" 
-            @node-click="selectNode"
-            :pan = "true"
-            >
-          </org-chart>
+          <div id = "info" v-else> {{allData["total product"]}} </div>
         </div>
-        <!-- <button @node-click="selectNode"></button> -->
+        <div class="col-sm-2 panel panel-row">Số NPL sơ cấp<br>
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
+          </div>
+          <div id = "info"> {{allData["total product isn't outsouring"]}} </div>
+        </div>
+        <div class="col-sm-2 panel panel-row">Số NPL thứ cấp<br>
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
+          </div>
+          <div id = "info"> {{allData["total product is outsouring"]}} </div>
+        </div>
+        <div class="col-sm-2 panel panel-row">Số NPL gia công
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
+          </div>
+          <div @node-click="selectNode(material)">
+            <div v-if = "searchQueryParent">
+                <div v-if = "filteredParent.length == 0" id  = "info" >
+                  0
+                </div>
+                <div 
+                  v-for="materialParent in filteredParent" 
+                  :key="materialParent.name">
+                  <div id  = "info">
+                    {{materialParent.children.length}}
+                  </div> 
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
+      <div class="panel panel-default">
+        <org-chart 
+          :datasource="ds" 
+          @node-click="selectNode"
+          :pan = "true"
+          >
+        </org-chart>
+      </div>
+        <!-- <button @node-click="selectNode"></button> -->
     </div>
+  </div>
 </template>
 
 <script>
 import OrgChart from '../components/OrganizationChartContainer.vue'
 import axios from 'axios'
 import AppTabs from "../components/Tabs";
+import { VueLoading } from 'vue-loading-template'
 
 export default {
   components: {
     OrgChart,
-    AppTabs
+    AppTabs,
+    VueLoading,
   },
   data () {
     return {
@@ -355,7 +404,7 @@ export default {
       margin: 0 auto;
       border: none;
       border:solid 1px #ccc;
-      border-radius: 10px;
+      border-radius: 5px;
     }
 
 #svgelem {
@@ -365,8 +414,9 @@ export default {
 }
 
 #info {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
+
 }
 
 
@@ -394,7 +444,6 @@ width: calc(100% - 380px);
 height: 100%
 }
 
-
 .col-md-2 {
 width: 380px;
 }
@@ -411,29 +460,31 @@ width: 380px;
 }
 
 .panel-default {
-border-radius: 15px;
+border-radius: 10px;
 border-width: 0.5px;
 border-style: solid;
 padding: 0px 0px;
 }
 
 .panel-row {
-  border-radius: 15px;
+  border-radius: 10px;
   border-color: #d8d8d8;
   border-width: 0.5px;
   border-style: solid;
-  margin: 10px;
+  margin: 10px 0px 10px 10px;
   padding: 3px;
 }
 
 .col-sm-2 {
-  width: calc((100% - 80px)/ 4);
+  width: calc((100% - 40px) / 4);
   height: 70px;
+  margin: 10px 20px calc(40px/3px) 0px ;
+  // background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
 }
 
 .panel-heading {
 height: 40px;
-border-radius: 15px;
+border-radius: 10px;
 border-width: 0.5px;
 border-style: solid;
 font-size: 16px;
@@ -456,7 +507,7 @@ font-size: 16px;
     font-weight: bold;
   }
   ul{
-    border-radius: 10px;
+    border-radius: 5px;
     list-style: none;
     text-align: left;
     padding-left: 0px;
@@ -469,8 +520,8 @@ font-size: 16px;
       line-height: 20px;
       width: 100%;
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
-      margin: 0 12px 12px 0;
-      border-radius: 10px;
+      margin: 0 8px 8px 0;
+      border-radius: 5px;
       width: 100%;
       padding: 10px;
       cursor: pointer;
@@ -523,7 +574,7 @@ font-size: 16px;
   .dropdown-popover{
     position: absolute;
     border: 2px solid lightgray;
-    border-radius: 15px;
+    border-radius: 10px;
     top: 50px;
     left: 0;
     right: 0;
@@ -550,7 +601,7 @@ font-size: 16px;
     .options{
       width: 100%;
       ul{
-        border-radius: 10px;
+        border-radius: 5px;
         list-style: none;
         text-align: left;
         padding-left: 0px;
@@ -559,7 +610,7 @@ font-size: 16px;
         overflow-x: hidden;
 
         li {
-          border-radius: 10px;
+          border-radius: 5px;
           width: 100%;
           border-bottom: 1px solid lightgray;
           padding: 8px;
