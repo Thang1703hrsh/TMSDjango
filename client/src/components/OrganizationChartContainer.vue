@@ -4,7 +4,7 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
-  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div>
+  <div class = "titlechart" align="left">Cấu trúc nguyên phụ liệu</div>
   <div class = "sub_div">
     <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
     <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn

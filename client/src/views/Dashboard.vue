@@ -115,29 +115,34 @@
       </div>
     </div>
     <div class="col-md-10">
-      <div class="row">
-        <div class="col-sm-2 panel panel-row">Tổng số NPL<br>
+      <div class="row">  
+        <div class="col-sm-2 panel panel-row">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color = "red">
+            <path fill="none" d="M0 0h24v24H0z"/><path d="M11 2.05V13h10.95c-.501 5.053-4.765 9-9.95 9-5.523 
+            0-10-4.477-10-10 0-5.185 3.947-9.449 9-9.95zm2 0A10.003 10.003 0 0 1 21.95 11H13V2.05z"/></svg> -->
+            <!-- <img alt="Fabric Material SVG Vector Icon" src="https://www.svgrepo.com/show/178197/fabric-material.svg" width="30" height="30" decoding="async" data-nimg="1" style="color:transparent;width:30px;height:30px"> -->
+          Tổng số nguyên phụ liệu
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info" v-else> {{allData["total product"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số NPL sơ cấp<br>
+        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu sơ cấp
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info"> {{allData["total product isn't outsouring"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số NPL thứ cấp<br>
+        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu thứ cấp
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info"> {{allData["total product is outsouring"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số NPL gia công
+        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu gia công
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
@@ -423,7 +428,12 @@ export default {
 </style>
 
 <style scoped lang = "scss">
-
+.hr { 
+  width:100%;
+  height: 2px; 
+  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
+  overflow: auto;
+}
 .panel-body {
 /* height: 480px; */
 height: 580px;
@@ -472,7 +482,7 @@ padding: 0px 0px;
   border-width: 0.5px;
   border-style: solid;
   margin: 10px 0px 10px 10px;
-  padding: 3px;
+  padding: 6px;
 }
 
 .col-sm-2 {
