@@ -438,7 +438,7 @@ hr {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
+  background: #22445d;
   color: #fff;
   border-radius: 8px 8px 0 0;
 }

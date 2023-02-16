@@ -127,7 +127,7 @@
             0-10-4.477-10-10 0-5.185 3.947-9.449 9-9.95zm2 0A10.003 10.003 0 0 1 21.95 11H13V2.05z"/></svg> -->
             <!-- <img alt="Fabric Material SVG Vector Icon" src="https://www.svgrepo.com/show/178197/fabric-material.svg" width="30" height="30" decoding="async" data-nimg="1" style="color:transparent;width:30px;height:30px"> -->
             <div class = "b"></div>
-          <div> Tổng số nguyên phụ liệu </div>
+          <div style = " padding:5px; "> Tổng số nguyên phụ liệu </div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
@@ -136,7 +136,7 @@
         </div>
         <div class="col-sm-2 panel panel-row ">
           <div class = "b"></div>
-          <div> Số nguyên phụ liệu sơ cấp </div>
+          <div style = " padding:5px; "> Số nguyên phụ liệu sơ cấp </div>
           
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
@@ -146,7 +146,7 @@
         </div>
         <div class="col-sm-2 panel panel-row">
           <div class = "b"></div>
-          <div> Số nguyên phụ liệu thứ cấp </div>
+          <div style = " padding:5px; "> Số nguyên phụ liệu thứ cấp </div>
           
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
@@ -156,7 +156,7 @@
         </div>
         <div class="col-sm-2 panel panel-row">
           <div class = "b"></div>
-          <div> Số nguyên phụ liệu gia công </div>
+          <div style = " padding:5px; "> Số nguyên phụ liệu gia công </div>
           
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
@@ -536,8 +536,8 @@ font-size: 16px;
   text-decoration: none; 
 }
 
-.focus {
-  background: rgb(255, 0, 0);
+.borderinf {
+  border: 10px;
 }
 
 .options1{
