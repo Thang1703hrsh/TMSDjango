@@ -20,6 +20,7 @@
       <organization-chart-node 
         :datasource="datasource" 
         :handle-click="handleClick" 
+        :activity = "activity"
         >
         <template v-for="slot in Object.keys($scopedSlots)" 
                   :slot="slot" slot-scope="scope">
@@ -47,6 +48,11 @@ export default {
       type: Boolean,
       required: false
     },
+    // activity: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false
+    // },
     zoom: {
       type: Boolean,
       required: false

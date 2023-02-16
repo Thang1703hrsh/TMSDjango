@@ -11,7 +11,7 @@
                   {{ datasource.name }}
                 </div>
                 <div>
-                  <p v-if = "!active" class="content">{{ datasource.title }}</p>
+                  <p v-if = "activity === false" class="content">{{ datasource.title }}</p>
                   <p v-else class="contentclick">{{ datasource.title }}</p>
                 </div>
               </slot>
@@ -27,9 +27,9 @@
         </tr>
         <tr class="lines">
           <td class="rightLine"></td>
-         <template v-for="n in (datasource.children.length-1)" >
-            <td class="leftLine topLine" :key="n"></td>
-            <td class="rightLine topLine" :key="n"></td>
+         <template v-for="n in (datasource.children.length-1)">
+            <td class="leftLine topLine" :key = "n"></td>
+            <td class="rightLine topLine" :key = "n" ></td>
          </template>
           <td class="leftLine"></td>
         </tr>
@@ -52,16 +52,22 @@ export default {
   name: 'node',
   props: {
     datasource: Object,
-    handleClick: Function
+    handleClick: Function,
+    // activity: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false
+    // },
   },
-  data(){
-    return {
-      active:false,
-    };
+  data() {
+    return{
+      activity: false,
+    }
   },
   methods: {
     handleClick1() {
-      this.active = !this.active;
+      this.activity = !this.activity;
+      console.log(this.activity);
     },
   },
 };

@@ -77,7 +77,12 @@
         <section class = "dropdown-wrapper">
           <div @click="isVisible = !isVisible" class="selected-item">
             <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
-            <span v-else>Tìm nguyên phụ liệu</span>
+              <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 
+                8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 
+                6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+              </svg>
+              Tìm nguyên phụ liệu
             <svg 
             :class = "isVisible ? 'dropdown' : ''"
             class = "drop-down-icon"
@@ -121,28 +126,38 @@
             <path fill="none" d="M0 0h24v24H0z"/><path d="M11 2.05V13h10.95c-.501 5.053-4.765 9-9.95 9-5.523 
             0-10-4.477-10-10 0-5.185 3.947-9.449 9-9.95zm2 0A10.003 10.003 0 0 1 21.95 11H13V2.05z"/></svg> -->
             <!-- <img alt="Fabric Material SVG Vector Icon" src="https://www.svgrepo.com/show/178197/fabric-material.svg" width="30" height="30" decoding="async" data-nimg="1" style="color:transparent;width:30px;height:30px"> -->
-          Tổng số nguyên phụ liệu
+            <div class = "b"></div>
+          <div> Tổng số nguyên phụ liệu </div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info" v-else> {{allData["total product"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu sơ cấp
+        <div class="col-sm-2 panel panel-row ">
+          <div class = "b"></div>
+          <div> Số nguyên phụ liệu sơ cấp </div>
+          
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info"> {{allData["total product isn't outsouring"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu thứ cấp
+        <div class="col-sm-2 panel panel-row">
+          <div class = "b"></div>
+          <div> Số nguyên phụ liệu thứ cấp </div>
+          
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
           <div id = "info"> {{allData["total product is outsouring"]}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">Số nguyên phụ liệu gia công
+        <div class="col-sm-2 panel panel-row">
+          <div class = "b"></div>
+          <div> Số nguyên phụ liệu gia công </div>
+          
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
@@ -168,6 +183,7 @@
           :datasource="ds" 
           @node-click="selectNode"
           :pan = "true"
+          :activity= "active"
           >
         </org-chart>
       </div>
@@ -190,6 +206,7 @@ export default {
   },
   data () {
     return {
+      active: false,
       tabList: ["Chi tiết NPL", "NPL gia công"],
       treeData: [],
       ds: {
@@ -348,6 +365,7 @@ export default {
 
     selectItem(material){
       console.log(1)
+      this.active = false; 
       this.selectedItem = material;
       this.ds = material;
       console.log(material)
@@ -357,6 +375,7 @@ export default {
     },
     selectNode (material){
       this.selectedNode = material;
+      this.active = true; 
       this.searchQueryParent = material.name;
       console.log(this.searchQueryParent)
     },
@@ -428,6 +447,18 @@ export default {
 </style>
 
 <style scoped lang = "scss">
+
+.b {
+  position: absolute;
+  left: auto;
+  border: 1px solid #b8b8b8;
+  height: 100%;
+  width: 8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
+}
+
 .hr { 
   width:100%;
   height: 2px; 
@@ -477,12 +508,12 @@ padding: 0px 0px;
 }
 
 .panel-row {
-  border-radius: 10px;
+  border-radius: 5px;
   border-color: #d8d8d8;
   border-width: 0.5px;
   border-style: solid;
   margin: 10px 0px 10px 10px;
-  padding: 6px;
+  padding: 0px;
 }
 
 .col-sm-2 {
