@@ -10,7 +10,7 @@
                   <div  v-if = "selectedNode" class = "options1">
                     <ul>
                       <li>
-                        <b><u class = "dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
+                        <b><u class="dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
                       </li>
                       <li>
                         <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
@@ -77,7 +77,7 @@
         <section class = "dropdown-wrapper">
           <div @click="isVisible = !isVisible" class="selected-item">
             <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
-              <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <svg v-else :fill="'#5386e4'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 
                 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 
                 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
@@ -157,12 +157,11 @@
         <div class="col-sm-2 panel panel-row">
           <div class = "b"></div>
           <div style = " padding:5px; "> Số nguyên phụ liệu gia công </div>
-          
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
-          <div @node-click="selectNode(material)">
+          <div v-else @node-click="selectNode(material)">
             <div v-if = "searchQueryParent">
                 <div v-if = "filteredParent.length == 0" id  = "info" >
                   0
@@ -413,7 +412,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family:  'Trocchi', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -531,6 +530,17 @@ border-style: solid;
 font-size: 16px;
 }
 
+.noteBoxes
+{
+	border: 1px solid;
+  border-radius: 5px;
+	padding: 10px;
+	margin: 10px 0;
+	width: 300px;
+  border-color: #0096C7;
+	background-color: rgba(0, 150, 199, 0.1); 
+}
+
 .dotted{
   border-bottom: 1px dashed #999;
   text-decoration: none; 
@@ -555,18 +565,16 @@ font-size: 16px;
     height: 100%;
 
     li {
-      color: #333333;
-      border: 1px solid  #b8b8b8;
-      background-color: rgb(238, 238, 238);
-      line-height: 20px;
-      width: 100%;
-      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
-      margin: 0 8px 8px 0;
+      font-size: 15px;
+      border: 1px solid;
       border-radius: 5px;
-      width: 100%;
       padding: 10px;
-      cursor: pointer;
-      font-size: 16px;
+      margin: 0 8px 8px 0;
+      width: 100%;
+      border-color: #0096C7;
+      background-color: rgba(0, 150, 199, 0.1); 
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+
       &:hover{
         background-color: #6499f5;
         color: #fff;
