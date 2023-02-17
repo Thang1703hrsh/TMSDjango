@@ -485,7 +485,7 @@ hr {
   align-items: center;
   justify-content: center;
   color: #333333;
-  border: 1px solid  #b8b8b8;
+  border: 1px solid  #0096C7;
   background-color: rgb(255, 255, 166);
   font-size: 13px;
   line-height: 20px;
@@ -501,7 +501,7 @@ hr {
   align-items: center;
   justify-content: center;
   color: #333333;
-  border: 1px solid  #b8b8b8;
+  border: 1px solid  #0096C7;
   background-color: #ececec;
   font-size: 13px;
   line-height: 20px;

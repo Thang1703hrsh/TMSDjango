@@ -7,12 +7,45 @@
             <div @node-click="selectNode(material)">
               <app-tabs class="w-11/12 lg:w-11/12 mx-auto mb-16" :tabList="tabList">
                 <template v-slot:tabPanel-1> 
-                  <div  v-if = "selectedNode" class = "options1">
+                  <div  v-if = "selectedNode" class = "options1 custom-scrollbar">
                     <ul>
                       <li>
-                        <b><u class="dotted">Mã NPL:</u></b> <br> {{ selectedNode.name}}
+                        <b>Mã nguyên phụ liệu</b> <div class = "form-control">{{ selectedNode.name}}</div>  
+                        <b>Tên nguyên phụ liệu</b> <div class = "form-control">{{selectedNode.title}} </div>
+                        <div class="col-lg-6 col-12" style = "padding-left: 1px">
+                          <b>Quy cách</b>  <div class = "form-control">{{selectedNode.specification}} </div>
+                        </div> 
+                        <div class="col-lg-6 col-12" style = "padding: 0px">
+                          <b>Cơ số dự trữ</b>  <div class = "form-control">{{selectedNode.reserve_quantity}} </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-12" style = "padding-left: 1px">
+                          <b>Tồn kho</b>  <div class = "form-control">{{selectedNode.quantity}} </div>
+                        </div> 
+                        <div class="col-lg-6 col-12" style = "padding: 0px">
+                          <b>Đã đặt</b>  <div class = "form-control"> {{selectedNode.ordered_quantity}} </div>
+                        </div> 
+                        <!-- <b>Đã đặt:</b>  <div class = "form-control controlwidth"> {{selectedNode.ordered_quantity}} </div> -->
+                        <div class="col-lg-6 col-12" style = "padding-left: 1px">
+                          <b>SL cần</b>  <div class = "form-control">{{selectedNode.need_quantity}} </div>
+                        </div> 
+                        <div class="col-lg-6 col-12" style = "padding: 0px">
+                          <b>SL cần theo TC</b>  <div class = "form-control">{{selectedNode.need_for_outsourcing}} </div>
+                        </div> 
+
+                        <!-- <div class="col-lg-6 col-12" style = "padding-left: 1px">
+                          <b>Đã xuất kho GCN</b>  <div class = "form-control">{{selectedNode.outsourcing_stock_out}} </div>
+                        </div> 
+                        <div class="col-lg-6 col-12" style = "padding: 0px">
+                          <b>Trừ tạm</b>  <div class = "form-control">{{selectedNode.temporary_quantity}} </div>
+                        </div>  -->
+
+
+                        <b>Đã xuất kho GCN</b>  <div class = "form-control">{{selectedNode.outsourcing_stock_out}} </div>
+
+                        <b>Trừ tạm:</b> <div class = "form-control"> {{selectedNode.temporary_quantity}} </div>
                       </li>
-                      <li>
+                      <!-- <li>
                         <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
                       </li>
                       <li>
@@ -32,7 +65,7 @@
                       </li>
                       <li>
                         <b><u class = "dotted">Trừ tạm:</u></b> {{selectedNode.temporary_quantity}}
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                   <div v-else> 
@@ -42,7 +75,7 @@
                   </div>
                 </template>
                 <template v-slot:tabPanel-2> 
-                  <div v-if = "searchQueryParent" class = "options1">
+                  <div v-if = "searchQueryParent" class = "options1 custom-scrollbar">
                     <span v-if = "filteredParent.length == 0"><br> 
                       <svg id = "svgelem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="52"><path fill="none" d="M0 0h24v24H0z"/>
                         <path d="M3.515 2.1l19.092 19.092-1.415 1.415-2.014-2.015A5.985 5.985 0 0 1 17 21H7A6 6 0 0 1 5.008 9.339a6.992 6.992 0 0 1 .353-2.563L2.1 3.514 
@@ -76,13 +109,14 @@
       <div class="panel panel-default">
         <section class = "dropdown-wrapper">
           <div @click="isVisible = !isVisible" class="selected-item">
+            <svg :fill="'#5386e4'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 
+              8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 
+              6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+            </svg>
             <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
-              <svg v-else :fill="'#5386e4'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 
-                8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 
-                6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
-              </svg>
-              Tìm nguyên phụ liệu
+            <span v-else>Tìm nguyên phụ liệu</span>
+            
             <svg 
             :class = "isVisible ? 'dropdown' : ''"
             class = "drop-down-icon"
@@ -90,7 +124,6 @@
             viewBox="0 0 24 24" 
             width="24" 
             height="24">
-
               <path fill="none" d="M0 0h24v24H0z"/>
               <path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/>
             </svg>
@@ -98,7 +131,7 @@
           </div>
           <!-- <div v-if="isVisible" class="dropdown-popover"> -->
           <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
-            <input id = 'add' v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL">
+            <input id = "add" v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL">
             <div v-if = "treeData.length == 0"> 
               <br><br>
               <vue-loading type="spiningDubbles" color="black" :size="{ width: '50px', height: '50px' }">
@@ -217,6 +250,8 @@ export default {
             "need_for_outsourcing": 0.0,
             "outsourcing_stock_out": 0.0,
             "temporary_quantity": 0.0,
+            "reserve_quantity": 0.0,
+            "specification": "3.0cm",
             "children": [
                 {
                     "name": "9-MICRIN-WHI-L2-78",
@@ -227,6 +262,8 @@ export default {
                     "need_for_outsourcing": 0.0,
                     "outsourcing_stock_out": 0.0,
                     "temporary_quantity": 0.0,
+                    "reserve_quantity": 0.0,
+                    "specification": "7.8cm",
                     "children": [
                         {
                             "name": "1-MICRIN-WHI-L1-HV",
@@ -237,6 +274,8 @@ export default {
                             "need_for_outsourcing": 0.0,
                             "outsourcing_stock_out": 0.0,
                             "temporary_quantity": 14.79,
+                            "reserve_quantity": 0.0,
+                            "specification": "1.45m",
                             "children": [
                                 {
                                     "name": "1-MICRIN-WHI-00-HV",
@@ -247,6 +286,8 @@ export default {
                                     "need_for_outsourcing": 74.1266,
                                     "outsourcing_stock_out": 0.0,
                                     "temporary_quantity": 196.4039,
+                                    "reserve_quantity": 0.0,
+                                    "specification": "1.45m",
                                     "children": [
                                         {
                                             "name": "1-MICRO0-WHI-00-HV",
@@ -256,7 +297,9 @@ export default {
                                             "need_quantity": 0.0,
                                             "need_for_outsourcing": 1.5,
                                             "outsourcing_stock_out": 1.5,
-                                            "temporary_quantity": 768.84
+                                            "temporary_quantity": 768.84,
+                                            "reserve_quantity": 0.0,
+                                            "specification": "1.45m"
                                         }
                                     ]
                                 },
@@ -268,7 +311,9 @@ export default {
                                     "need_quantity": 4299.46,
                                     "need_for_outsourcing": 15664.290621,
                                     "outsourcing_stock_out": 0.0,
-                                    "temporary_quantity": -6221.020621
+                                    "temporary_quantity": -6221.020621,
+                                    "reserve_quantity": 0.0,
+                                    "specification": "1.45m"
                                 }
                             ]
                         }
@@ -283,6 +328,8 @@ export default {
                     "need_for_outsourcing": 4981.13,
                     "outsourcing_stock_out": 0.0,
                     "temporary_quantity": -4981.13,
+                    "reserve_quantity": 0.0,
+                    "specification": "3.0cm",
                     "children": [
                         {
                             "name": "9-GIA80G-WHI-00-TQ",
@@ -292,7 +339,9 @@ export default {
                             "need_quantity": 113.8,
                             "need_for_outsourcing": 1285.706756,
                             "outsourcing_stock_out": 0.0,
-                            "temporary_quantity": -381.102156
+                            "temporary_quantity": -381.102156,
+                            "reserve_quantity": 0.0,
+                            "specification": " "
                         }
                     ]
                 },
@@ -305,6 +354,8 @@ export default {
                     "need_for_outsourcing": 4498.32,
                     "outsourcing_stock_out": 0.0,
                     "temporary_quantity": -4498.32,
+                    "reserve_quantity": 0.0,
+                    "specification": "3.0cm",
                     "children": [
                         {
                             "name": "1-GOLDAI-WHI-00-EP",
@@ -314,7 +365,9 @@ export default {
                             "need_quantity": 91.51,
                             "need_for_outsourcing": 169.614934,
                             "outsourcing_stock_out": 25.0,
-                            "temporary_quantity": 459.270166
+                            "temporary_quantity": 459.270166,
+                            "reserve_quantity": 0.0,
+                            "specification": "1.45M"
                         }
                     ]
                 }
@@ -420,16 +473,6 @@ export default {
   margin-top: 00px;
 }
 
-#add{
-      text-align: center; 
-      width: 100%;
-      height: 35px;
-      margin: 0 auto;
-      border: none;
-      border:solid 1px #ccc;
-      border-radius: 5px;
-    }
-
 #svgelem {
    margin-left:auto;
    margin-right:auto;
@@ -446,6 +489,16 @@ export default {
 </style>
 
 <style scoped lang = "scss">
+
+#add{
+  text-align: center; 
+  width: 100%;
+  height: 35px;
+  margin: 0 auto;
+  border:1px solid #0096C7;
+  border-radius: 10px;
+}
+
 
 .b {
   position: absolute;
@@ -486,6 +539,7 @@ height: 100%
 
 .col-md-2 {
 width: 380px;
+padding-left: 0px; 
 }
 
 .button {
@@ -541,20 +595,63 @@ font-size: 16px;
 	background-color: rgba(0, 150, 199, 0.1); 
 }
 
-.dotted{
-  border-bottom: 1px dashed #999;
-  text-decoration: none; 
-}
-
 .borderinf {
   border: 10px;
 }
 
+.form-control {
+  font-size: 15px;
+  padding: 0.375rem 0.875rem;
+  background-color: rgba(38, 125, 207, 0.151); 
+  background-clip: padding-box;
+  border: 1px solid #dbe5ee;
+  border-radius: 0.25rem;
+  height: 100%;
+  min-height: 30.74px;
+  box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
+  margin: 0px 10px 10px 0px ;
+}
+
+.form-control-tab {
+  font-size: 15px;
+  background-color: rgba(38, 125, 207, 0.151); 
+  background-clip: padding-box;
+  border: 1px solid #dbe5ee;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
+}
+
+.controlwidth {
+  width: 50%
+}
+
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 .options1{
+  font-family: "Roboto",sans-serif;
   width: 100%;
 
   span{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
   }
   ul{
@@ -563,22 +660,16 @@ font-size: 16px;
     text-align: left;
     padding-left: 0px;
     height: 100%;
-
     li {
       font-size: 15px;
       border: 1px solid;
       border-radius: 5px;
       padding: 10px;
-      margin: 0 8px 8px 0;
       width: 100%;
       border-color: #0096C7;
-      background-color: rgba(0, 150, 199, 0.1); 
+      background-color: rgba(255, 255, 255, 0.1); 
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
 
-      &:hover{
-        background-color: #6499f5;
-        color: #fff;
-      }
     }
   }
 }
@@ -598,11 +689,13 @@ font-size: 16px;
   max-width: 100%;
   position: relative;
   margin: 0 auto;
+  
 
   .selected-item {
   height: 40px;
-  border: 0px solid rgb(255, 255, 255);
+  // border: 0px solid rgb(255, 255, 255);
   border-radius: 5px;
+  border-color: #0096C7;
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
@@ -622,7 +715,7 @@ font-size: 16px;
 
   .dropdown-popover{
     position: absolute;
-    border: 2px solid lightgray;
+    border: 1px solid lightgray;
     border-radius: 10px;
     top: 50px;
     left: 0;
@@ -649,6 +742,7 @@ font-size: 16px;
     }
     .options{
       width: 100%;
+      height: 80%;
       ul{
         border-radius: 5px;
         list-style: none;
@@ -657,15 +751,26 @@ font-size: 16px;
         max-height: 150px;
         overflow-y: scroll;
         overflow-x: hidden;
+        
 
         li {
+          font-size: 15px;
+          // padding: 0.375rem 0.875rem;
+          background-color: rgba(38, 125, 207, 0.151); 
+          background-clip: padding-box;
+          // border: 1px solid #dbe5ee;
+          // border-radius: 0.25rem;
+          // height: 80%;
+          box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
+          // margin: 0px 10px 10px 0px ;
+
           border-radius: 5px;
           width: 100%;
-          border-bottom: 1px solid lightgray;
+          border-bottom: 1px solid rgb(136, 136, 136);
           padding: 8px;
-          background-color:  #f1f1f1;
+          // background-color:  #f1f1f1;
           cursor: pointer;
-          font-size: 16px;
+          // font-size: 16px;
           &:hover{
             background-color: #6499f5;
             color: #fff;
