@@ -89,7 +89,7 @@
                         v-for="materialParent in filteredParent" 
                         :key="materialParent.name">
                         <li v-for="(materialParent , index) in materialParent.children" :key = "index">
-                          <b><u class = "dotted">NPL:</u></b> {{materialParent.name}}
+                          <div class = "dotted"><b><font-awesome-icon icon="fas fa-cogs" /> </b> <b style = "color: #4a90e2;"> {{materialParent.name}} </b></div>
                         </li> 
                       </div>
                     </ul>
@@ -209,6 +209,30 @@
               </div>
           </div>
         </div>
+        <div class="col-sm-2 panel panel-row">
+          <div class = "b"></div>
+          <div style = " padding:5px; "> Số nguyên phụ liệu cấu thành </div>
+          
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
+          </div>
+          <div v-else @node-click="selectNode(material)">
+            <div v-if = "searchQueryChild">
+                <div v-if = "filteredChild.length == 0" id  = "info" >
+                  0
+                </div>
+                <div 
+                  v-for="material in filteredChild" 
+                  :key="material.name">
+                  <div id  = "info">
+                    {{material.children.length}}
+                  </div> 
+                </div>
+              </div>
+          </div>
+        </div>
+
       </div>
       <div class="panel panel-default">
         <org-chart 
@@ -375,6 +399,7 @@ export default {
         },
       searchQuery: "",
       searchQueryParent: "",
+      searchQueryChild: "",
       selectedItem: null ,
       selectedNode: null,
       parentNode: [],
@@ -422,6 +447,7 @@ export default {
       this.ds = material;
       console.log(material)
       this.isVisible = false;
+      
       // this.$forceUpdate();
       
     },
@@ -429,6 +455,7 @@ export default {
       this.selectedNode = material;
       this.active = true; 
       this.searchQueryParent = material.name;
+      this.searchQueryChild = material.name;
       console.log(this.searchQueryParent)
     },
     showParent(materialParent){
@@ -458,7 +485,17 @@ export default {
         );
       });
     },
-    
+    filteredChild() {
+      const query = this.searchQueryChild;
+      if(this.searchQueryChild == "") { 
+        return this.treeData;
+      }
+      return this.treeData.filter((material) => {
+        return Object.values(material).some((word) => 
+          String(word).includes(query)
+        );
+      });
+    },
   },
 }
 </script>
@@ -499,16 +536,20 @@ export default {
   border-radius: 10px;
 }
 
-
+.dotted{
+  &:hover{
+    text-decoration: underline 2px;
+    color: #0096C7;
+  }
+}
 .b {
   position: absolute;
   left: auto;
-  border: 1px solid #b8b8b8;
   height: 100%;
   width: 8px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #5386e4;
 }
 
 .hr { 
@@ -561,16 +602,18 @@ padding: 0px 0px;
 }
 
 .panel-row {
-  border-radius: 5px;
+  border-radius: 10px;
   border-color: #d8d8d8;
   border-width: 0.5px;
   border-style: solid;
   margin: 10px 0px 10px 10px;
   padding: 0px;
+  background: linear-gradient(to top, #e3ecff 0%, #bccff3 100%);
+  // background:  #e3ecff ;
 }
 
 .col-sm-2 {
-  width: calc((100% - 40px) / 4);
+  width: calc((100% - 50px) / 5);
   height: 70px;
   margin: 10px 20px calc(40px/3px) 0px ;
   // background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
@@ -669,6 +712,7 @@ font-size: 16px;
       border-color: #0096C7;
       background-color: rgba(255, 255, 255, 0.1); 
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+      margin: 0px 8px 8px 0px;
 
     }
   }
@@ -748,7 +792,7 @@ font-size: 16px;
         list-style: none;
         text-align: left;
         padding-left: 0px;
-        max-height: 150px;
+        height: 126px;
         overflow-y: scroll;
         overflow-x: hidden;
         

@@ -4,11 +4,11 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
-  <div class = "titlechart" align="left">Cấu trúc nguyên phụ liệu</div>
+  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div>
   <div class = "sub_div">
-    <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
-    <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
-    <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
+    <div style="display: inline-block" class = "rectangle1"></div> Nguyên phụ liệu đã chọn
+    <div style="display: inline-block" class = "rectangle2"></div> Nguyên phụ liệu đang chọn
+    <div style="display: inline-block" class = "rectangle3"></div> Nguyên phụ liệu chưa chọn
   </div>
     <div
       class="orgchart"
@@ -210,16 +210,16 @@ hr {
   transform: translateX(-50%);
 }
 .rectangle1 {
-  border-radius: 4px;
+  /* border-radius: 4px; */
   position: relative;
-  border: 1px solid #b8b8b8;
+  border: 1px solid #0096C7;
   height: 13px;
   width: 19px;
   background-color: rgb(255, 255, 166);
 }
 .rectangle2 {
   margin-left: 20px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   border: 2px solid rgb(0, 0, 0);
   position: relative;
   height: 13px;
@@ -228,8 +228,8 @@ hr {
 }
 .rectangle3 {
   margin-left: 20px;
-  border-radius: 4px;
-  border: 1px solid #b8b8b8;
+  /* border-radius: 4px; */
+  border: 1px solid #0096C7;
   position: relative;
   height: 13px;
   width: 19px;
