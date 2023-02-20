@@ -131,7 +131,7 @@
           </div>
           <!-- <div v-if="isVisible" class="dropdown-popover"> -->
           <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
-            <input id = "add" v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL">
+            <input id = "add" v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL" @keyup.enter="selectItem(material)" />
             <div v-if = "treeData.length == 0"> 
               <br><br>
               <vue-loading type="spiningDubbles" color="black" :size="{ width: '50px', height: '50px' }">
@@ -447,6 +447,7 @@ export default {
         );
       });
     },
+    
     filteredParent() {
       const query = this.searchQueryParent;
       if(this.searchQueryParent == "") { 
@@ -465,7 +466,7 @@ export default {
 
 <style>
 #app {
-  font-family:  'Trocchi', serif;
+  font-family: "Roboto",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -6,9 +6,9 @@
   >
   <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div>
   <div class = "sub_div">
-    <div style="display: inline-block" class = "rectangle1"></div> Nguyên phụ liệu đã chọn
-    <div style="display: inline-block" class = "rectangle2"></div> Nguyên phụ liệu đang chọn
-    <div style="display: inline-block" class = "rectangle3"></div> Nguyên phụ liệu chưa chọn
+    <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
+    <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
+    <div style="display: inline-block" class = "rectangle3"></div> NPL chưa chọn
   </div>
     <div
       class="orgchart"
@@ -182,7 +182,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Roboto",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -220,7 +220,7 @@ hr {
 .rectangle2 {
   margin-left: 20px;
   /* border-radius: 4px; */
-  border: 2px solid rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   position: relative;
   height: 13px;
   width: 19px;
@@ -238,7 +238,7 @@ hr {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 750px;
+  height: 705px;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 10px;
@@ -258,6 +258,7 @@ hr {
   user-select: none;
   border: 1px dashed rgba(0, 0, 0, 0);
   padding: 0px;
+  margin: -15px;
 }
 .orgchart .hidden,
 .orgchart ~ .hidden {
