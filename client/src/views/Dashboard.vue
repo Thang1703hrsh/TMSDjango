@@ -608,7 +608,7 @@ export default {
   font-size: 14px;
   color: #899bbd;
   font-weight: bold;
-  margin: 0px;
+  margin: -2px;
 }
 
 .breadcrumb a {

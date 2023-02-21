@@ -26,6 +26,6 @@ urlpatterns = [
     # path("" , get_req_stock_in),
     # path("" , get_need_quantity),
     # path("" , get_material_reports),
-    path("" , get_req_stock_out),
-    path("" , get_product),
+    # path("" , get_req_stock_out),
+    # path("" , get_product),
 ]
