@@ -25,7 +25,6 @@
                         <div class="col-lg-6 col-12" style = "padding: 0px">
                           <b>Đã đặt</b>  <div class = "form-control"> {{selectedNode.ordered_quantity}} </div>
                         </div> 
-                        <!-- <b>Đã đặt:</b>  <div class = "form-control controlwidth"> {{selectedNode.ordered_quantity}} </div> -->
                         <div class="col-lg-6 col-12" style = "padding-left: 1px">
                           <b>SL cần</b>  <div class = "form-control">{{selectedNode.need_quantity}} </div>
                         </div> 
@@ -33,39 +32,11 @@
                           <b>SL cần theo TC</b>  <div class = "form-control">{{selectedNode.need_for_outsourcing}} </div>
                         </div> 
 
-                        <!-- <div class="col-lg-6 col-12" style = "padding-left: 1px">
-                          <b>Đã xuất kho GCN</b>  <div class = "form-control">{{selectedNode.outsourcing_stock_out}} </div>
-                        </div> 
-                        <div class="col-lg-6 col-12" style = "padding: 0px">
-                          <b>Trừ tạm</b>  <div class = "form-control">{{selectedNode.temporary_quantity}} </div>
-                        </div>  -->
-
-
                         <b>Đã xuất kho GCN</b>  <div class = "form-control">{{selectedNode.outsourcing_stock_out}} </div>
 
                         <b>Trừ tạm:</b> <div class = "form-control"> {{selectedNode.temporary_quantity}} </div>
                       </li>
-                      <!-- <li>
-                        <b><u class = "dotted">Tên NPL:</u></b> <br> {{selectedNode.title}} <br>
-                      </li>
-                      <li>
-                        <b><u class = "dotted">Tồn kho:</u></b> {{selectedNode.quantity}}
-                      </li>
-                      <li>
-                        <b><u class = "dotted">Đã đặt:</u></b> {{selectedNode.ordered_quantity}}
-                      </li>
-                      <li>
-                        <b><u class = "dotted">SL cần:</u></b> {{selectedNode.need_quantity}}
-                      </li>
-                      <li>
-                        <b><u class = "dotted">SL cần theo TC:</u></b> {{selectedNode.need_for_outsourcing}}
-                      </li>
-                      <li>
-                        <b><u class = "dotted">Đã xuất kho GCN:</u></b> {{selectedNode.outsourcing_stock_out}}
-                      </li>
-                      <li>
-                        <b><u class = "dotted">Trừ tạm:</u></b> {{selectedNode.temporary_quantity}}
-                      </li> -->
+                    
                     </ul>
                   </div>
                   <div v-else> 
@@ -197,10 +168,10 @@
           <div class="row search">
             <div class="col-sm-4">
               <div class="pagetitle">
-                <h1>DashBoard</h1>
+                <h1 align="left">DashBoard</h1>
                 <nav>
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="">Traceback</a></li>
+                    <li class="breadcrumb-item"><a href="http://localhost:8080/#/traceback">Traceback</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                   </ol>
                 </nav>
@@ -208,12 +179,14 @@
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-              <div class="input-icons">
-                <font-awesome-icon icon="fas fa-search"/> 
-                <input id = "add" type = "text" @keyup.enter="selectItem(material)"  placeholder="Nhập mã NPL" >
+              <div class="search-bar">
+                <form class="search-form d-flex align-items-center">
+                    <input type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)" v-for="material in filteredChild" 
+                  :key="material.name">
+                  <button title="Search"><b-icon icon="search"></b-icon></button>
+                </form>
               </div>
             </div>
-            
           </div>
             <!-- <div class = "options">
               <ul>
@@ -562,9 +535,10 @@ export default {
   margin-top: 00px;
 }
 
-.input-icons {
+.input-icons input{
   width: 100%;
   margin-bottom: 10px;
+  padding: 0px 38px 0px 10px;
 }
 
 .icon {
@@ -593,6 +567,49 @@ export default {
 
 <style scoped lang = "scss">
 
+.search-bar {
+  min-width: 360px;
+  padding: 0 20px;
+}
+
+
+
+.search-filter {
+  height: 40px
+}
+
+.search-filter {
+  height: 40px
+}
+
+
+.search-form {
+  width: 100%;
+  input {
+    border: 0;
+    font-size: 14px;
+    color: #012970;
+    border: 1px solid rgba(1, 41, 112, 0.2);
+    padding: 7px 38px 7px 8px;
+    border-radius: 3px;
+    transition: 0.3s;
+    width: 100%;
+  }
+  button {
+    border: 0;
+    padding: 0;
+    margin-left: -30px;
+    background: none;
+    b-icon {
+      border: 0;
+      padding: 0;
+      margin-left: -30px;
+      background: none;
+      color: #012970;
+    }
+  }
+}
+
 .pagetitle {
   margin-bottom: 10px;
 }
@@ -600,19 +617,24 @@ export default {
 .pagetitle h1 {
   font-size: 20px;
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: 500;
   color: #000000;
+  letter-spacing: 1px;
 }
 
 .breadcrumb {
+  text-align: left;
+  letter-spacing: 0.5px;
   font-size: 14px;
-  color: #899bbd;
+  color: #000000;
   font-weight: bold;
-  margin: -2px;
+  margin: 0px;
+  padding: 0px ;
+  height: 0px;
 }
 
 .breadcrumb a {
-  color: #899bbd;
+  color: #b5c0d6;
   transition: 0.3s;
 }
 
@@ -685,7 +707,7 @@ margin-top: 0px;
 
 .panel-body-cons {
 /* height: 480px; */
-height: 244px;
+height: 262px;
 overflow-y: auto; 
 padding: 0px
 }
@@ -704,7 +726,7 @@ margin-top: -8px;
 
 .row{
   padding: 0px 0px 0px 0px;
-  margin: -10px 0px 0px -10px ;
+  margin: 5px 0px 0px -10px ;
 }
 .search{
   padding: 0px 0px 0px 0px;
@@ -746,7 +768,7 @@ margin-bottom: 10px;
   border-color: #d8d8d8;
   border-width: 0.5px;
   border-style: solid;
-  margin: 10px 0px 10px 10px;
+  margin: 5px 0px 10px 10px;
   padding: 0px;
   background: linear-gradient(to top, #e3ecff 0%, #bccff3 100%);
   // background:  #e3ecff ;

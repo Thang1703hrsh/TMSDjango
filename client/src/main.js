@@ -31,6 +31,7 @@ import './scss/app.scss';
 import './assets/tailwind.css'
 import "./index.css"
 import router from './router'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -43,7 +44,8 @@ Vue.use(VueLoading, /** options **/)
 
 library.add(fas, far, fab)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 Vue.use(Antd, VueLoading);
 
 Vue.config.productionTip = false;

@@ -131,23 +131,25 @@
           </div>
           <!-- <div v-if="isVisible" class="dropdown-popover"> -->
           <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
-            <input id = "add" v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL" @keyup.enter="selectItem(material)" />
+            <input id = "add" v-model = "searchQuery" type = "text" placeholder="Nhập mã NPL" @keydown.enter="selectItem(material)" v-for="material in filteredMat" 
+                  :key="material.name">
+            
             <div v-if = "treeData.length == 0"> 
               <br><br>
               <vue-loading type="spiningDubbles" color="black" :size="{ width: '50px', height: '50px' }">
               </vue-loading>
             </div>
             <span v-if = "filteredMat.length == 0"><br><br>Không tồn tại NPL<br></span>
-            <div class = "options">
+            <!-- <div class = "options">
               <ul>
                 <li 
-                  @click="selectItem(material)" 
+                  @keydown.enter="selectItem(material)" 
                   v-for="material in filteredMat" 
                   :key="material.name">
                     {{material.name}}
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </section>
       </div>
@@ -209,6 +211,30 @@
               </div>
           </div>
         </div>
+        <div class="col-sm-2 panel panel-row">
+          <div class = "b"></div>
+          <div style = " padding:5px; "> Số nguyên phụ liệu cấu thành </div>
+          
+          <div v-if = "allData.length == 0"> 
+            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+            </vue-loading>
+          </div>
+          <div v-else @node-click="selectNode(material)">
+            <div v-if = "searchQueryChild">
+                <div v-if = "filteredChild.length == 0" id  = "info" >
+                  0
+                </div>
+                <div 
+                  v-for="material in filteredChild" 
+                  :key="material.name">
+                  <div id  = "info">
+                    {{material.children.length}}
+                  </div> 
+                </div>
+              </div>
+          </div>
+        </div>
+
       </div>
       <div class="panel panel-default">
         <org-chart 
@@ -229,7 +255,6 @@ import OrgChart from '../components/OrganizationChartContainer.vue'
 import axios from 'axios'
 import AppTabs from "../components/Tabs";
 import { VueLoading } from 'vue-loading-template'
-
 export default {
   components: {
     OrgChart,
@@ -239,7 +264,7 @@ export default {
   data () {
     return {
       active: false,
-      tabList: ["Chi tiết NPL", "NPL cấu thành"],
+      tabList: ["Chi tiết NPL", "NPL gia công"],
       treeData: [],
       ds: {
             "name": "4-MICRIN-WHI-D7-30",
@@ -375,6 +400,7 @@ export default {
         },
       searchQuery: "",
       searchQueryParent: "",
+      searchQueryChild: "",
       selectedItem: null ,
       selectedNode: null,
       parentNode: [],
@@ -414,7 +440,6 @@ export default {
     reRender(){
         this.$forceUpdate()
     },
-
     selectItem(material){
       console.log(1)
       this.active = false; 
@@ -422,6 +447,7 @@ export default {
       this.ds = material;
       console.log(material)
       this.isVisible = false;
+      
       // this.$forceUpdate();
       
     },
@@ -429,6 +455,7 @@ export default {
       this.selectedNode = material;
       this.active = true; 
       this.searchQueryParent = material.name;
+      this.searchQueryChild = material.name;
       console.log(this.searchQueryParent)
     },
     showParent(materialParent){
@@ -447,7 +474,6 @@ export default {
         );
       });
     },
-    
     filteredParent() {
       const query = this.searchQueryParent;
       if(this.searchQueryParent == "") { 
@@ -459,38 +485,42 @@ export default {
         );
       });
     },
-    
+    filteredChild() {
+      const query = this.searchQueryChild;
+      if(this.searchQueryChild == "") { 
+        return this.treeData;
+      }
+      return this.treeData.filter((material) => {
+        return Object.values(material).some((word) => 
+          String(word).includes(query)
+        );
+      });
+    },
   },
 }
 </script>
 
 <style>
 #app {
-  font-family: "Roboto",sans-serif;
+  font-family:  'Trocchi', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 00px;
 }
-
 #svgelem {
    margin-left:auto;
    margin-right:auto;
    display:block;
 }
-
 #info {
   font-size: 22px;
   font-weight: bold;
-
 }
-
-
 </style>
 
 <style scoped lang = "scss">
-
 #add{
   text-align: center; 
   width: 100%;
@@ -499,7 +529,6 @@ export default {
   border:1px solid #0096C7;
   border-radius: 10px;
 }
-
 .dotted{
   &:hover{
     text-decoration: underline 2px;
@@ -509,14 +538,12 @@ export default {
 .b {
   position: absolute;
   left: auto;
-  border: 1px solid #b8b8b8;
   height: 100%;
   width: 8px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background: linear-gradient(to top, #5386e4 100%, #6499f5 100%);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #5386e4;
 }
-
 .hr { 
   width:100%;
   height: 2px; 
@@ -533,21 +560,17 @@ padding: 0px
 padding: 0px;
 width: calc(100% - 380px);
 }
-
 .row{
   padding: 0px 0px 0px 0px;
   margin: -10px 0px 0px -10px ;
 }
-
 .form-group {
 height: 100%
 }
-
 .col-md-2 {
 width: 380px;
 padding-left: 0px; 
 }
-
 .button {
   background-color: #4CAF50; /* Green */
   border: 2px;
@@ -558,30 +581,28 @@ padding-left: 0px;
   display: inline-block;
   font-size: 16px;
 }
-
 .panel-default {
 border-radius: 10px;
 border-width: 0.5px;
 border-style: solid;
 padding: 0px 0px;
 }
-
 .panel-row {
-  border-radius: 5px;
+  border-radius: 10px;
   border-color: #d8d8d8;
   border-width: 0.5px;
   border-style: solid;
   margin: 10px 0px 10px 10px;
   padding: 0px;
+  background: linear-gradient(to top, #e3ecff 0%, #bccff3 100%);
+  // background:  #e3ecff ;
 }
-
 .col-sm-2 {
-  width: calc((100% - 40px) / 4);
+  width: calc((100% - 50px) / 5);
   height: 70px;
   margin: 10px 20px calc(40px/3px) 0px ;
   // background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
 }
-
 .panel-heading {
 height: 40px;
 border-radius: 10px;
@@ -589,7 +610,6 @@ border-width: 0.5px;
 border-style: solid;
 font-size: 16px;
 }
-
 .noteBoxes
 {
 	border: 1px solid;
@@ -600,11 +620,9 @@ font-size: 16px;
   border-color: #0096C7;
 	background-color: rgba(0, 150, 199, 0.1); 
 }
-
 .borderinf {
   border: 10px;
 }
-
 .form-control {
   font-size: 15px;
   padding: 0.375rem 0.875rem;
@@ -617,7 +635,6 @@ font-size: 16px;
   box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
   margin: 0px 10px 10px 0px ;
 }
-
 .form-control-tab {
   font-size: 15px;
   background-color: rgba(38, 125, 207, 0.151); 
@@ -626,36 +643,28 @@ font-size: 16px;
   border-radius: 5px;
   box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
 }
-
 .controlwidth {
   width: 50%
 }
-
-
 /* custom scrollbar */
 ::-webkit-scrollbar {
   width: 0px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #d6dee1;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a8bbbf;
 }
-
 .options1{
   font-family: "Roboto",sans-serif;
   width: 100%;
-
   span{
     font-size: 16px;
     font-weight: bold;
@@ -676,11 +685,9 @@ font-size: 16px;
       background-color: rgba(255, 255, 255, 0.1); 
       box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
       margin: 0px 8px 8px 0px;
-
     }
   }
 }
-
 .selected-node {
   height: 40px;
   border: 0px solid rgb(255, 255, 255);
@@ -697,7 +704,6 @@ font-size: 16px;
   position: relative;
   margin: 0 auto;
   
-
   .selected-item {
   height: 40px;
   // border: 0px solid rgb(255, 255, 255);
@@ -709,7 +715,6 @@ font-size: 16px;
   align-items: center;
   font-size: 16px;
   font-weight: 400;
-
   .drop-down-icon{
     transform: rotate(0deg);
     transition: all 0.5s ease;
@@ -719,27 +724,22 @@ font-size: 16px;
     }
   }
 }
-
   .dropdown-popover{
     position: absolute;
-    border: 1px solid lightgray;
     border-radius: 10px;
     top: 50px;
     left: 0;
     right: 0;
-    background-color: #fff;
     max-width: 100%;
     padding: 10px;
     visibility : hidden;
     transition: all .5s linear;
     max-height:  0px;
     overflow: hidden;
-
     &.visible{
-      max-height: 183px;
+      max-height: 45px;
       visibility: visible;
     }
-
     input {
       width: 90%;
       height: 40px;
@@ -759,7 +759,6 @@ font-size: 16px;
         overflow-y: scroll;
         overflow-x: hidden;
         
-
         li {
           font-size: 15px;
           // padding: 0.375rem 0.875rem;
@@ -770,7 +769,6 @@ font-size: 16px;
           // height: 80%;
           box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
           // margin: 0px 10px 10px 0px ;
-
           border-radius: 5px;
           width: 100%;
           border-bottom: 1px solid rgb(136, 136, 136);
@@ -782,7 +780,6 @@ font-size: 16px;
             background-color: #6499f5;
             color: #fff;
             font-weight: bold;
-
           }
         }
       }

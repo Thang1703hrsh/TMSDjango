@@ -238,7 +238,7 @@ hr {
 .orgchart-container {
   position: relative;
   display: inline-block;
-  height: 705px;
+  height: 723px;
   width: 100%;
   border: 0px dashed #aaa;
   border-radius: 10px;

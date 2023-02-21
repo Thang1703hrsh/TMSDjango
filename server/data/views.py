@@ -62,7 +62,6 @@ class OutsourcingProductMaterialsAPIView(APIView):
                 dfMateRepo = pd.DataFrame(MateRepo , columns= ['product_id' , 'ordered_quantity', 
                                         'need_quantity' , 'need_for_outsourcing' , 'outsourcing_stock_out' , 'temporary_quantity'])
                 
-                print(len(dfproDetail[dfproDetail['is_outsourcing'] == 1]))
                 dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name', 'quantity' , 'reserve_quantity' , 'specification']] , on = 'product_id', how = 'left')
                 dfOutProdMate = dfOutProdMate.merge(dfMateRepo[['product_id' , 'ordered_quantity' , 'need_quantity', 'need_for_outsourcing'
                                                         , 'outsourcing_stock_out', 'temporary_quantity']] , on = 'product_id', how = 'left')
@@ -80,7 +79,6 @@ class OutsourcingProductMaterialsAPIView(APIView):
                                                                 , 'parent_outsourcing_stock_out' , 'parent_temporary_quantity']] , on = 'parent_id', how = 'left')
                 dfOutProdMate = dfOutProdMate.dropna().reset_index(drop = True)
                 dfOutProdMate[dfOutProdMate['parent_code'].isna()]
-                print(dfOutProdMate.columns)
                 
                 links = []
                 for i in range(0 , dfOutProdMate.shape[0]):
@@ -109,6 +107,7 @@ class OutsourcingProductMaterialsAPIView(APIView):
                 
                 return Response(tree2)
         
+    
 def get_nodes1(links , node):
     d = {}
     d['name'] = node[0]
@@ -119,13 +118,15 @@ def get_nodes1(links , node):
     d['need_for_outsourcing'] = node[5]
     d['outsourcing_stock_out'] = node[6]
     d['temporary_quantity'] = node[7]
+    d['reserve_quantity'] = node[8]
+    d['specification'] = node[9]
     children = get_children1(links, node)
     if children:
         d['children'] = [get_nodes1(links , child) for child in children]
     return d
 
 def get_children1(links , node):
-    return [(x[8],x[9],x[10],x[11],x[12],x[13],x[14] , x[15])  for x in links if x[0] == node[0]]
+    return [(x[10],x[11],x[12],x[13],x[14] , x[15] ,  x[16] , x[17] , x[18] , x[19])  for x in links if x[0] == node[0]]
 
 class OutsourcingProductAPIView(APIView):
         model = OutsourcingProductMaterials
@@ -135,30 +136,34 @@ class OutsourcingProductAPIView(APIView):
                 OutProdMate = OutsourcingProductMaterials.objects.filter(deleted_at__isnull = True).order_by('outsourcing_product_id').values_list('outsourcing_product_id' , 'product_id')
                 dfOutProdMate = pd.DataFrame(OutProdMate , columns= ['outsourcing_product_id' , 'product_id'])
                 
-                proDetail = ProductDetail.objects.order_by('product_id').values_list('code' , 'name' , 'product_id' , 'quantity' , 'is_outsourcing').filter(deleted_at__isnull = True )
-                dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id' , 'quantity' , 'is_outsourcing'])
+                proDetail = ProductDetail.objects.filter(deleted_at__isnull = True).order_by('product_id').values_list('code' , 'name' , 'product_id' , 'quantity' , 'is_outsourcing' , 'reserve_quantity' , 'specification')
+                dfproDetail = pd.DataFrame(proDetail , columns= ['code' , 'name' , 'product_id' , 'quantity' , 'is_outsourcing' , 'reserve_quantity' , 'specification'])
                 
                 MateRepo = MaterialReports.objects.using('report_db').filter(deleted_at__isnull = True).order_by('product_id').values_list('product_id' , 'ordered_quantity', 
                                                                 'need_quantity' , 'need_for_outsourcing' , 'outsourcing_stock_out' , 'temporary_quantity')
+                
                 dfMateRepo = pd.DataFrame(MateRepo , columns= ['product_id' , 'ordered_quantity', 
                                         'need_quantity' , 'need_for_outsourcing' , 'outsourcing_stock_out' , 'temporary_quantity'])
                 
                 # print(len(dfOutProdMate['outsourcing_product_id'].drop_duplicates().reset_index(drop= True)))
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name', 'quantity']] , on = 'product_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['product_id' , 'code' , 'name', 'quantity' , 'reserve_quantity' , 'specification']] , on = 'product_id', how = 'left')
                 dfOutProdMate = dfOutProdMate.merge(dfMateRepo[['product_id' , 'ordered_quantity' , 'need_quantity', 'need_for_outsourcing'
                                                         , 'outsourcing_stock_out', 'temporary_quantity']] , on = 'product_id', how = 'left')
-                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id" , 'name' : 'child_name' , 'quantity': 'child_quantity'  ,             
-                                                'ordered_quantity' : 'child_ordered_quantity' , 'need_quantity' : 'child_need_quantity', 'need_for_outsourcing': 'child_need_for_outsourcing'
+                
+                dfOutProdMate = dfOutProdMate.rename(columns= {"code" : "child_code" , "product_id" : "child_id" , "outsourcing_product_id" : "parent_id" , 'name' : 'child_name' , 'quantity': 'child_quantity' ,  'reserve_quantity': 'child_reserve_quantity' , 
+                                                'ordered_quantity' : 'child_ordered_quantity' , 'need_quantity' : 'child_need_quantity', 'need_for_outsourcing': 'child_need_for_outsourcing' , 'specification' : 'child_specification'
                                                         , 'outsourcing_stock_out' : 'child_outsourcing_stock_out', 'temporary_quantity' : 'child_temporary_quantity'})
                 
-                dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" , 'quantity': 'parent_quantity' } )
+                dfproDetail = dfproDetail.rename(columns= {"code" : "parent_code" , "product_id" : "parent_id" , 'quantity': 'parent_quantity' , 'reserve_quantity': 'parent_reserve_quantity' , 'specification' : 'parent_specification'} )
                 
                 dfMateRepo = dfMateRepo.rename(columns= {"product_id" : "parent_id" ,'ordered_quantity' : 'parent_ordered_quantity' , 'need_quantity' : 'parent_need_quantity', 'need_for_outsourcing': 'parent_need_for_outsourcing'
                                                         , 'outsourcing_stock_out' : 'parent_outsourcing_stock_out', 'temporary_quantity' : 'parent_temporary_quantity'})
                 
-                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code' , 'name' , 'parent_quantity']] , on = 'parent_id', how = 'left')
+                dfOutProdMate = dfOutProdMate.merge(dfproDetail[['parent_id' , 'parent_code' , 'name' , 'parent_quantity' , 'parent_reserve_quantity' , 'parent_specification']] , on = 'parent_id', how = 'left')
+                
                 dfOutProdMate = dfOutProdMate.merge(dfMateRepo[['parent_id' , 'parent_ordered_quantity' , 'parent_need_quantity' , 'parent_need_for_outsourcing' 
                                                                 , 'parent_outsourcing_stock_out' , 'parent_temporary_quantity']] , on = 'parent_id', how = 'left')
+                
                 dfOutProdMate = dfOutProdMate.dropna().reset_index(drop = True)
                 dfOutProdMate[dfOutProdMate['parent_code'].isna()]
                 
@@ -166,25 +171,26 @@ class OutsourcingProductAPIView(APIView):
                                                                "child_name": "name" , "parent_quantity": "child_quantity" , "child_quantity": "parent_quantity" , "parent_ordered_quantity": "child_ordered_quantity", "child_ordered_quantity": "parent_ordered_quantity", 
                                                                "child_need_for_outsourcing": "parent_need_for_outsourcing", "parent_need_for_outsourcing": "child_need_for_outsourcing" , "parent_outsourcing_stock_out": "child_outsourcing_stock_out" , "child_outsourcing_stock_out": "parent_outsourcing_stock_out" 
                                                                , "child_temporary_quantity": "parent_temporary_quantity" , "parent_temporary_quantity": "child_temporary_quantity"
-                                                               , "parent_need_quantity": "child_need_quantity" , "child_need_quantity": "parent_need_quantity"})
+                                                               , "parent_need_quantity": "child_need_quantity" , "child_need_quantity": "parent_need_quantity" , "child_reserve_quantity" : "parent_reserve_quantity" , 
+                                                               "parent_reserve_quantity" : "child_reserve_quantity" , "child_specification" : "parent_specification" , "parent_specification" : "child_specification"})
                 
                 links = []
                 for i in range(0 , dfOutProdMate.shape[0]):
                         a = dfOutProdMate.loc[i]
                         links.append((a['parent_code'] , a['name'] , a['parent_quantity'] , a['parent_ordered_quantity'] , a['parent_need_quantity'],
-                                      a['parent_need_for_outsourcing'] , a['parent_outsourcing_stock_out'], a['parent_temporary_quantity'],
+                                      a['parent_need_for_outsourcing'] , a['parent_outsourcing_stock_out'], a['parent_temporary_quantity'], a['parent_reserve_quantity'], a['parent_specification'] , 
                                       a['child_code'] , a['child_name'] , a['child_quantity'], a['child_ordered_quantity'] , a['child_need_quantity'],
-                                      a['child_need_for_outsourcing'] , a['child_outsourcing_stock_out'], a['child_temporary_quantity']))
+                                      a['child_need_for_outsourcing'] , a['child_outsourcing_stock_out'], a['child_temporary_quantity'] , a['child_reserve_quantity'] , a['child_specification'] , ))
                         
-                parents, pr_name , parent_quantity, parent_ordered_quantity, parent_need_quantity , parent_need_for_outsourcing , parent_outsourcing_stock_out , parent_temporary_quantity , children, child_name, child_quantity, child_ordered_quantity, child_need_quantity , child_need_for_outsourcing , child_outsourcing_stock_out , child_temporary_quantity = zip(*links)
-                parents = list(zip(parents , pr_name, parent_quantity , parent_ordered_quantity, parent_need_quantity , parent_need_for_outsourcing , parent_outsourcing_stock_out , parent_temporary_quantity))
-                children = list(zip(children , child_name, child_quantity, child_ordered_quantity, child_need_quantity , child_need_for_outsourcing , child_outsourcing_stock_out , child_temporary_quantity))
+                parents, pr_name , parent_quantity, parent_ordered_quantity, parent_need_quantity , parent_need_for_outsourcing , parent_outsourcing_stock_out , parent_temporary_quantity , parent_reserve_quantity , parent_specification , children, child_name, child_quantity, child_ordered_quantity, child_need_quantity , child_need_for_outsourcing , child_outsourcing_stock_out , child_temporary_quantity , child_reserve_quantity, child_specification = zip(*links)
+                parents = list(zip(parents , pr_name, parent_quantity , parent_ordered_quantity, parent_need_quantity , parent_need_for_outsourcing , parent_outsourcing_stock_out , parent_temporary_quantity , parent_reserve_quantity , parent_specification))
+                children = list(zip(children , child_name, child_quantity, child_ordered_quantity, child_need_quantity , child_need_for_outsourcing , child_outsourcing_stock_out , child_temporary_quantity , child_reserve_quantity , child_specification))
                 root_nodes = {x for x in parents}
                 
 
                 for node in root_nodes:
-                        links.append(('Root', '' , '' , '' , '' ,'' , '' ,'' , node[0] , node[1] , node[2], node[3] , node[4] , node[5] , node[6] , node[7]))
-                tree = get_nodes1(links , ('Root' , '' , '' ,'' , '' ,'' , '' ,'' ,))
+                        links.append(('Root', '' , '' , '' , '' ,'' , '' ,'' , '' , '' ,node[0] , node[1] , node[2], node[3] , node[4] , node[5] , node[6] , node[7] , node[8] , node[9]))
+                tree = get_nodes1(links , ('Root' , '' , '' ,'' , '' ,'' , '' ,'' , '' , '' ,))
                 
                 # name = self.request.query_params.get("name")
                 
