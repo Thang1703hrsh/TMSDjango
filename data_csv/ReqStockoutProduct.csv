@@ -207,7 +207,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 366,213,05072022-213,<p>B&Ugrave; GẤP</p>,completed,0,2022-07-05
 366,214,06072022-214,<p>Xuất b&ugrave; nh&atilde;n lỗi phiếu b&ugrave; 10/07</p>,completed,0,2022-07-06
 368,216,06072022-215,<p>B&ugrave; nh&atilde;n lỗi</p>,approval,0,2022-07-06
-368,218,06072022-218,<p>Khắc Lazer cho ĐH HM-220629 FENDT</p>,approval,0,2022-07-06
+368,218,06072022-218,<p>Khắc Lazer cho ĐH HM-220629 FENDT</p>,completed,1,2022-12-21
 352,219,06072022-219,"<p>AD-220525-REDFILLS-BUCKET-GỬI BAO CHO KH&Aacute;CH</p>
 <p>BF-220425-FCS REEDS FESTIVAL-N&Oacute;N MẪU L&Oacute;T THƯỜNG-N&Oacute;N SX ĐỔI L&Oacute;T C&Agrave;I</p>",completed,0,2022-07-06
 352,220,06072022-220,"<p>BF-220531-CADENCY TIGER_v1</p>
@@ -1291,7 +1291,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 232,1616,31102022-1616,xuất kho cho chuyền may b&ugrave; mẫu,completed,0,2022-10-31
 351,1617,01112022-1617,th&ecirc;m hao hụt đơn h&agrave;ng b&ugrave; của BEX,completed,0,2022-11-01
 366,1618,01112022-1618,Xuất đai viền,completed,0,2022-11-01
-370,1620,01112022-1620,Xuất NPL mẫu,approval,0,2022-11-01
+370,1620,01112022-1620,Xuất NPL mẫu,completed,0,2022-11-01
 370,1621,01112022-1621,Xuất vải mẫu,completed,0,2022-11-01
 369,1622,01112022-1622,B&ugrave; cho đơn h&agrave;ng DYC-US-221011-305 Films-648-Opt08,completed,0,2022-11-01
 368,1624,01112022-1624,B&ugrave; ĐH DYC-AU-220920-Paradigm-Opt02,completed,0,2022-11-01
@@ -1379,7 +1379,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 353,1750,12112022-1750,Hủy nh&atilde;n BF năm 2020 kh&ocirc;ng c&ograve;n sử dụng cho đơn h&agrave;ng.,completed,0,2022-11-12
 348,1751,12112022-1751,HM-221007-ELLA SILLA ISLAND GREEN&nbsp; (Thi&ecirc;n Đức sang chỉ về may k&eacute;t kh&ocirc;ng đủ),completed,0,2022-11-12
 351,1752,12112022-1752,JP-221004-SODASHI EARS b&ugrave; vải mặt do keo bị lỗi dơ,completed,0,2022-11-12
-349,1758,12112022-1758,,approval,0,2022-11-12
+349,1758,12112022-1758,,completed,0,2022-11-12
 368,1760,12112022-1760,B&ugrave; ĐH Charter Hat PO#38046,completed,0,2022-11-12
 351,1761,14112022-1761,JP-221004-SODASHI EARS: thiếu trong bọc v&agrave; lỗi sợi,completed,0,2022-11-14
 368,1763,14112022-1763,B&ugrave; ĐH JP-221004-SODASHI EARS,completed,0,2022-11-14
@@ -1393,7 +1393,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 366,1776,15112022-1776,,completed,0,2022-11-15
 352,1781,15112022-1781,AD-221013-YELIR NYLON PATCH,completed,0,2022-11-15
 352,1782,15112022-1782,B&Ugrave; H&Agrave;NG THỦ ĐỨC-TTD-220923-GF4322 Style 7 (2020)-MAY HƯ,completed,0,2022-11-15
-349,1790,15112022-1790,Lấy phụ liệu cho movement Clud 11,approval,0,2022-11-15
+349,1790,15112022-1790,Lấy phụ liệu cho movement Clud 11,completed,0,2022-11-15
 369,1791,15112022-1791,"B&ugrave; cho đơn h&agrave;ng DYC-US-220919-Reidar Dao-638, HM-221019-STATUS1 GRUPPENFUHRER, DYC-US-221004-Worth Avenue Yachts-646-Opt01",completed,0,2022-11-15
 349,1792,15112022-1792,Lấy phụ liệu cho movement Clud 11,completed,0,2022-11-15
 368,1794,15112022-1794,B&ugrave; ĐH ULTRA STORM BUCKET / DYC-CH1-220921-Le Carrefour-Opt04,completed,0,2022-11-15
@@ -1413,7 +1413,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 351,1822,18112022-1822,BEX- KLAFKYN: b&ugrave; th&ecirc;m barcode&nbsp;,completed,0,2022-11-18
 368,1826,18112022-1826,B&ugrave; ĐH UV Pro Boonie 2.0,completed,0,2022-11-18
 370,1830,18112022-1830,Xuất vải mẫu,completed,0,2022-11-18
-370,1832,18112022-1832,Xuất NPL mẫu,approval,0,2022-11-18
+370,1832,18112022-1832,Xuất NPL mẫu,completed,0,2022-11-18
 369,1833,18112022-1833,Chỉ th&ecirc;u,completed,0,2022-11-18
 348,1834,18112022-1834,"HM-221019-STATUS1 DENIM ( vải wash về bị r&uacute;t lại,bị x&ugrave; phải&nbsp; qua nhiệt , &eacute;p nh&agrave;)
 <div id=""bb_msg_id_1668654107801"" class=""chat-message wrap-message rotate-container me  -reaction"" data-node-type=""bubble-message"">
@@ -1492,7 +1492,7 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 370,1886,24112022-1886,,completed,1,2022-11-26
 351,1887,24112022-1887,Kids Play Hat L Beach Day PO 38098: may hư,completed,0,2022-11-24
 349,1888,24112022-1888,"TTDKTY-220928-VV520-Black-Velcro, b&ugrave; h&agrave;ng Thi&ecirc;n Đức-&gt; May hư",completed,0,2022-11-24
-348,1893,24112022-1893,,approval,0,2022-11-24
+348,1893,24112022-1893,,completed,0,2022-11-24
 368,1894,25112022-1894,Cấp vật tư phục vụ sản xuất,completed,0,2022-11-25
 366,1895,25112022-1895,NPL TỔ CẮT,completed,0,2022-11-25
 370,1897,25112022-1897,xuất vải mẫu,completed,0,2022-11-25
@@ -1642,13 +1642,12 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 350,1977,03122022-1977,sữ dụng may mẫu n&oacute;n len gửi kh&aacute;ch DYC,completed,0,2022-12-03
 352,1978,03122022-1978,TTD-221025-GF4422-Style 18 (2021)-TTD giao nhầm-Thi&ecirc;n Đức bọc sai vải n&uacute;t in,completed,0,2022-12-03
 348,1979,03122022-1979,Movement club 11&nbsp;,completed,0,2022-12-03
-348,1980,03122022-1980,TTD-220225- Movement PO01&nbsp;,approval,0,2022-12-03
+348,1980,03122022-1980,TTD-220225- Movement PO01&nbsp;,completed,0,2022-12-03
 351,1981,03122022-1981,B&ugrave;: Kids Play Hat L Hot Pink PO 38098<br />Kids Play Hat L Pollinator PO 38098,completed,0,2022-12-03
 351,1982,03122022-1982,B&ugrave;: Kids Ultra Adventure Hat-Lavender-L- PO 38072: lỗi vảiKids Ultra Adventure Hat-Lavender-L- PO 38072: may hưKids Ultra Adventure Hat-Lavender-M- PO 38072: lỗi vảiKids Play Hat L Quarry PO 38098: lỗi vải+may hư,completed,1,2022-12-03
 352,1984,03122022-1984,DYC-AU-220304-Ashco Energy-Opt 05-10 cặp v&agrave;nh- lỗi sợi-may hư,completed,0,2022-12-03
 368,1985,05122022-1985,B&ugrave; thất tho&aacute;t ĐH Wide Brim No Fly Zone Hat,completed,0,2022-12-05
 368,1986,05122022-1986,B&ugrave; may hư ĐH Wide Brim No Fly Zone Hat,completed,0,2022-12-05
-348,1987,05122022-1987,TTDSTU-221025-SG570-HUALALAI (nhờ TTD r&aacute;p h&agrave;ng bỏ th&ecirc;u ),approval,0,2022-12-05
 369,1988,05122022-1988,"DYC-AU-220304-Ashco Energy-Opt 05, HM-221108-A&amp;A LOWMOLEWERKZ",completed,0,2022-12-05
 369,1989,05122022-1989,"CIE-211222-BKTHat - DFL-Ecolier-60cm, HM-221110-THE FOUR",completed,0,2022-12-05
 370,1993,05122022-1993,Xuất NPL,completed,0,2022-12-05
@@ -1662,13 +1661,517 @@ creator_id,request_id,req_stockout_code,reason,req_stockout_status,is_complete_r
 232,2002,05122022-2002,Bao nylon + đạn nhựa<br />Ultra Trail Cap: PO 133<br />Ultra Escape Boonie: PO 132,completed,0,2022-12-05
 351,2004,05122022-2004,CIE-211222-RDCap Elite - Circle C-Earthship<br />CIE-211222-RDCap Elite - Circle C-Mach,completed,0,2022-12-05
 351,2005,05122022-2005,B&ugrave;-CIE-220607-Made X for 7Mesh-GC Boreal: b&ugrave; th&ecirc;m định mức viền k&eacute;t,completed,0,2022-12-05
-370,2006,05122022-2006,Xuất NPL mẫu&nbsp;,review,0,2022-12-05
-370,2007,05122022-2007,Xuất vải mẫu&nbsp;,review,0,2022-12-05
 366,2008,05122022-2008,,completed,0,2022-12-05
 366,2009,06122022-2009,B&ugrave; tổ chuẩn bị - PO64,completed,0,2022-12-06
-366,2011,06122022-2011,NPL Đ&Oacute;NG G&Oacute;I - 38075,approval,0,2022-12-06
+366,2011,06122022-2011,NPL Đ&Oacute;NG G&Oacute;I - 38075,completed,0,2022-12-06
 351,2012,06122022-2012,"CIE-211222-BNDCKHat Carbon - Iconic VC-Cormon-56.5cm / 60cm, đổi lại chỉ tiệp m&agrave;u",completed,0,2022-12-06
-368,2015,06122022-2015,"B&ugrave; do lỗi vải, vải dơ ĐH DYC-US-221111-BlackTiph-662-Opt01",approval,0,2022-12-06
-366,2016,06122022-2016,NPL Đ&Oacute;NG G&Oacute;I BUY4 -22,approval,0,2022-12-06
+368,2015,06122022-2015,"B&ugrave; do lỗi vải, vải dơ ĐH DYC-US-221111-BlackTiph-662-Opt01",completed,0,2022-12-06
+366,2016,06122022-2016,NPL Đ&Oacute;NG G&Oacute;I BUY4 -22,completed,0,2022-12-06
 351,2017,06122022-2017,CIE-211222-ALZCap Carbon SC - Sunday Love-Sable: b&ugrave; th&ecirc;m định mức chỉ may do v&agrave;o thiếu định mức chỉ đai,completed,0,2022-12-06
-232,2018,06122022-2018,B&ugrave; - Sahara Guide Hat-PO#64,approval,0,2022-12-06
+232,2018,06122022-2018,B&ugrave; - Sahara Guide Hat-PO#64,completed,0,2022-12-06
+370,2019,06122022-2019,Xuất NPL mẫu,completed,0,2022-12-06
+368,2020,06122022-2020,B&ugrave; ĐH Sahara Guide Hat,completed,0,2022-12-06
+370,2021,06122022-2021,Xuất vải mẫu,completed,0,2022-12-06
+351,2022,06122022-2022,Kids Play Hat S Royal / Royal PO 38098: vải bị lỗi sợi,completed,0,2022-12-06
+351,2024,06122022-2024,CIE-211222-GOCap Elite - Circle C -Polaris: b&ugrave; vải mặt &eacute;p nhiệt bị hư,completed,0,2022-12-06
+370,2025,07122022-2025,Xuất vải mẫu&nbsp;,completed,0,2022-12-07
+370,2028,07122022-2028,Xuất NPL mẫu,completed,0,2022-12-07
+370,2029,07122022-2029,Xuất vải mẫu&nbsp;,completed,0,2022-12-07
+353,2030,07122022-2030,Hủy nh&atilde;n.,completed,0,2022-12-07
+351,2031,07122022-2031,Kids Play Hat S Space Explorer PO 38098: lỗi vải,completed,0,2022-12-07
+351,2032,07122022-2032,JP-221027-MASK MOTY'S 2022 BIG SIZE:&nbsp;<br />JP-221114-MASK BLITZ 2022<br />th&ecirc;m định mức th&ugrave;ng,completed,0,2022-12-07
+350,2033,07122022-2033,Đối nh&atilde;n bị lỗi sợi cho gia c&ocirc;ng <br />R2B-124-AC22101956 ETRAXA<br />R2B-128-AC22112236 GOTTERON NAVY,completed,0,2022-12-07
+366,2035,08122022-2035,Lean 1 b&ugrave; - DYC-AU-220728-The Welder's Dog,completed,0,2022-12-08
+366,2037,08122022-2037,DYC-CH1-221111-A Buzzurro - Tổ chuẩn bị b&ugrave; k&eacute;t,completed,0,2022-12-08
+348,2038,08122022-2038,movenmnet,completed,0,2022-12-08
+350,2039,08122022-2039,B&ugrave; h&agrave;ng do đơn h&agrave;ng vải da lộn red trong kho bị lỗi phải đổi sang t&ocirc;ng m&agrave;u kh&aacute;c,completed,0,2022-12-08
+370,2044,08122022-2044,Xuất vải mẫu,completed,0,2022-12-08
+370,2045,08122022-2045,Xuất NPL mẫu,approval,0,2022-12-08
+370,2047,08122022-2047,Xuất vải mẫu,completed,0,2022-12-08
+368,2048,09122022-2048,B&ugrave; vải lỗi DYC-US-221116-Alpreneur-664&nbsp;,completed,0,2022-12-09
+348,2049,09122022-2049,HM-221123-ASF nhập sai m&atilde; chỉ,completed,0,2022-12-09
+232,2050,09122022-2050,REI-Sahara Path Hat -PO64,completed,0,2022-12-09
+354,2051,09122022-2051,Xuất vải cắt laser con giống,completed,0,2022-12-09
+366,2052,09122022-2052,"Sahara Bucket Hat-Dark Sand-PO64 , do t&iacute;nh chất vải n&ecirc;n bị vặn th&acirc;n n&oacute;n, b&ugrave; vải cắt may lại sau khi đ&atilde; c&oacute; phương &aacute;n cải tiến",completed,0,2022-12-09
+368,2054,09122022-2054,Cấp NPL cho Lean 4 may n&oacute;n thời trang,completed,0,2022-12-09
+351,2055,09122022-2055,CIE-220607-Made X for 7Mesh-GC Hinterland-v2: b&ugrave; lại vải h&ocirc;ng tr&ecirc;n,completed,0,2022-12-09
+351,2056,09122022-2056,"CIE-211222-GOCap Elite - Circle C - 3 đơn, logo &eacute;p nhiệt bị bung, rớt",completed,0,2022-12-09
+368,2058,09122022-2058,cấp bao nylon đựng h&agrave;ng gia c&ocirc;ng,completed,0,2022-12-09
+368,2059,09122022-2059,B&ugrave; thất tho&aacute;t ĐH BF-221110-MOM FLEXCAP THIRTEEN OUTLINE SR,completed,0,2022-12-09
+366,2060,09122022-2060,,completed,0,2022-12-09
+348,2062,10122022-2062,"TTDKTY-221107-XX570-Pastel Lilac-Blank&nbsp; 510pcs ( d&acirc;y kh&oacute;a, d&acirc;y ph&ocirc;i kh&aacute;c m&agrave;u so với ch&oacute;p)",completed,0,2022-12-10
+368,2063,10122022-2063,B&ugrave; viền 3.6cm ĐH Sahara Guide Hat,completed,0,2022-12-10
+369,2064,10122022-2064,TTDSTK-221121-VS520-White-Blank,completed,0,2022-12-10
+369,2065,10122022-2065,Th&ecirc;u,completed,0,2022-12-10
+352,2066,10122022-2066,Clear Creek Boonie-Blue Meadow-M-PO144-Cắt thiếu-đơn h&agrave;ng SMS số lượng &iacute;t n&ecirc;n hao hụt nhiều,completed,0,2022-12-10
+368,2067,10122022-2067,B&ugrave; thất tho&aacute;t ĐH CIE-211222-GOCap Elite - Circle C - Boreal,completed,0,2022-12-10
+232,2068,10122022-2068,SunGuide Cap-PO38073,completed,0,2022-12-10
+368,2070,12122022-2070,B&ugrave; nh&atilde;n lỗi ĐH DYC-US-220816-Luence-614-Opt02-v1&nbsp;,completed,0,2022-12-12
+350,2071,12122022-2071,B&ugrave; h&agrave;ng cho gia c&ocirc;ng Thi&ecirc;n Đức bị lỗi sợi,completed,0,2022-12-12
+352,2072,12122022-2072,Charter Breeze Hat-Dark Khaki-M- PO 38068 / Charter Breeze Hat-Dark Khaki-L- PO 38068-Lưới phối h&ocirc;ng-Do trừ 2 b&ecirc;n bi&ecirc;n- thiếu định mức,completed,0,2022-12-12
+368,2073,12122022-2073,B&ugrave; may lỗi đh DYC-US-221117-IYC-666,completed,0,2022-12-12
+369,2074,13122022-2074,CIE-211222-BCHat V Elite - Circle C-Boreal-60cm,completed,0,2022-12-13
+369,2075,13122022-2075,"CIE-211222-BKTHat - DFL-Ecolier-60cm, CIE-211222-GOCap - DFL Ecolier, DYC-US-221110-The Vibe Agency-661",completed,0,2022-12-13
+369,2076,13122022-2076,,completed,0,2022-12-13
+352,2078,13122022-2078,TTD-220922-MIZUNO 52KW22500009-BK-Kh&aacute;ch gửi vải kh&ocirc;ng đủ-Lấy h&agrave;ng đ&atilde; &eacute;p keo tồn kho b&ugrave;,completed,0,2022-12-13
+368,2081,13122022-2081,B&ugrave; ĐH UV Pro Neck-Guard Hat / UV Pro Wide Brim,completed,0,2022-12-13
+357,2085,13122022-2085,Thay đổi m&agrave;u chỉ do vải ch&iacute;nh mới về n&ecirc;n mới so lại m&agrave;u.<br />B&ugrave; cho đơn h&agrave;ng <strong>Clear Creek Boonie-Blue Meadow-M-PO144</strong>,completed,0,2022-12-13
+370,2087,13122022-2087,Xuất vải,completed,0,2022-12-13
+366,2088,13122022-2088,,completed,0,2022-12-13
+366,2091,13122022-2091,TTDSAF-548-230116-13744 CHN - d&aacute;n tem chống h&agrave;ng giả,completed,0,2022-12-13
+350,2092,13122022-2092,B&ugrave; cho gia c&ocirc;ng thi&ecirc;n đức do th&ecirc;u h&agrave;ng bị hư&nbsp;,completed,0,2022-12-13
+232,2093,13122022-2093,SOLAR BUCKET L CREAM PO 37931: 95 c&aacute;iSOLAR BUCKET M CREAM PO 37931: 250 c&aacute;iRập:Size M-58.5cm: BOB-SA-11-58.5-SLSize L-61cm: BOB-SA-11-61-SL,completed,0,2022-12-13
+368,2094,14122022-2094,B&ugrave; ĐH B&ugrave; ĐH UV Pro Wide Brim,completed,0,2022-12-14
+369,2096,14122022-2096,HM-221123-HMA BERN,completed,0,2022-12-14
+366,2101,14122022-2101,,completed,0,2022-12-14
+368,2102,14122022-2102,B&ugrave; Lean 5 ĐH CIE-211222-RDCap SC - Velocity Box-Seaton,completed,0,2022-12-14
+368,2103,14122022-2103,Lean 5 b&ugrave; may hư ĐH Sahara Guide Hat,completed,0,2022-12-14
+351,2104,14122022-2104,CIE-211222-RDCap Elite - Circle C,completed,0,2022-12-14
+348,2106,14122022-2106,TTDKTY-221107-XX570-Pastel Lilac-Blank&nbsp; (d&acirc;y kh&oacute;a kh&ocirc;ng đồng bộ với ch&oacute;p),completed,0,2022-12-14
+370,2107,14122022-2107,Xuất vải mẫu,completed,0,2022-12-14
+370,2108,14122022-2108,Xuất NPL mẫu,completed,0,2022-12-14
+348,2111,15122022-2111,gủi sticker cho kh&aacute;ch HM,completed,0,2022-12-15
+351,2112,15122022-2112,Kids Play Hat-Morning Birds-S/M/L- PO 38098Vải v&agrave;nh tr&ecirc;n bị lỗi,completed,1,2022-12-23
+370,2114,15122022-2114,Xuất vải mẫu,completed,1,2022-12-23
+370,2118,15122022-2118,Xuất Vải,completed,0,2022-12-15
+240,2119,15122022-2119,,completed,0,2022-12-15
+366,2120,15122022-2120,TTDSAF-555-230116-13333 JPN GẮN NH&Atilde;N JAPAN,completed,0,2022-12-15
+368,2121,16122022-2121,B&ugrave; nh&atilde;n đặc biệt may lỗi của Lean 4,completed,0,2022-12-16
+368,2122,16122022-2122,Cấp NPL cho tổ phối,completed,0,2022-12-16
+370,2126,16122022-2126,xuất vải mẫu,completed,0,2022-12-16
+368,2127,16122022-2127,B&ugrave; thất tho&aacute;t ĐH Sahara Bucket Hat,completed,0,2022-12-16
+350,2131,17122022-2131,l&agrave;m mẫu,completed,0,2022-12-17
+351,2132,17122022-2132,"Vải bị dơ, lỗi hư",completed,0,2022-12-17
+370,2134,17122022-2134,Xuất NPL,completed,0,2022-12-17
+370,2135,17122022-2135,Xuất vải mẫu,completed,0,2022-12-17
+351,2136,17122022-2136,"CIE-211222-BNDCKHat Carbon - Iconic VC - Cormon: b&ugrave; th&ecirc;m định mức viền, dồn nhiều đơn",completed,0,2022-12-17
+368,2137,17122022-2137,B&ugrave; viền bị tưa ĐH Sahara Bucket Hat PO#64,completed,0,2022-12-17
+366,2140,17122022-2140,NPL tổ cắt,completed,0,2022-12-17
+368,2144,17122022-2144,Cấp cho Lean 1 may n&oacute;n thời trang,completed,0,2022-12-17
+370,2145,17122022-2145,Xuất vải mẫu,completed,0,2022-12-17
+366,2146,17122022-2146,Giấy quay bọ&nbsp;,completed,0,2022-12-17
+366,2147,17122022-2147,Kho x&aacute;c nhận to&agrave;n bộ viền tồn kho l&agrave; vải kim tuyến chợ - XUẤT HỦY theo confirm của Ms. Hương Sales,completed,0,2022-12-17
+351,2148,17122022-2148,JP-221116-ALMOND EYE 2021- b&ugrave; vải k&eacute;t tr&ecirc;n bị bể vải,completed,0,2022-12-17
+370,2150,19122022-2150,Xuất NPL mẫu,completed,0,2022-12-19
+352,2151,19122022-2151,B&Ugrave; H&Agrave;NG-CẮT GIAO THI&Ecirc;N ĐỨC-Kids Ultra Adventure Hat-Cinder---M&amp;L---PO 38072-----Rập M: BOB-SA-138-53- Kids Ultra Adventure Hat------Rập L: BOB-SA-138-56- Kids Ultra Adventure Hat---Lưu &yacute;: V&agrave;nh dưới &eacute;p lưới m&agrave;n 80G,completed,0,2022-12-19
+352,2152,19122022-2152,B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC MAY HƯ--Kids Ultra Adventure Hat-Cinder-L- PO 38072,completed,0,2022-12-19
+368,2153,19122022-2153,B&ugrave; lỗi vải ĐH Sahara Guide Hat PO#64,completed,0,2022-12-19
+368,2154,19122022-2154,B&ugrave; ĐH DYC-US-221125-La Sandwicherie-670,completed,0,2022-12-19
+354,2155,19122022-2155,Nhập vải tồn xuất cho đơn h&agrave;ng,completed,1,2022-12-19
+348,2156,19122022-2156,"TTDKTY-221109-VS520-Navy Blue-BlankTTDKTY-221109-VS520-Fandango Pink-BlankTTDKTY-221109-VS520-White-Blank (may hư, lỗi)",completed,0,2022-12-19
+350,2158,19122022-2158,,completed,0,2022-12-19
+352,2159,19122022-2159,B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC-CẮT X&Eacute;O 2.4CM-SS23-KIDS ULTRA ADVENTURE HAT- PO 38072-100 MET VIỀN-VIỀN TRONG N&Oacute;N,completed,0,2022-12-19
+351,2160,20122022-2160,B&ugrave; cho đơn h&agrave;ng TTD - Harcode v&igrave; đổi keo mặt,completed,0,2022-12-20
+348,2161,20122022-2161,TH&ugrave;ng đ&oacute;ng club 12,completed,0,2022-12-20
+366,2162,20122022-2162,Th&ugrave;ng SA - PO38075/38076/133,completed,0,2022-12-20
+351,2165,20122022-2165,CIE-211222-GOCap - DFL-Whitaker: cắt b&ugrave; đu&ocirc;i do phim in sai,completed,0,2022-12-20
+232,2166,20122022-2166,Sahara Guide Hat-PO64&nbsp;Sahara Guide Hat-Mushroom Taupe-SMSahara Guide Hat-Mushroom Taupe-LXLSahara Guide Hat-Mauvewood-SMSahara Guide Hat-Mauvewood-LXL,completed,0,2022-12-20
+354,2167,20122022-2167,Thư YC l&agrave;m mẫu gấp,completed,0,2022-12-20
+370,2168,20122022-2168,Xuất Vải mẫu,completed,0,2022-12-20
+351,2173,20122022-2173,MD-221107-MBA DAMEN: b&ugrave; do vải r&aacute;p kh&aacute;c m&agrave;u,completed,0,2022-12-20
+366,2174,20122022-2174,A TR&Iacute; - BCT,completed,0,2022-12-20
+351,2175,21122022-2175,MD-221107-MBA DAMEN: b&ugrave; do vải r&aacute;p kh&aacute;c m&agrave;u&nbsp;,completed,0,2022-12-21
+351,2176,21122022-2176,B&ugrave; th&ecirc;m may đai cho đơn h&agrave;ngCIE DD2,completed,0,2022-12-21
+370,2177,21122022-2177,Xuất vải mẫu,completed,0,2022-12-21
+370,2178,21122022-2178,Xuất NPL mẫu,completed,0,2022-12-21
+368,2179,21122022-2179,B&ugrave; d&acirc;y lỗi ĐH Brusheline Bucket / Sahara Guide Hat,completed,0,2022-12-21
+353,2181,21122022-2180,"Xuất hủy, lưới lỗi dơ.",completed,0,2022-12-21
+366,2184,21122022-2184,PO-132 Chỉ quay v&agrave;nh,completed,0,2022-12-21
+370,2185,21122022-2185,Xuất vải mẫu,completed,0,2022-12-21
+348,2186,21122022-2186,TTDKTY-221121-VS520-Chateau Gray-Blank&nbsp; (vải bị lỗi)nhờ tổ cắt &eacute;p kate white (mặt &eacute;p kate sau đ&oacute; &eacute;p keo h&agrave;n quốc)<br />TTDKTY-221109-SG570-White-Blank-Buckram (vải lỗi)<br />TTDKTY-221109-SG570-Black-Blank-Buckram (may hư),completed,0,2022-12-21
+368,2187,21122022-2187,B&ugrave; ĐH JP-221124-HONEY GIRL,completed,0,2022-12-21
+366,2188,21122022-2188,,completed,0,2022-12-21
+366,2189,21122022-2189,,completed,0,2022-12-21
+368,2190,21122022-2190,B&ugrave; thất tho&aacute;t nh&atilde;n ĐH Sahara Bucket Hat,completed,0,2022-12-21
+368,2191,21122022-2191,B&ugrave; lỗi vải ĐH SAHARA GUIDE HAT PO#64,completed,0,2022-12-21
+366,2193,21122022-2193,NPL tổ cắt,completed,0,2022-12-21
+348,2195,22122022-2194,"TTDKTY-221107-ST530-White-LEOPARD (kh&aacute;ch thay đổi vải k&eacute;t, thay đổi gai d&iacute;nh, d&acirc;y kh&oacute;a đ&atilde; may b&ugrave; d&acirc;y kh&oacute;a)",completed,0,2022-12-22
+368,2197,22122022-2197,B&ugrave; ĐH Sun Guide Cap PO#38073,completed,0,2022-12-22
+368,2201,22122022-2201,B&ugrave; ĐH Sahara Guide Hat PO#64,completed,0,2022-12-22
+368,2202,22122022-2202,B&ugrave; ĐH Sun Guide Cap PO#38073,completed,0,2022-12-22
+232,2204,22122022-2204,Y&ecirc;u cầu M&uacute;t 1001.8NF-C gửi kh&aacute;ch h&agrave;ng SA,completed,0,2022-12-22
+370,2208,22122022-2208,,completed,0,2022-12-22
+348,2209,22122022-2209,TTDSTK-221121-BK585/ BK570-Chateau Gray-Blank (quay v&agrave;nh),completed,0,2022-12-22
+352,2210,22122022-2210,TTD-220922-MIZUNO 52KW22500014-NY-B&Ugrave; ĐỊNH MỨC VẢI MẶT &Eacute;P KEO,completed,0,2022-12-22
+368,2211,22122022-2211,B&ugrave; ĐH Sahara Guide Hat PO$64,completed,0,2022-12-22
+348,2213,23122022-2213,Sahara Bucket Hat-Dark Sand-SM-PO64 (may hư),completed,0,2022-12-23
+351,2215,23122022-2215,"JP-221212-KEIO BLUE BERRY: vải 65/35 bị lỗi, gấp kh&uacute;c k xử l&yacute; đcJP-221212-KEIO R GOLD: vải coton&nbsp; bị lỗi sợi",completed,0,2022-12-23
+351,2216,23122022-2216,CIE-211222-PYNCap - Standard Stripe Small-Shadowcast SM: b&ugrave; th&ecirc;m định mức d&acirc;y,completed,0,2022-12-23
+366,2217,23122022-2217,,completed,0,2022-12-23
+366,2218,23122022-2218,Ho&agrave;n tất B&ugrave; h&agrave;ng - N&uacute;t đ&oacute;ng g&atilde;y đinh - Dồn lại từ nhiều PO,completed,0,2022-12-23
+368,2219,23122022-2219,B&ugrave; ĐH DYC-CH1-221214-Farinet Verbier,completed,0,2022-12-23
+368,2223,23122022-2223,B&ugrave; ĐH DYC-CH1-221214-Farinet Verbier,completed,0,2022-12-23
+348,2229,23122022-2229,trang tr&iacute; tiết mục văn nghệ,completed,0,2022-12-23
+370,2230,23122022-2230,Xuất NPL mẫu,completed,0,2022-12-23
+370,2233,23122022-2233,Xuất vải mẫu,completed,0,2022-12-23
+368,2234,23122022-2234,B&ugrave; ĐH Sahara Path Hat PO#64,completed,0,2022-12-23
+366,2235,24122022-2235,Xuất b&ugrave; đơn h&agrave;ng cũ,completed,0,2022-12-24
+352,2236,24122022-2236,AD-221011-YELIR MESH-B&Ugrave; K&Eacute;T TR&Ecirc;N-TN RẬP K&Eacute;T CIELE KH&Aacute;C AD-c&oacute; mẫu so m&agrave;u,completed,0,2022-12-24
+366,2237,24122022-2237,,completed,0,2022-12-24
+366,2239,24122022-2238,ĐH cũ,completed,0,2022-12-24
+350,2240,24122022-2240,"B&ugrave; h&agrave;ng cho Thi&ecirc;n Đức do bị lỗi vải,v&agrave; th&ecirc;u hư",completed,0,2022-12-24
+366,2241,24122022-2241,NPL tổ cắt,completed,0,2022-12-24
+351,2242,24122022-2242,CIE-211222 D1D2: cấp lại giấy l&oacute;t felt m&agrave;u trắng để hạn chế lem m&agrave;u,completed,0,2022-12-24
+351,2243,24122022-2243,B&ugrave;-CIE-220607-Made X for 7Mesh-GC Hot Fawn,completed,0,2022-12-24
+348,2244,24122022-2244,L&ocirc; Visor + movement ( ủi hư &nbsp;+ nh&atilde;n &eacute;p nhiệt mất chữ ),completed,0,2022-12-24
+368,2245,24122022-2245,B&ugrave; do may hư ĐH Sahara Sunhat With Cap PO#64,completed,0,2022-12-24
+369,2246,24122022-2246,,completed,0,2022-12-24
+348,2247,24122022-2247,"<table class=""NormalTable"">
+<tbody>
+<tr>
+<td width=""200""><span class=""fontstyle0"">HM-221123-ASF (kh&aacute;ch đổi vải k&eacute;t)</span></td>
+</tr>
+</tbody>
+</table>",completed,0,2022-12-24
+348,2248,24122022-2248,TTDSTU-221221 SG570 Black<br />TTDSTU-221221 SG570 White,completed,0,2022-12-24
+366,2249,26122022-2249,DYC-614-opt02,completed,0,2022-12-26
+352,2251,26122022-2251,AD-221011-YELIR MESH-B&Ugrave; K&Eacute;T TR&Ecirc;N-TN RẬP K&Eacute;T CIELE KH&Aacute;C AD-c&oacute; mẫu so m&agrave;u,completed,0,2022-12-26
+348,2252,26122022-2252,TTDKTY-221107-XX570-Pastel Lilac-Blank (d&acirc;y kh&oacute;a kh&aacute;c m&agrave;u với chop)<br />club 12,completed,0,2022-12-26
+351,2256,26122022-2256,"TTD-221213-8JS-CA-0073 DUCK<br />
+<div class=""d-flex customer_code justify-content-center "">TTD-221213-8JS-CA-0073 FLAMINGO</div>
+<div class=""d-flex customer_code justify-content-center "">TTD-221213-8JS-CA-0073 SWAN<br />Kh&aacute;ch tăng th&ecirc;m số lượng mỗi đơn 2 n&oacute;n</div>",completed,0,2022-12-26
+368,2258,26122022-2258,Cấp vật tư,completed,0,2022-12-26
+368,2259,26122022-2259,B&ugrave; ĐH Sahara Guide Hat /&nbsp; UV Pro Wide Brim,completed,0,2022-12-26
+370,2260,26122022-2260,Xuất vải mẫu,completed,0,2022-12-26
+368,2261,26122022-2261,B&ugrave; ĐH UV Pro Wide Brim,completed,0,2022-12-26
+369,2262,26122022-2262,DYC-US-221014-Board of Advisors-651-Opt08,completed,0,2022-12-26
+368,2265,27122022-2265,B&ugrave; ĐH Sahara Guide Hat PO#64,completed,0,2022-12-27
+366,2267,27122022-2267,,completed,0,2022-12-27
+366,2268,27122022-2268,"<p>PO : 38003 : 20000pcs -</p>
+<p>B&ugrave; Thi&ecirc;n Đức : 5000 pcs</p>",completed,0,2022-12-27
+354,2269,27122022-2269,Xuất g&ograve;n đi &eacute;p cho đơn h&agrave;ng 23122022-1539 (G&ograve;n mới về trả Trung Việt),completed,0,2022-12-27
+368,2274,27122022-2274,B&ugrave; Đh UV Pro Wide Brim PO#78,completed,0,2022-12-27
+370,2275,27122022-2275,Xuất NPL mẫu,completed,0,2022-12-27
+348,2276,27122022-2276,HM-221219-LE FLY (thiếu định mức),completed,0,2022-12-27
+370,2277,27122022-2277,Xuất vải mẫu,completed,0,2022-12-27
+368,2278,27122022-2278,B&ugrave; do may hư ĐH Sahara Sun Hat With Cap PO$64,completed,0,2022-12-27
+368,2280,28122022-2280,B&ugrave; cho Lean 4 ĐH UV Pro Crusher Cape Cap-PO#78,completed,0,2022-12-28
+368,2282,28122022-2282,B&ugrave; cho Lean 2 ĐH UV Pro Vented Safari PO#78,completed,0,2022-12-28
+368,2283,28122022-2283,B&ugrave; ĐH HM-221213-METZ,completed,0,2022-12-28
+369,2284,28122022-2284,"AD-221209-REDFILLS IR SIGNATURE, DYC-US-221123-Miami International Boat Show_Opt 13_v1, DYC-US-221110-K1 Speed-663",completed,0,2022-12-28
+366,2286,28122022-2286,Lean 6 + Tổ chuẩn bị b&ugrave; h&agrave;ng,completed,0,2022-12-28
+368,2288,28122022-2287,&nbsp;B&ugrave; cho Lean 6 ĐH Sahara Guide Hat PO#64,completed,0,2022-12-28
+366,2289,28122022-2289,PO-64 b&ugrave; thất tho&aacute;t,completed,0,2022-12-28
+370,2291,28122022-2291,Xuất vải mẫu,completed,0,2022-12-28
+352,2293,28122022-2293,TTD-221025-Bouygues-v1-B&Ugrave; TH&Ugrave;NG-ĐỔI K&Iacute;CH KH&Ocirc;NG TH&Ugrave;NG CON,completed,0,2022-12-28
+366,2294,29122022-2294,NPL tổ cắt,completed,0,2022-12-29
+354,2295,29122022-2295,Kho đựng h&agrave;ng gia c&ocirc;ng,completed,0,2022-12-29
+369,2296,29122022-2296,HM-221219-LE FLY,completed,0,2022-12-29
+353,2297,29122022-2297,Xuất mẫu cho VPTP,completed,0,2022-12-29
+366,2298,29122022-2298,VIỀN IN,completed,0,2022-12-29
+232,2299,29122022-2299,KH SA y&ecirc;u cầu cung cấp&nbsp;,completed,0,2022-12-29
+366,2301,29122022-2301,Thi&ecirc;n Đức y&ecirc;u cầu để lược h&agrave;ng Yelir,completed,0,2022-12-29
+352,2302,29122022-2302,B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC-BF-221118-FCS HC LUGANO TRACKER WHITE-may hư-dơ-c&oacute; so m&agrave;u,completed,0,2022-12-29
+368,2303,29122022-2303,B&ugrave; viền ĐH Sahara Guide Hat,completed,0,2022-12-29
+368,2304,29122022-2304,B&ugrave; viền v&agrave;nh ĐH Sahara Guide Hat PO#64,completed,0,2022-12-29
+370,2305,29122022-2305,Xuất vải mẫu,completed,1,2023-01-04
+370,2306,29122022-2306,Xuất vải mẫu,completed,0,2022-12-29
+373,2307,29122022-2307,Phiếu y&ecirc;u cầu cấp bao v&agrave; băng keo d&aacute;n th&ugrave;ng&nbsp;,completed,0,2022-12-29
+352,2308,29122022-2308,Vaporlite Cape Cap -White Terrain-OS-PO144-b&ugrave; k&eacute;t-đỉnh-mặt-may v&agrave; &eacute;p logo sai mặt vải,completed,0,2022-12-29
+352,2309,30122022-2309,Vaporlite Cape Cap -White Terrain-OS-PO144-b&ugrave; k&eacute;t-đỉnh-mặt-may v&agrave; &eacute;p logo sai mặt vải,completed,0,2022-12-30
+352,2310,30122022-2310,Ultra Escape Boonie-Horizon-M-PO 38075-b&ugrave; v&agrave;nh-h&ocirc;ng dưới-may hư-size M-L,completed,0,2022-12-30
+368,2311,30122022-2311,SMS-Vaporlite Cape Cap -White Terrain-OS-PO144-ep nhiet sai mat phai-don hang mat trai,completed,0,2022-12-30
+370,2312,30122022-2312,Xuất NPL mẫu,completed,0,2022-12-30
+368,2315,30122022-2315,TTDSTK-220905-SG570-White (may hư + dơ ( h&agrave;ng lưu kho lấy nhiều đơn ),completed,0,2022-12-30
+368,2319,30122022-2319,TTDSTK-220905-SG570-White (may hư)<br />TTDSTK-221121-ST570-White-LEOPARD Blank (đổi m&atilde; NPL),completed,0,2022-12-30
+366,2320,30122022-2320,<br />TTDSTK-221121-BK570-Chateau Gray-Blank<br /><br />TTDKTY-221121-BK570-Chateau Gray-Blank (quay v&agrave;nh),completed,0,2022-12-30
+370,2321,31122022-2321,Xuất Vải mẫu,completed,0,2022-12-31
+366,2323,31122022-2323,B&ugrave; ĐH DYC-US-221123-International Boat Show-667-Opt013-v1&nbsp;,completed,0,2022-12-31
+369,2324,31122022-2324,"DYC-US-221123-International Boat Show-667-Opt02-v1, AD-221130-REDFILLS IR PATTERN 3, DYC-US-221123-Miami International Boat Show_Opt 13_v1",completed,0,2022-12-31
+366,2325,31122022-2325,B&ugrave; do may hư ĐH CIE-211222-RDCap Elite - Circle C - Mach,completed,0,2022-12-31
+368,2326,31122022-2326,B&ugrave; Lean 6 ĐH Sahara Guide Hat PO#64,completed,0,2022-12-31
+352,2327,31122022-2327,AD-221112-TREMEL GOODEN-kh&aacute;ch đổi đai viền,completed,0,2022-12-31
+354,2329,31122022-2329,Xuất vải đi cắt laser con giống SA-Kid-Suurfin Snapshot Patch,completed,0,2022-12-31
+368,2330,31122022-2330,B&ugrave; ĐH Sahara Guide Hat PO#64,completed,0,2022-12-31
+368,2331,31122022-2331,B&ugrave; viền v&agrave;nh ĐH UV Pro Wide Brim PO#78,completed,0,2022-12-31
+232,2332,31122022-2332,"SOLAR BUCKET M-L CREAM PO 37931Size M:120, size L:60Rập size M:BOB-SA-11- 58.5-SLRập size L:BOB-SA-11-61-SL",completed,0,2022-12-31
+368,2334,31122022-2334,B&Ugrave; ĐH SMS 24,completed,0,2022-12-31
+368,2337,31122022-2337,B&ugrave; ĐH SMS,completed,0,2022-12-31
+348,2338,03012023-2338,HM-221123-HMA BERN (đổi m&atilde;),completed,0,2023-01-03
+369,2340,03012023-2340,"DYC-US-221123-International Boat Show-667-Opt02-v1, AD-221130-REDFILLS SPORT MESH RS",completed,0,2023-01-03
+366,2341,03012023-2341,Tem gi&aacute; chinese - PKL Direct Ship China,completed,0,2023-01-03
+366,2342,03012023-2342,Lean 2 - B&ugrave; may hư,completed,0,2023-01-03
+370,2344,03012023-2344,Xuất vải mẫu,completed,0,2023-01-03
+366,2345,04012023-2345,,completed,0,2023-01-04
+366,2346,04012023-2346,,completed,0,2023-01-04
+352,2348,04012023-2348,AD-221130-REDFILLS GEOMETRIC RS 1-b&ugrave; k&eacute;t may s&aacute;t logo----VaporLite Cape Cap White Terrain-PO144-b&ugrave; viền g&aacute;y che,completed,0,2023-01-04
+370,2350,04012023-2350,Xuất vải mẫu,completed,0,2023-01-04
+352,2351,04012023-2351,TTDSTK-221121-BK570 + BK585 ANTARTICA BLANK,completed,0,2023-01-04
+368,2352,04012023-2352,B&ugrave; ĐH Voyage Hat 38081,completed,0,2023-01-04
+240,2353,04012023-2353,,completed,0,2023-01-04
+368,2354,04012023-2354,B&ugrave; ĐH DYC-US-221123-International Boat Show-667-Opt013-v1&nbsp;,completed,0,2023-01-04
+350,2355,04012023-2355,B&ugrave; cho đơn SOLAR BUCKET HAT PO# 37931 (ĐỢT 4) do d&acirc;y dệt bị ra m&agrave;u th&aacute;o v&agrave;nh ra bị hư,completed,0,2023-01-04
+348,2356,04012023-2356,xuất cho thi&ecirc;n đức in SPM,completed,0,2023-01-04
+348,2357,04012023-2357,xuất cho đhsx in SPM,completed,0,2023-01-04
+368,2358,04012023-2358,B&ugrave; ĐH CIE-211222-ALZCap - Morning Run Byrun,completed,0,2023-01-04
+366,2359,04012023-2359,,completed,0,2023-01-04
+350,2360,04012023-2360,cần lấy thun trước để chạy &eacute;p qua nhiệt trước<br />do đang cần điều chỉnh&nbsp; vải may đai đi k&egrave;m&nbsp;,completed,0,2023-01-04
+366,2362,04012023-2362,,completed,0,2023-01-04
+368,2364,04012023-2364,Cấp Vật tư phục vụ sản xuất,completed,0,2023-01-04
+351,2366,05012023-2366,CIE-211222-ALZCap - Morning Run- Pinard: th&ecirc;m định mức chỉ,completed,0,2023-01-05
+353,2367,05012023-2367,Xuất vải may đồ diễn văn nghệ.,completed,0,2023-01-05
+368,2368,05012023-2368,B&ugrave; ĐH DYC-US-221123-International Boat Show-667-Opt013-v1,completed,0,2023-01-05
+366,2369,05012023-2369,,completed,0,2023-01-05
+352,2370,05012023-2370,"AD-221011-YELIR MESH-đổi kho&aacute; AK sang kho&aacute; h&agrave;ng SA-----AD-221130-REDFILLS GEOMETRIC RS 1-b&ugrave; viền k&eacute;t kim tuyến, may k&eacute;t hư",completed,0,2023-01-05
+352,2371,05012023-2371,"AD-221216-YELIR 10---Đổi kho&aacute; AK, x&agrave;i kho&aacute; h&agrave;ng SA, do kho&aacute; AK xỏ thun kh&ocirc;ng v&agrave;o",completed,0,2023-01-05
+355,2372,05012023-2372,Đơn h&agrave;ng <strong>AD-221124-BDNA 4 v&agrave; AD-221124-BDNA 6</strong><br />KH Ycau đ&oacute;ng g&oacute;i 1 c&aacute;i / bao nylon n&ecirc;n cần b&ugrave; th&ecirc;m bao nylon,completed,0,2023-01-05
+369,2374,05012023-2374,"DYC-US-221219-E11even-677-FVC-1017, AD-221216-YELIR 13",completed,0,2023-01-05
+370,2375,05012023-2375,Xuất vải mẫu&nbsp;,completed,0,2023-01-05
+368,2376,05012023-2376,B&ugrave; ĐH CIE-211222-PYNCap - Standard Stripe Small-Ghost,completed,0,2023-01-05
+351,2377,05012023-2377,,completed,0,2023-01-05
+350,2378,05012023-2378,l&agrave;m n&oacute;n biểu diễn thời trang,completed,0,2023-01-05
+369,2380,06012023-2380,TTD-221206-VMN-BOSS MOM,completed,0,2023-01-06
+353,2381,06012023-2381,Xuất điều chỉnh kiểm k&ecirc; định kỳ lần 2 (30-12-2022),completed,0,2023-01-06
+370,2386,06012023-2386,Xuất vải mẫu,completed,0,2023-01-06
+370,2387,06012023-2387,Xuất NPL mẫu,completed,0,2023-01-06
+368,2388,06012023-2388,B&ugrave; ĐH CIE-211222-GOCap Carbon - Speed Play-Corman,completed,0,2023-01-06
+370,2389,06012023-2389,Xuất vải mẫu&nbsp;,completed,0,2023-01-06
+351,2390,06012023-2390,CIE-220519 - FLTCap WND - Ultra Iconic Black Canyon SM<br />CIE-220519 - FLTCap WND - Ultra Iconic Tendra SM<br />CIE-220519 - WCRCap WND SC - Iconic Athletics Whitaker SM<br />CIE-220519 - WCRCap WND SC - Iconic Athletics Folia SM<br />CIE-220519 - WCRCap WND SC - Iconic Athletics Blackrush LXL<br />v&igrave; D&acirc;y 3mm COA09333 Poly elastic 3M Reflective Black qua tết mới về n&ecirc;n b&ugrave; d&acirc;y n&agrave;y d&ugrave;ng cho SMS,completed,0,2023-01-06
+351,2391,07012023-2391,JP-221212-KEIO R GOLD: h&agrave;ng in về bị lỗi,completed,0,2023-01-07
+369,2392,07012023-2392,Trang phục biểu diễn tất ni&ecirc;n 2022,completed,0,2023-01-07
+370,2393,07012023-2393,Xuất NPL mẫu,completed,0,2023-01-07
+368,2394,09012023-2394,B&ugrave; ĐH Solar Bucket PO#37931,completed,0,2023-01-09
+370,2395,09012023-2395,Xuất NPL mẫu&nbsp;,completed,0,2023-01-09
+370,2397,09012023-2397,Xuất Vải mẫu,completed,0,2023-01-09
+352,2398,09012023-2398,B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC-AD-221216-YELIR 6 b&ugrave; % hao hụt-R2B-126-AC22102031 EMONET PINK1 b&ugrave; may hư-c&oacute; mẫu so m&agrave;u,completed,0,2023-01-09
+352,2399,09012023-2399,Kids Ultra Adventure Hat-Cinder-L&amp;M-PO116-b&ugrave; viền cắt thiếu,approval,0,2023-01-09
+368,2400,09012023-2400,B&ugrave; ĐH Sahara Bucket Hat PO#64,completed,0,2023-01-09
+369,2401,09012023-2401,HM-221213-METZ,completed,0,2023-01-09
+352,2403,09012023-2403,LẤY NỬA MET MAY VIỀN THỬ H&Agrave;NG AD-221216-YELIR 13- VẢI D&Agrave;Y HƠN KATE,completed,0,2023-01-09
+352,2404,09012023-2404,AD-221216-YELIR 1-B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC TH&Ecirc;U HƯ-C&Oacute; VẢI SO M&Agrave;U,completed,0,2023-01-09
+369,2405,09012023-2405,Th&ecirc;u,completed,0,2023-01-09
+370,2408,09012023-2408,Xuất vải mẫu,completed,0,2023-01-09
+353,2409,09012023-2409,Xuất điều chỉnh theo th&ocirc;ng tin đợt kiểm k&ecirc; định k&igrave; lần 3 (ng&agrave;y 6/1/2023),completed,0,2023-01-09
+350,2411,09012023-2411,Gia c&ocirc;ng thi&ecirc;n đức may hư Ultra Escape Boonie-Eucalyptus-L-PO 38075+Ultra Trail Cap-Sand-OS-PO 38076,completed,0,2023-01-09
+350,2412,09012023-2412,B&ugrave; cho gia c&ocirc;ng thi&ecirc;n đức may hư,completed,0,2023-01-09
+348,2413,09012023-2413,"Movement club 13,14",completed,0,2023-01-09
+370,2415,10012023-2415,Xuất Vải&nbsp;,completed,0,2023-01-10
+368,2416,10012023-2416,B&ugrave; ĐH Sahara Bucket Hat PO#64,completed,0,2023-01-10
+368,2417,10012023-2417,B&ugrave; ĐH Sahara Bucket Hat PO#64,completed,0,2023-01-10
+352,2418,10012023-2418,Vaporlite Cape Cap -White Terrain-OS-PO144-b&ugrave; may hư,completed,0,2023-01-10
+354,2419,10012023-2419,&Eacute;p keo 1036 Black cắt laser con giống DYC-US-230105-Blacktiph-685,completed,0,2023-01-10
+350,2420,10012023-2420,B&ugrave; h&agrave;ng cho b&ecirc;n gia c&ocirc;ng do may hư,completed,0,2023-01-10
+350,2421,10012023-2421,B&ugrave; h&agrave;ng do may hư của thi&ecirc;n đứ v&agrave; bắn đạn hư&nbsp;<br />Ultra Trail Cap-PO 38076 + PO 133,completed,0,2023-01-10
+232,2424,10012023-2424,Backdrop Boonie-Bluestone: PO38066,completed,0,2023-01-10
+350,2425,10012023-2425,b&ugrave; cho tổ cắt do khổ vải c&oacute; 1.35 sau khi đi qua nhiệt c&ograve;n khổ 1.2.5 sữ dụng cho DYC-US-221219-E11even-677-1001,completed,0,2023-01-10
+236,2427,11012023-2427,,completed,0,2023-01-11
+370,2430,11012023-2430,Xuất vải mẫu,completed,0,2023-01-11
+370,2432,11012023-2432,Xuất vải mẫu,completed,0,2023-01-11
+368,2434,11012023-2434,B&ugrave; ĐH CIE-211222-PYNCap - Standard Stripe Small,completed,0,2023-01-11
+366,2435,11012023-2435,ULTRA ADVENTURE HAT PO131<br />ULTRA ESCAPE BOOBIE PO132,completed,0,2023-01-11
+350,2436,11012023-2436,may h&agrave;ng b&ugrave; cho thi&ecirc;n đức,completed,0,2023-01-11
+368,2438,11012023-2438,Cấp bao đựng h&agrave;ng Gia c&ocirc;ng,completed,0,2023-01-11
+348,2443,11012023-2443,TTDKTY-221221-SG530-Purple-Blank&nbsp; <br />TTDKTY-221221-SG570-Blue-Blank<br />&eacute;p lưới sai n&ecirc;n đổi k&eacute;t ph&ugrave; hợp,completed,0,2023-01-11
+369,2444,12012023-2444,DYC-US-221219-E11even-677-FVC-1011,completed,0,2023-01-12
+370,2445,12012023-2445,Xuất vải,completed,0,2023-01-12
+370,2446,12012023-2446,Xuất vải&nbsp;,completed,0,2023-01-12
+368,2447,12012023-2447,B&ugrave; k&eacute;t nhựa JP-221212-KEIO R GOLD,completed,0,2023-01-12
+366,2448,12012023-2448,Lean 5 - Ultra Adventure Storm Hat-Shadow-LXL-38003,completed,0,2023-01-12
+366,2449,12012023-2449,,completed,0,2023-01-12
+368,2452,13012023-2452,B&ugrave; ĐH Ciele,completed,0,2023-01-13
+368,2453,13012023-2453,Lean 4 b&ugrave; PO64,completed,0,2023-01-13
+350,2454,13012023-2454,B&ugrave; th&ecirc;m định mức d&ugrave;ng nối d&acirc;y&nbsp;,completed,0,2023-01-13
+370,2455,13012023-2455,Xuất vải,completed,0,2023-01-13
+368,2456,13012023-2456,LEAN 4,completed,0,2023-01-13
+350,2459,13012023-2459,DYC-US-221014-Board of Advisors-651 opt08<br />b&ugrave; 20 mặt do &eacute;p keo bị dơ<br /><strong>HA-5M-20-58 (Mặt kh&ocirc;ng lỗ bọ)&nbsp;</strong>,completed,0,2023-01-13
+370,2460,13012023-2460,Xuất vải&nbsp;,completed,0,2023-01-13
+366,2461,13012023-2461,Lean 2 b&ugrave; PO-38079,completed,0,2023-01-13
+370,2462,13012023-2462,Xuất vải mẫu&nbsp; GẤP,completed,0,2023-01-13
+368,2463,13012023-2463,B&ugrave; ĐH CIE-220607-Made X for 7Mesh,completed,0,2023-01-13
+368,2464,13012023-2464,B&ugrave; ĐH Sahara Path Hat PO#64,completed,0,2023-01-13
+370,2466,14012023-2466,Xuất NPL,completed,0,2023-01-14
+370,2467,14012023-2467,Xuất vải mẫu&nbsp;,completed,0,2023-01-14
+370,2469,14012023-2469,Xuất vải mẫu,completed,0,2023-01-14
+368,2470,14012023-2470,B&ugrave; ĐH Movement,completed,0,2023-01-14
+368,2471,14012023-2471,B&ugrave; nh&atilde;n lỗi,completed,0,2023-01-14
+370,2472,14012023-2472,Xuất vải&nbsp;,completed,0,2023-01-14
+370,2473,14012023-2473,Xuất NPL mẫu,completed,0,2023-01-14
+348,2474,14012023-2474,TTDSTK-221121-VS520-Black-Blank<br />TTDSTK-221121-VV520-Black-Blank&nbsp; (viền tr&ecirc;n ch&oacute;p kh&aacute;c m&agrave;u),completed,0,2023-01-14
+370,2476,14012023-2476,Xuất vải mẫu,completed,0,2023-01-14
+370,2477,14012023-2477,Xuất vải mẫu&nbsp;,completed,0,2023-01-14
+350,2478,15012023-2478,B&ugrave; h&agrave;ng do nh&atilde;n bị lỗi sợi&nbsp; DYC-US-221219-E11even-677,completed,0,2023-01-15
+351,2479,15012023-2479,HM-221221-CAPPD BLACK redo: định vị logo cao sửa lại k đạt chất lương,completed,0,2023-01-15
+351,2480,15012023-2480,&nbsp;HM-221221-CAPPD BLACK redo: định vị logo cao sửa lại k đạt chất lương,completed,0,2023-01-15
+352,2482,15012023-2482,IN TEM GI&Aacute; H&Agrave;NG SA,completed,0,2023-01-15
+352,2483,15012023-2483,IN TEAM GI&Aacute; H&Agrave;NG SA,completed,0,2023-01-15
+368,2484,16012023-2484,B&ugrave; ĐH Sahara Bucket Hat PO#64,completed,0,2023-01-16
+350,2485,16012023-2485,b&ugrave; h&agrave;ng cho gia c&ocirc;ng do h&ocirc;ng phải bị lỗi +th&ecirc;u hư,completed,0,2023-01-16
+366,2487,16012023-2487,ULTRA ADVENTURE HAT PO131,completed,0,2023-01-16
+366,2488,16012023-2488,ADVENTURE &nbsp;HAT PO123,completed,0,2023-01-16
+366,2489,16012023-2489,Lean 2 b&ugrave; PO64,completed,0,2023-01-16
+368,2490,16012023-2490,B&ugrave; ĐH Sahara Bucket Hat PO$64,completed,0,2023-01-16
+351,2491,16012023-2491,"Th&ecirc;m đai đơn h&agrave;ng CIE D2, vải light steel",completed,0,2023-01-16
+366,2492,16012023-2492,PO64,completed,0,2023-01-16
+366,2493,16012023-2493,NPL- tổ cắt,completed,0,2023-01-16
+370,2494,17012023-2494,Xuat vai mau,completed,0,2023-01-17
+366,2496,31012023-2496,VIỀN IN,completed,0,2023-01-31
+368,2498,01022023-2498,Cấp bao đựng h&agrave;ng Gia c&ocirc;ng,completed,0,2023-02-01
+370,2501,01022023-2501,Xuất vải mẫu,completed,0,2023-02-01
+351,2503,01022023-2503,CIE-211222-BNDCKHat Carbon - Iconic VC-Kits : th&ecirc;m định mức chỉ may,completed,0,2023-02-01
+368,2504,01022023-2504,B&ugrave; may hư ĐH CIE-211222-ALZCap SC - Pack-Leopold,completed,0,2023-02-01
+370,2507,01022023-2507,Xuất NPL mẫu,completed,0,2023-02-01
+369,2508,01022023-2508,TH&Ecirc;U,completed,0,2023-02-01
+369,2509,01022023-2509,Th&ecirc;u,completed,0,2023-02-01
+352,2510,01022023-2510,TTD-230110-BIS VINCOM FUNDINO - dập k&eacute;t 102pcs - hấp cong k&eacute;t,completed,0,2023-02-01
+369,2511,01022023-2511,Chỉ th&ecirc;u,completed,0,2023-02-01
+354,2514,02022023-2514,&Eacute;p kate cắt laser con giống DYC-AU-230116-Beer,completed,0,2023-02-02
+368,2516,02022023-2516,B&ugrave; ĐH Sun Tripper cap / Ultra Adventure Hat,completed,0,2023-02-02
+368,2518,02022023-2517,B&ugrave; Lean 6 may hư ĐH UVShield Cool Convert Visor PO#38077,completed,0,2023-02-02
+366,2521,03022023-2521,NPL tổ cắt,completed,0,2023-02-03
+370,2523,03022023-2523,Xuất vải,completed,0,2023-02-03
+352,2524,03022023-2524,THI&Ecirc;N ĐỨC MAY HƯ--Ultra Adventure Hat-LXL-Horizon-PO131 + Ultra Escape Boonie-PO132+PO38075--Shadewell Kids Trucker-Flutter Friend-ML-PO245--Shadewell Kids Trucker-Purr Ka Boo Kitty-ML-PO245,completed,0,2023-02-03
+368,2526,03022023-2526,B&ugrave; ĐH UVShield Cool Convert Visor PO#38077,completed,0,2023-02-03
+369,2529,03022023-2529,B&ugrave; cho đơn h&agrave;ng HM-221206-ESL 155,completed,0,2023-02-03
+368,2530,03022023-2530,Cấp b&ugrave; định mức viền của ĐH CZ68-221114-Grand Slam,completed,0,2023-02-03
+348,2532,03022023-2532,TTDKTY-221221-SG530-Purple-Blank (MAY HƯ),completed,0,2023-02-03
+351,2533,03022023-2533,CIE-211222- D2 do n&oacute;n v&agrave;nh size lớn cần đ&oacute;ng k&iacute;ch lớn hơn,completed,0,2023-02-03
+352,2534,03022023-2534,THI&Ecirc;N ĐỨC CẮT HƯ-Shadewell Kids Trucker-Dino Fossil-ML-PO245,completed,0,2023-02-03
+350,2535,04022023-2535,b&ugrave; kh&oacute;a do nhập thiếu định mức DYC-AU-220812-Scuderia Graziani-Opt01-v1,completed,0,2023-02-04
+352,2536,04022023-2536,Adventure Hat-Sand-Black-SM-PO123- cắt b&ugrave; miếng d&aacute;n gai d&iacute;nh g&aacute;y che- do vải co bị nhỏ hơn gai d&iacute;nh,completed,0,2023-02-04
+370,2538,04022023-2538,Xuất vải mẫu,completed,0,2023-02-04
+370,2542,04022023-2542,Xuất NPL,completed,0,2023-02-04
+370,2546,04022023-2546,xuất vải mẫu,completed,0,2023-02-04
+366,2547,04022023-2547,PO-116 NPL Đ&Oacute;NG G&Oacute;I<br />KIDS ULTRA ADVENTURE HAT PO116,completed,0,2023-02-04
+353,2549,04022023-2549,"Xuất hủy nh&atilde;n củ, kh&ocirc;ng c&ograve;n sử dụng cho đơn h&agrave;ng ( đ&atilde; x&aacute;c nhận) .",completed,0,2023-02-04
+348,2550,04022023-2550,HM-221201-RAMMSTEIN (vải lỗi),completed,0,2023-02-04
+369,2551,06022023-2551,Chỉ th&ecirc;u,completed,0,2023-02-06
+352,2552,06022023-2552,B&Ugrave; H&Agrave;NG THI&Ecirc;N ĐỨC MAY HƯ-TTD-221206-GF45-Style 5 (2018)--lưới in,completed,0,2023-02-06
+368,2553,06022023-2553,B&ugrave; viền thử m&aacute;y L3 ĐH UVShield Cool Convert Visor PO#38077,completed,0,2023-02-06
+353,2554,06022023-2554,Xuất mẫu gửi KH.,completed,0,2023-02-06
+348,2555,06022023-2555,HM-220917-DSIRE LE8 (đ&atilde; ho&agrave;n tất đơn h&agrave;ng),completed,0,2023-02-06
+368,2556,06022023-2556,B&ugrave; ĐH CIE-211222-BKTHat - DFL Ecolier,completed,0,2023-02-06
+348,2557,06022023-2557,HM-220917-DSIRE LE8 (cập nhật chỉ khi c&oacute; h&agrave;ng in về),completed,0,2023-02-06
+369,2558,06022023-2558,B&ugrave; cho đơn h&agrave;ng AD-221216-YELIR 13,completed,0,2023-02-06
+352,2559,06022023-2559,B&Ugrave; H&Agrave;NG TTD-ĐỊNH MỨC VIỀN KẸP ĐU&Ocirc;I CHO THIẾU SO VỚI THỰC TẾ MAY-UVShield Cool Convert Visor-OS-PO 38077-Gray Electric+Black,completed,0,2023-02-06
+370,2562,06022023-2562,Xuất NPL,completed,0,2023-02-06
+368,2564,06022023-2564,Cấp NPL tổ cắt,completed,0,2023-02-06
+370,2566,06022023-2566,Xuất vải mẫu,completed,1,2023-02-06
+351,2567,06022023-2567,CIE-211222-BNDCKHat Carbon - Iconic VC-Kits-60cm CIE-211222-BNDCKHat Carbon - Iconic VC-Kits-60cmCIE-211222-BNDCKHat Carbon - Iconic VC-Cormon-60cmviền thiếu định mức,completed,0,2023-02-06
+370,2568,06022023-2568,Xuất NPL mẫu,completed,0,2023-02-06
+368,2570,06022023-2569,B&ugrave; May hư,completed,0,2023-02-06
+368,2571,06022023-2571,B&ugrave; L6 may hư,completed,0,2023-02-06
+368,2574,06022023-2572,B&ugrave; ĐH KIDS AERO VISOR PO#151&nbsp;,completed,0,2023-02-06
+350,2577,06022023-2577,lấy PL gửi cho thi&ecirc;n đức quay phi cho h&agrave;ng DYC,completed,0,2023-02-06
+348,2579,06022023-2579,"H&agrave;ng dự trữ kh&ocirc;ng đủ,&nbsp; b&ugrave; cho club 15",completed,0,2023-02-06
+370,2581,07022023-2581,Xuất vải mẫu,completed,0,2023-02-07
+368,2582,07022023-2582,B&ugrave; ĐH CIE-211222-GOCap - DFL-Whitaker,completed,0,2023-02-07
+368,2583,07022023-2583,B&ugrave; ĐH CIE-211222-GOCap - DFL-Whitaker,completed,0,2023-02-07
+350,2585,07022023-2585,b&ugrave; h&agrave;ng cho gia c&ocirc;ng thi&ecirc;n đức may hư,completed,0,2023-02-07
+370,2586,07022023-2586,Xuất NPL mẫu,completed,0,2023-02-07
+369,2588,07022023-2588,Chỉ th&ecirc;u,completed,0,2023-02-07
+368,2589,07022023-2589,B&ugrave; h&ocirc;ng l&oacute;t ĐH Ultra Adventure Storm Hat PO#38003,completed,0,2023-02-07
+355,2590,07022023-2590,TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK<br />TTD-221112-MIZUNO RB JUNGLE BUCKET WHITE<br />TTD-221112-MIZUNO RB BUCKET BLACK<br />TTD-221216-MIZUNO REVERSIBLE BLACK GREY&nbsp;<br />TTD-221216-MIZUNO REVERSIBLE WHITE BLUE&nbsp;,completed,0,2023-02-07
+368,2591,07022023-2591,Cấp NPL tổ cắt,completed,0,2023-02-07
+348,2592,07022023-2592,&nbsp;HM-221206-ESL 281&nbsp; ( viền may hư),completed,0,2023-02-07
+370,2593,07022023-2593,Xuất&nbsp;,completed,0,2023-02-07
+366,2594,08022023-2594,LEAN 5 B&Ugrave; CIE-211222-BCHat V Elite - Circle C-Boreal-60cm,completed,0,2023-02-08
+370,2595,08022023-2595,Xuất vải mẫu,completed,0,2023-02-08
+348,2598,08022023-2598,TTDKTY-221221-VS520-Black-Blank (may hư),completed,0,2023-02-08
+368,2600,08022023-2600,B&Ugrave; ĐH CIE-211222-BKTHat - DFL-Ecolier,completed,1,2023-02-08
+368,2601,08022023-2601,Cấp d&acirc;y cột h&agrave;ng cho tổ chuẩn bị,completed,0,2023-02-08
+366,2606,08022023-2606,Lean 3,completed,0,2023-02-08
+366,2609,08022023-2609,Lean 4,completed,0,2023-02-08
+348,2610,08022023-2610,club 15,completed,0,2023-02-08
+366,2611,08022023-2611,Lean 4,completed,0,2023-02-08
+368,2612,08022023-2612,B&ugrave; ĐH Ciele&nbsp;,completed,0,2023-02-08
+352,2613,09022023-2613,TH&Ugrave;NG Shadewell Kids Trucker-PO245-8 ĐƠN-4120 N&Oacute;N,completed,0,2023-02-09
+370,2614,09022023-2614,Xuất vải mẫu,completed,0,2023-02-09
+366,2617,09022023-2617,Lean 5 b&ugrave; CIE-211222-BCHat V Elite - Circle C-Whitaker-60cm,completed,0,2023-02-09
+366,2618,09022023-2618,NPL Đ&Oacute;NG G&Oacute;I - CAMPFIRE CAP PO110,completed,0,2023-02-09
+352,2619,09022023-2619,TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK-WHITE-ĐỢT 1,completed,0,2023-02-09
+353,2621,09022023-2621,"B&ugrave; nh&atilde;n &eacute;p nhiệt lỗi, rớt chữ (TTD MOVEMENT)",completed,0,2023-02-09
+368,2622,09022023-2622,Cấp b&ugrave; th&ecirc;m định mức ĐH Ultra Adventure Hat PO#131,completed,0,2023-02-09
+366,2623,09022023-2623,NPL Đ&Oacute;NG G&Oacute;I - CAMPFIRE CAP PO110 Bổ sung,completed,0,2023-02-09
+352,2624,09022023-2624,B&Ugrave; H&Agrave;NG LỖI - Shadewell Kids Trucker-PO245-6 ĐƠN,completed,0,2023-02-09
+370,2625,09022023-2625,Xuất NPL mẫu,completed,1,2023-02-13
+368,2628,10022023-2628,B&ugrave; viền thử h&agrave;ng ĐH UVShield Cool Convert Visor,completed,0,2023-02-10
+370,2629,10022023-2629,Xuất vải mẫu,completed,0,2023-02-10
+370,2631,10022023-2630,xuất vải mẫu&nbsp;,completed,0,2023-02-10
+354,2632,10022023-2632,Xuất đổi m&atilde; AK để xuất đi &eacute;p cho đơn h&agrave;ng do đơn h&agrave;ng đ&atilde; duyệt,completed,0,2023-02-10
+368,2633,10022023-2633,B&ugrave; ĐH Sun Tripper Cap PO#38074,completed,0,2023-02-10
+368,2635,10022023-2635,B&ugrave; ĐH Ultra Adventure Hat PO#38055 L6 may hư,completed,0,2023-02-10
+370,2636,11022023-2636,Xuất vải mẫu&nbsp;,completed,1,2023-02-11
+354,2637,11022023-2637,"&Eacute;p keo 1020, cắt laser con giống JP-230206-TITLE HOLDER",completed,0,2023-02-11
+352,2638,11022023-2638,THỬ K&Eacute;T GF Style 17 (2019) - VẢI K&Eacute;T ĐI &Eacute;P KATE-ĐỂ QUAY THỬ XEM LỖ KIM NHỎ HƠN &Eacute;P LƯỚI M&Agrave;N KH&Ocirc;NG,review,0,2023-02-11
+350,2640,11022023-2640,B&ugrave; h&agrave;ng cho tổ cắt do lỗi vải v&agrave; thiếu ĐM do khổ vải 1.25m,completed,0,2023-02-11
+370,2643,11022023-2643,Xuất vải mẫu,completed,0,2023-02-11
+352,2645,11022023-2645,TTD-221112-MIZUNO RB JUNGLE BUCKET WHITE------TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK,completed,0,2023-02-11
+368,2646,11022023-2646,B&ugrave; ĐH UVShield Cool Convert Visor-PO#38077,completed,0,2023-02-11
+366,2647,11022023-2647,Kids Aero Visor-White-ML-PO151,completed,0,2023-02-11
+368,2648,11022023-2648,DYC-AU-220812-Scuderia Graziani-Opt01-v1,completed,0,2023-02-11
+368,2649,13022023-2649,B&ugrave; ĐH Kids Aero Visor PO#151,completed,0,2023-02-13
+350,2650,13022023-2650,b&ugrave; h&agrave;ng cho thi&ecirc;n đức do th&ecirc;u hư v&agrave; bị dơ,completed,0,2023-02-13
+352,2651,13022023-2651,TTD-221112-MIZUNO RB BUCKET WHITE--TTD-221112-MIZUNO RB BUCKET BLACK--N&Oacute;N V&Agrave;NH NHỎ (GẤP LẠI Đ&Oacute;NG 1 N&Oacute;N 1 BAO 36*40 MIỆNG KEO),completed,0,2023-02-13
+368,2652,13022023-2652,Cấp cho ĐH CIE-221218-Soleil GC,completed,0,2023-02-13
+368,2653,13022023-2653,B&ugrave; ĐH Kids Aero Visor PO#151,completed,0,2023-02-13
+368,2654,13022023-2654,Cấp NPL cho tổ cắt,completed,0,2023-02-13
+348,2655,13022023-2655,HM-221201-RAMMSTEIN ( 500 bộ) đ&oacute;ng hư<br />TTD-221223-GF46 (500 bộ) đ&oacute;ng hư,completed,0,2023-02-13
+352,2656,13022023-2656,TTD-221112-MIZUNO RB JUNGLE BUCKET WHITE--TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK---LẦN 1,completed,0,2023-02-13
+368,2657,13022023-2657,B&ugrave; Charter Breeze Hat / Kids Ultra Adventure Hat,completed,0,2023-02-13
+370,2658,13022023-2658,Xuất vải mẫu&nbsp;,completed,0,2023-02-13
+348,2659,13022023-2659,cắt v&agrave;nh h&agrave;ng movement BK 570 cho b&ecirc;n THi&ecirc;n Đức tập quay v&agrave;nh,completed,1,2023-02-14
+352,2660,13022023-2660,TTD-221112-MIZUNO RB JUNGLE BUCKET WHITE---TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK,completed,0,2023-02-13
+369,2661,13022023-2661,DYC-CH1-221214-Hotel Palafitte,completed,0,2023-02-13
+352,2663,13022023-2663,B&Ugrave; CON GIỐNG LỖI GF TTD-221223-GF4622 / TTD-221206-GF45 / &nbsp;TTD-221025-GF44,completed,0,2023-02-13
+373,2664,13022023-2664,"Phiếu y&ecirc;u cầy băng keo d&aacute;n th&ugrave;ng , bao nylon đựng h&agrave;ng",approval,0,2023-02-13
+370,2665,14022023-2665,Xuất NPL mẫu,completed,0,2023-02-14
+352,2666,14022023-2666,TTD-221112-MIZUNO RB JUNGLE BUCKET WHITE--TTD-221112-MIZUNO RB JUNGLE BUCKET BLACK--xuất bao nylon đợt 1,completed,0,2023-02-14
+348,2667,14022023-2667,cắt v&agrave;nh h&agrave;ng movement BK 570 cho b&ecirc;n THi&ecirc;n Đức tập quay v&agrave;nh,completed,0,2023-02-14
+352,2668,14022023-2668,TTD-221206-VMN-BOSS Love--TTD-221206-VMN-BOSS Mom,completed,0,2023-02-14
+350,2669,14022023-2669,lấy vải l&agrave;m n&oacute;n thời trang,completed,0,2023-02-14
+352,2670,14022023-2670,TTD-221206-VMN-BOSS Love-TTD-221206-VMN-BOSS Mom,completed,0,2023-02-14
+370,2672,14022023-2672,&nbsp;Xuất vải mẫu&nbsp;,completed,0,2023-02-14
+368,2674,14022023-2673,B&ugrave; ĐH Sun Tripper Cap PO#38074,completed,0,2023-02-14
+368,2675,14022023-2675,Cấp th&ecirc;m định mức mối nối của ĐH ULTRA ADVENTURE STORM HAT PO#38003,completed,0,2023-02-14
+366,2677,14022023-2677,Tổ chuẩn bị b&ugrave; h&agrave;ng- May hư Po115,completed,0,2023-02-14
+353,2678,15022023-2678,Xuất mẫu cho VPTP.,completed,0,2023-02-15
+354,2679,15022023-2679,Xuất vải mẫu SA về VPTP (Hưng SA),completed,0,2023-02-15
+368,2682,15022023-2682,B&ugrave; ĐH Backdrop Boonie PO#38066,completed,0,2023-02-15
+370,2685,15022023-2685,Xuất NPL mẫu,completed,0,2023-02-15
+352,2688,15022023-2688,TTD-221112-SP-V-S23SUC-BH11-BK----TTD-221112-SP-V-S23SUC-BH11-DC--IN B&Ugrave; DO IN SAI MẶT VẢI,completed,1,2023-02-17
+369,2689,16022023-2689,B&ugrave; cho đơn h&agrave;ng DYC-US-230126-Blacktiph-690-Opt01,completed,0,2023-02-16
+369,2690,16022023-2690,Th&ecirc;u,completed,0,2023-02-16
+369,2691,16022023-2691,Th&ecirc;u,completed,0,2023-02-16
+368,2692,16022023-2692,Buf DDH Flash Cap PO#115,completed,0,2023-02-16
+351,2693,16022023-2693,Bao KH kh&ocirc;ng su dụng n&ecirc;n xuất l&ecirc;n cho tổ phối d&ugrave;ng để phối h&agrave;ng,completed,0,2023-02-16
+370,2695,16022023-2695,Xuất vải mẫu,completed,0,2023-02-16
+350,2698,16022023-2698,b&ugrave; do kh&aacute;ch h&agrave;ng đổi lưới từ m&agrave;u royal sang m&agrave;u lưới in&nbsp;,completed,0,2023-02-16
+369,2699,17022023-2699,B&ugrave; cho đơn h&agrave;ng DYC-US-221222-Pedreiras Inc-679,completed,0,2023-02-17
+370,2701,17022023-2700,Xuất NPL mẫu,completed,0,2023-02-17
+368,2702,17022023-2702,B&ugrave; v&agrave;nh ĐH Brushline Bucket PO#38044,completed,0,2023-02-17
+354,2704,17022023-2704,Xuất vải đi &eacute;p thử lưới m&agrave;n 28G,completed,1,2023-02-17
+354,2706,17022023-2706,Bổ sung vải do vải dơ &amp; lỗi,completed,0,2023-02-17
+350,2708,17022023-2707,,completed,0,2023-02-17
+370,2710,17022023-2710,Xuất vải mẫu,completed,0,2023-02-17
+368,2711,17022023-2711,B&ugrave; ĐH Backdrop Boonie PO#38066,completed,0,2023-02-17
+352,2712,17022023-2712,"B&Ugrave; H&Agrave;NG GF, CON GIỐNG LỖI",completed,0,2023-02-17
+354,2714,17022023-2714,Xuất vải đi test thử &eacute;p lưới m&agrave;n 28G Black,completed,0,2023-02-17
+368,2717,17022023-2717,Cấp NPL cho tổ cắt,completed,0,2023-02-17
+369,2718,17022023-2718,Kim th&ecirc;u,completed,0,2023-02-17
+368,2720,17022023-2720,Cấp cho tổ cắt dự trữ cắt x&eacute;o&nbsp;,completed,0,2023-02-17
+366,2721,17022023-2721,PO-38080 Đổi đạn nhựa 25mm,completed,0,2023-02-17
+369,2722,17022023-2722,Chỉ th&ecirc;u,completed,0,2023-02-17
+369,2723,17022023-2723,Th&ecirc;u,completed,0,2023-02-17
+370,2728,18022023-2728,Xuất vải mẫu,approval,0,2023-02-18
+350,2729,18022023-2729,cấp tem chống giả packing list china TTD/SAF-000-230315-29034 CHN,completed,0,2023-02-18
+368,2730,18022023-2730,Cấp b&ugrave; ĐM ĐH TTD-221112-SP-V-S23SUC-BH11,completed,0,2023-02-18
+353,2731,18022023-2731,Xuất hủy do h&agrave;ng củ kh&ocirc;ng c&ograve;n d&ugrave;ng cho đơn h&agrave;ng.,completed,0,2023-02-18
+236,2732,18022023-2732,Nhập b&ugrave; phiếu&nbsp;,completed,0,2023-02-18
+368,2733,18022023-2733,B&ugrave; Viền v&agrave;nh ĐH Backdrop Boonie&nbsp;,completed,0,2023-02-18
+368,2734,18022023-2734,Cấp NPL cho tổ phối đ&oacute;ng h&agrave;ng gia c&ocirc;ng,completed,0,2023-02-18
+368,2735,18022023-2735,B&ugrave; ĐH Sun Tripper Cap PO#38074,completed,0,2023-02-18
+370,2739,20022023-2739,Xuất NPL mẫu,approval,0,2023-02-20
+368,2741,20022023-2741,B&ugrave; th&ecirc;m định mức ĐH TTD-221112-SP-V-S23SUC-BH11,completed,0,2023-02-20
+368,2745,20022023-2745,B&ugrave; ĐH Sun Tripper Lean 4,completed,0,2023-02-20
+368,2746,20022023-2746,B&ugrave; ĐH Sun Tripper Cap Lean 4 may hư,completed,0,2023-02-20
+369,2750,21022023-2750,JP-221208-ISOGO COUNTRY CLUB NEW_v1,completed,0,2023-02-21
+370,2751,21022023-2751,Xuất NPL mẫu,approval,0,2023-02-21
+370,2752,21022023-2752,Xuất vải mẫu,approval,0,2023-02-21
+370,2753,21022023-2753,Xuat NPL mau,completed,0,2023-02-21
+350,2755,21022023-2755,"JP-221208-ISOGO COUNTRY CLUB NEW_v1- b&ugrave; lại k&eacute;t ,",completed,0,2023-02-21
+350,2756,21022023-2756,JP-221208-ISOGO COUNTRY CLUB NEW_v1- b&ugrave; lại k&eacute;t&nbsp;,completed,0,2023-02-21
+368,2758,21022023-2758,B&ugrave; ĐH Flash Cap Lean 3,approval,0,2023-02-21
+352,2759,21022023-2759,TTD-230110-BIS VINCOM FUNDINO,review,0,2023-02-21
+368,2760,21022023-2760,Cấp NPL cho tổ cắt,completed,0,2023-02-21
+368,2761,21022023-2761,B&ugrave; ĐH lỗi vải DYC-CH1-221214-Hotel Palafitte,approval,0,2023-02-21
+352,2762,21022023-2762,TTD-221112-SP-V-S23SUC-BH11,approval,0,2023-02-21
