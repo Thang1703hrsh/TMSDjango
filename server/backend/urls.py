@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from data.views import OrderAPIView, OutsourcingProductMaterialsAPIView, OutsourcingProductAPIView
-from data import admin_DA, get_purchase_order, get_req_stock_in, get_need_quantity, get_material_reports, get_product_unit, temporary_quantity, views, get_ttd_auth
+from data import admin_DA, get_purchase_order, get_req_stock_in, get_need_quantity, get_material_reports, get_product_unit, temporary_quantity, views, get_ttd_auth, get_req_stock_out, get_product
 
 from django.views.generic import TemplateView
 
@@ -26,4 +26,6 @@ urlpatterns = [
     # path("" , get_req_stock_in),
     # path("" , get_need_quantity),
     # path("" , get_material_reports),
+    path("" , get_req_stock_out),
+    path("" , get_product),
 ]
