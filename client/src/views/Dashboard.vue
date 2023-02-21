@@ -181,7 +181,8 @@
             <div class="col-sm-4">
               <div class="search-bar">
                 <form class="search-form d-flex align-items-center">
-                    <input type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)" v-for="material in filteredChild" 
+                    <input v-if = "filteredChild.length == 0" type="text" placeholder="Nhập mã NPL" title="Enter search keyword">
+                    <input v-else type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)" v-for="material in filteredChild" 
                   :key="material.name">
                   <button title="Search"><b-icon icon="search"></b-icon></button>
                 </form>
@@ -237,7 +238,7 @@
           </div>
           <div id = "info" v-else> {{selectedNode.name}} </div>
         </div>
-        <div class="col-sm-2 panel panel-row">
+        <!-- <div class="col-sm-2 panel panel-row">
             <div class = "b"></div>
           <div style = " padding:5px; "> Nguyên phụ liệu cấu thành </div>
           <div v-if = "allData.length == 0"> 
@@ -245,7 +246,7 @@
             </vue-loading>
           </div>
           <div id = "info" v-else> a </div>
-        </div>
+        </div> -->
       </div>
       <div class="panel panel-default">
         <org-chart 
@@ -775,7 +776,7 @@ margin-bottom: 10px;
 }
 
 .col-sm-2 {
-  width: calc((100% - 50px) / 5);
+  width: calc((100% - 50px) / 4);
   height: 70px;
   margin: 10px 20px calc(40px/3px) 0px ;
   // background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
