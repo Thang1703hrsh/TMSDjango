@@ -4,7 +4,20 @@
     @wheel="zoom && zoomHandler($event)"
     @mouseup="pan && panning && panEndHandler($event)"
   >
-  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu</div>
+  <div class = "titlechart" align="left">Cây cấu trúc nguyên phụ liệu
+    <div class="filter">
+      <a class="icon" href="http://localhost:8080/#/dashboard" data-bs-toggle="dropdown"><b-icon icon="three-dots"></b-icon></a>
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li class="dropdown-header text-start">
+          <h6>Filter</h6>
+        </li>
+
+        <li><a class="dropdown-item" href="#">Today</a></li>
+        <li><a class="dropdown-item" href="#">This Month</a></li>
+        <li><a class="dropdown-item" href="#">This Year</a></li>
+      </ul>
+    </div>
+  </div>
   <div class = "sub_div">
     <div style="display: inline-block" class = "rectangle1"></div> NPL đã chọn
     <div style="display: inline-block" class = "rectangle2"></div> NPL đang chọn
@@ -181,6 +194,44 @@ export default {
 </script>
 
 <style>
+/* Filter dropdown */
+.filter {
+  position: absolute;
+  right: 0px;
+  top: -12px;
+}
+
+.filter .icon {
+  color: #aab7cf;
+  padding-right: 40px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.filter .icon:hover,
+.filter .icon:focus {
+  color: #4154f1;
+}
+
+.filter .dropdown-header {
+  padding: 8px 15px;
+}
+
+.filter .dropdown-header h6 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #aab7cf;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.filter .dropdown-item {
+  padding: 8px 15px;
+}
+
+
 #app {
   font-family: "Roboto",sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -669,4 +720,106 @@ hr {
 .orgchart.r2l .node.slide-left {
   transform: translateX(-40px);
 }
+
+
+
+
+/*--------------------------------------------------------------
+# Override some default Bootstrap stylings
+--------------------------------------------------------------*/
+/* Dropdown menus */
+.dropdown-menu {
+  border-radius: 4px;
+  padding: 10px 0;
+  -webkit-animation-name: dropdown-animate;
+  animation-name: dropdown-animate;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  border: 0;
+  box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+}
+
+.dropdown-menu .dropdown-header,
+.dropdown-menu .dropdown-footer {
+  text-align: center;
+  font-size: 15px;
+  padding: 10px 25px;
+}
+
+.dropdown-menu .dropdown-footer a {
+  color: #444444;
+  text-decoration: underline;
+}
+
+.dropdown-menu .dropdown-footer a:hover {
+  text-decoration: none;
+}
+
+.dropdown-menu .dropdown-divider {
+  color: #a5c5fe;
+  margin: 0;
+}
+
+.dropdown-menu .dropdown-item {
+  font-size: 14px;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+.dropdown-menu .dropdown-item i {
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 0;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f6f9ff;
+}
+
+@media (min-width: 768px) {
+  .dropdown-menu-arrow::before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    position: absolute;
+    top: -7px;
+    right: 20px;
+    transform: rotate(45deg);
+    border-top: 1px solid #eaedf1;
+    border-left: 1px solid #eaedf1;
+  }
+}
+
+@-webkit-keyframes dropdown-animate {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes dropdown-animate {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
+  }
+}
+
+
 </style>

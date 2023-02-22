@@ -8,9 +8,9 @@
 <script>
     import { VueLoading } from 'vue-loading-template'
     export default {
-    name: 'app',
-    components: {
-        VueLoading
-    }
+        name: 'app',
+        components: {
+            VueLoading
+        }
     }
 </script>
