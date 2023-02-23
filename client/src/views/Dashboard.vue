@@ -948,7 +948,7 @@ font-size: 16px;
     right: 0;
     background-color: #fff;
     max-width: 100%;
-    padding: 10px;
+    padding: 5px;
     visibility : hidden;
     // transition: all .5s linear;
     max-height:  0px;
@@ -957,7 +957,7 @@ font-size: 16px;
 
     &.visible{
       height: auto;
-      max-height: 130px;
+      max-height: 105px;
       visibility: visible;
     }
 
@@ -986,7 +986,7 @@ font-size: 16px;
           background-clip: padding-box;
           border-radius: 5px;
           width: 100%;
-          padding: 8px;
+          padding: 5px;
           cursor: pointer;
           &:hover{
             background-color: #6499f5;
