@@ -185,19 +185,22 @@
             <form class="search-form d-flex align-items-center">
                 <!-- <input v-if = "filteredChild.length == 0" type="text" placeholder="Nhập mã NPL" title="Enter search keyword">
                 <input v-else type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)"> -->
+                <v-select :options="books" label="title"></v-select>
                 <div class = "dropdown-wrapper">
                   <div @click="isVisible = !isVisible">
+                    <!-- <span v-if = "selectedItem" >{{ selectedItem.name }}</span> -->
+        
                     <input v-model = "searchQuery" type = "text" placeholder="Tìm nguyên phụ liệu" title="Enter search keyword">
                     <button title="Search"><b-icon icon="search"></b-icon></button>
                   </div>
-                  <div :class="isVisible ? 'visible' : 'isvisible'" class="dropdown-popover">
+                  <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
                     <span v-if = "filteredMat.length == 0"><br><br>No Data Available<br></span>
                     <div class = "options">
                       <ul>
                         <li 
-                          @click="selectItem(material)" 
-                          v-for="material in filteredMat" 
-                          :key="material.name">
+                          @click.self="selectItem(material)" 
+                          v-for="(material , index) in filteredMat" 
+                          :key="`material-${index}`">
                             {{material.name}}
                         </li>
                       </ul>
@@ -242,21 +245,21 @@
         </div>
         <div class="col-sm-2 panel panel-row">
             <div class = "b"></div>
-          <div style = " padding:5px; "> Nguyên phụ liệu đang chọn</div>
+          <div style = " padding:5px; "> Tổng số nguyên phụ liệu đã xóa</div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
-          <div id = "info" v-else> </div>
+          <div id = "info" v-else> {{allData["total in trash"]}} </div>
         </div>
         <div class="col-sm-2 panel panel-row">
             <div class = "b"></div>
-          <div style = " padding:5px; "> Nguyên phụ liệu đã chọn </div>
+          <div style = " padding:5px; "> Tổng số nguyên phụ liệu đang sử dụng </div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
-          <div id = "info" v-else> </div>
+          <div id = "info" v-else> {{allData["total not in trash"]}} </div>
         </div>
       </div>
       <div class="panel panel-default">
@@ -493,7 +496,7 @@ export default {
   computed: {
     filteredMat() {
       const query = this.searchQuery.toLowerCase();
-      if(this.searchQuery == "") { 
+      if(this.searchQuery === "") { 
         return this.treeData;
       }
       return this.treeData.filter((material) => {
@@ -916,33 +919,32 @@ font-size: 16px;
   position: relative;
   margin: 0 auto;
   
-
   .selected-item {
-  height: 35px;
-  // border: 0px solid rgb(255, 255, 255);
-  border-radius: 5px;
-  border-color: #0096C7;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 400;
+    height: 35px;
+    // border: 0px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    border-color: #0096C7;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
 
-  .drop-down-icon{
-    transform: rotate(0deg);
-    transition: all 0.5s ease;
-    &.dropdown {
-      transform: rotate(180deg);
+    .drop-down-icon{
+      transform: rotate(0deg);
       transition: all 0.5s ease;
+      &.dropdown {
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+      }
     }
   }
-}
 
   .dropdown-popover{
     position: absolute;
     border: 1px solid lightgray;
-    border-radius: 10px;
+    border-radius: 5px;
     top: 50px;
     left: 0;
     right: 0;
@@ -951,32 +953,29 @@ font-size: 16px;
     padding: 5px;
     visibility : hidden;
     // transition: all .5s linear;
-    max-height:  0px;
     overflow: hidden;
     margin-left: 10px;
 
     &.visible{
       height: auto;
-      max-height: 105px;
       visibility: visible;
     }
 
     input {
       width: 90%;
-      height: 40px;
+      height: 30px;
       border: 2px solid lightgray;
       font-size: 16px;
       padding-left: center;
     }
     .options{
       width: 100%;
-      height: 80%;
       ul{
         border-radius: 5px;
         list-style: none;
         text-align: left;
         padding-left: 0px;
-        height: 126px;
+        max-height: 126px;
         overflow-y: scroll;
         overflow-x: hidden;
         

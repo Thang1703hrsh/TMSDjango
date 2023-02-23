@@ -40,10 +40,14 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import VueLoading from 'vue-loading-template'
+import vSelect from "vue-select";
+
 Vue.use(VueLoading, /** options **/)
 
 library.add(fas, far, fab)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component("v-select", vSelect);
+
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Antd, VueLoading);

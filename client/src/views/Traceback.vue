@@ -85,48 +85,72 @@
                   <div  v-if = "selectedNode" class = "options1 custom-scrollbar">
                     <ul>
                       <li>
-                        <b>Số nguyên phụ liệu gia công</b> 
-                        <div class = "form-control">
-                          <div v-if = "allData.length == 0"> 
-                            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
-                            </vue-loading>
-                          </div>
-                          <div v-else @node-click="selectNode(material)">
-                            <div v-if = "searchQueryParent">
-                                <div style = "text-align: center;" v-if = "filteredParent.length == 0" >
-                                  0
+                        <div class="col-lg-6 col-12" style = "padding-left: 1px">
+                          <b>Số NPL gia công</b> 
+                          <div class = "form-control">
+                            <div v-if = "allData.length == 0"> 
+                              <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                              </vue-loading>
+                            </div>
+                            <div v-else @node-click="selectNode(material)">
+                              <div v-if = "searchQueryParent">
+                                  <div style = "text-align: center;" v-if = "filteredParent.length == 0" >
+                                    0
+                                  </div>
+                                  <div 
+                                    v-for="materialParent in filteredParent" 
+                                    :key="materialParent.name">
+                                    <div style = "text-align: center;">
+                                      {{materialParent.children.length}}
+                                    </div> 
+                                  </div>
                                 </div>
-                                <div 
-                                  v-for="materialParent in filteredParent" 
-                                  :key="materialParent.name">
-                                  <div style = "text-align: center;">
-                                    {{materialParent.children.length}}
-                                  </div> 
+                            </div>                             
+                          </div>  
+                        </div> 
+                        
+                        <div class="col-lg-6 col-12" style = "padding: 0px">
+                          <b>Số NPL cấu thành</b>
+                          <div class = "form-control">
+                            <div v-if = "allData.length == 0"> 
+                              <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                              </vue-loading>
+                            </div>
+                            <div v-else @node-click="selectNode(material)">
+                              <div v-if = "searchQueryChild">
+                                  <div style = "text-align: center;" v-if = "filteredChild.length == 0" >
+                                    0
+                                  </div>
+                                  <div 
+                                    v-for="material in filteredChild" 
+                                    :key="material.name">
+                                    <div style = "text-align: center;">
+                                      {{material.children.length}}
+                                    </div> 
+                                  </div>
                                 </div>
-                              </div>
-                          </div>                             
-                        </div>  
-                        <b>Số nguyên phụ liệu cấu thành</b> 
-                        <div class = "form-control">
-                          <div v-if = "allData.length == 0"> 
-                            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
-                            </vue-loading>
-                          </div>
-                          <div v-else @node-click="selectNode(material)">
-                            <div v-if = "searchQueryChild">
-                                <div style = "text-align: center;" v-if = "filteredChild.length == 0" >
-                                  0
-                                </div>
-                                <div 
-                                  v-for="material in filteredChild" 
-                                  :key="material.name">
-                                  <div style = "text-align: center;">
-                                    {{material.children.length}}
-                                  </div> 
-                                </div>
-                              </div>
+                            </div>
                           </div>
                         </div>
+                  
+                        <!-- <b>Nguyên phụ liệu đang chọn</b> 
+                        <div class = "form-control">
+                          <div v-if = "allData.length == 0"> 
+                            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                            </vue-loading>
+                          </div>
+                          <div v-else> {{selectedNode.name}} </div>
+                        </div> -->
+                        
+                        <b>Nguyên phụ liệu đã chọn</b> 
+                        <div class = "form-control">
+                          <div v-if = "allData.length == 0"> 
+                            <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
+                            </vue-loading>
+                          </div>
+                          <div v-else> {{selectedNodeBefore.name}} </div>
+                        </div>
+
                       </li>
                     </ul>
                   </div>
@@ -143,65 +167,52 @@
       </div>
     </div>
     <div class="col-md-10">
-        <!-- <section class = "dropdown-wrapper"> -->
-          <!-- <div @click="isVisible = !isVisible" class="selected-item">
-            <svg :fill="'#5386e4'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 
-              8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 
-              6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
-            </svg>
-            <span v-if = "selectedItem" >{{ selectedItem.name }}</span>
-            <span v-else>Tìm nguyên phụ liệu</span>
-            
-            <svg 
-            :class = "isVisible ? 'dropdown' : ''"
-            class = "drop-down-icon"
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            width="24" 
-            height="24">
-              <path fill="none" d="M0 0h24v24H0z"/>
-              <path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/>
-            </svg>
-
-          </div> -->
-          <div class="row search">
-            <div class="col-sm-4">
-              <div class="pagetitle">
-                <h1 align="left">Traceback</h1>
-                <nav>
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">Traceback</li>
-                    <li class="breadcrumb-item"><a href="http://localhost:8080/#/dashboard">Dashboard</a></li>
-                  </ol>
-                </nav>
-              </div>
-            </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-              <div class="search-bar">
-                <form class="search-form d-flex align-items-center">
-                    <input v-if = "filteredChild.length == 0" type="text" placeholder="Nhập mã NPL" title="Enter search keyword">
-                    <input v-else type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)" v-for="material in filteredChild" 
-                  :key="material.name">
-                  <button title="Search"><b-icon icon="search"></b-icon></button>
-                </form>
-              </div>
-            </div>
+      <div class="row search" style = "z-index: 3" >
+        <div class="col-sm-4">
+          <div class="pagetitle">
+            <h1 align="left">TraceBack</h1>
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="http://localhost:8080/#/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">Traceback</li>
+              </ol>
+            </nav>
           </div>
-            <!-- <div class = "options">
-              <ul>
-                <li 
-                  v-for="material in filteredMat" 
-                  :key="material.name">
-                </li>
-              </ul>
-            </div> -->
-        <!-- </section> -->
-
-      <div class="row">  
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="search-bar">
+            <form class="search-form d-flex align-items-center">
+                <!-- <input v-if = "filteredChild.length == 0" type="text" placeholder="Nhập mã NPL" title="Enter search keyword">
+                <input v-else type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)"> -->
+                <div class = "dropdown-wrapper">
+                  <div @click="isVisible = !isVisible">
+                    <input v-model = "searchQuery" type = "text" placeholder="Tìm nguyên phụ liệu" title="Enter search keyword">
+                    <button title="Search"><b-icon icon="search"></b-icon></button>
+                  </div>
+                  <div :class="isVisible ? 'visible' : 'isvisible'" class="dropdown-popover">
+                    <span v-if = "filteredMat.length == 0"><br><br>No Data Available<br></span>
+                    <div class = "options">
+                      <ul>
+                        <li 
+                          @click="selectItem(material)" 
+                          v-for="material in filteredMat" 
+                          :key="material.name">
+                            {{material.name}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row" style = "z-index: 1">  
         <div class="col-sm-2 panel panel-row">
-            <div class = "b"></div>
+          <div class = "b"></div>
           <div style = " padding:5px; "> Tổng số nguyên phụ liệu </div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
@@ -231,22 +242,22 @@
         </div>
         <div class="col-sm-2 panel panel-row">
             <div class = "b"></div>
-          <div style = " padding:5px; "> Nguyên phụ liệu đang chọn</div>
+          <div style = " padding:5px; "> Tổng số nguyên phụ liệu đã xóa</div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
-          <div id = "info" v-else> {{selectedNode.name}} </div>
+          <div id = "info" v-else> {{allData["total in trash"]}} </div>
         </div>
-        <!-- <div class="col-sm-2 panel panel-row">
+        <div class="col-sm-2 panel panel-row">
             <div class = "b"></div>
-          <div style = " padding:5px; "> Nguyên phụ liệu cấu thành </div>
+          <div style = " padding:5px; "> Tổng số nguyên phụ liệu đang sử dụng </div>
           <div v-if = "allData.length == 0"> 
             <vue-loading type="spiningDubbles" color="black" :size="{ width: '30px', height: '30px' }">
             </vue-loading>
           </div>
-          <div id = "info" v-else> a </div>
-        </div> -->
+          <div id = "info" v-else> {{allData["total not in trash"]}} </div>
+        </div>
       </div>
       <div class="panel panel-default">
         <org-chart 
@@ -416,9 +427,10 @@ export default {
       searchQueryParent: "",
       searchQueryChild: "",
       selectedItem: null ,
-      selectedNode: null,
+      selectedNode: "",
+      selectedNodeBefore: "",
       parentNode: [],
-      isVisible: true,
+      isVisible: false,
       parentData: [],
       allData: [],
       allTraceback: [],
@@ -467,6 +479,7 @@ export default {
       
     },
     selectNode (material){
+      this.selectedNodeBefore = this.selectedNode;
       this.selectedNode = material;
       this.active = true; 
       this.searchQueryParent = material.name;
@@ -559,14 +572,15 @@ export default {
    display:block;
 }
 
-#info {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 </style>
 
 <style scoped lang = "scss">
+
+#info {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 
 .search-bar {
   min-width: 360px;
@@ -599,7 +613,7 @@ export default {
   button {
     border: 0;
     padding: 0;
-    margin-left: -30px;
+    margin-left: -25px;
     background: none;
     b-icon {
       border: 0;
@@ -730,6 +744,7 @@ margin-top: -8px;
   margin: 5px 0px 0px -10px ;
 }
 .search{
+  position: relative;
   padding: 0px 0px 0px 0px;
   margin-top: 0px;
 }
@@ -776,10 +791,14 @@ margin-bottom: 10px;
 }
 
 .col-sm-2 {
-  width: calc((100% - 50px) / 4);
+  width: calc((100% - 50px) / 5);
   height: 70px;
   margin: 10px 20px calc(40px/3px) 0px ;
   // background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+}
+
+.col-sm-4 {
+  padding: 0px 5px 0px 15px
 }
 
 .panel-heading {
@@ -929,14 +948,16 @@ font-size: 16px;
     right: 0;
     background-color: #fff;
     max-width: 100%;
-    padding: 10px;
+    padding: 5px;
     visibility : hidden;
-    transition: all .5s linear;
+    // transition: all .5s linear;
     max-height:  0px;
     overflow: hidden;
+    margin-left: 10px;
 
     &.visible{
-      max-height: 183px;
+      height: auto;
+      max-height: 105px;
       visibility: visible;
     }
 
@@ -962,22 +983,11 @@ font-size: 16px;
 
         li {
           font-size: 15px;
-          // padding: 0.375rem 0.875rem;
-          background-color: rgba(38, 125, 207, 0.151); 
           background-clip: padding-box;
-          // border: 1px solid #dbe5ee;
-          // border-radius: 0.25rem;
-          // height: 80%;
-          box-shadow: inset 0 1px 2px 0 rgba(8, 23, 136, 0.12);
-          // margin: 0px 10px 10px 0px ;
-
           border-radius: 5px;
           width: 100%;
-          border-bottom: 1px solid rgb(136, 136, 136);
-          padding: 8px;
-          // background-color:  #f1f1f1;
+          padding: 5px;
           cursor: pointer;
-          // font-size: 16px;
           &:hover{
             background-color: #6499f5;
             color: #fff;
