@@ -1,23 +1,33 @@
 (CHỈ THÊU
+chỉ thêu
 vải mẫu
 NPL
+npl
 vật tư
 Vải
 vải
 Chỉ thêu
 két
 ĐM
+đm
 Kim thêu
 Thêu
 THÊU
+thêu
 đơn hàng
 Vật tư
 vật tư
 VẢI
+vải
 định mức
 phụ liệu
 Dự Trữ
 mẫu
 hàng
 ĐH
-THẺ BÀI)
+đh
+thẻ bài
+THẺ BÀI
+keo
+thêu
+may)

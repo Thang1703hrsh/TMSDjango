@@ -1,14 +1,13 @@
-(lỗi vải 
-MAY HƯ
-lỗi vải
-Lỗi vải
-cắt hư
-may hư
-MAY HƯ
-keo lỗi
+(lỗi
+lỗi
+Lỗi
 MẤT
-CẮT HƯ
-hư+mất
 thất lạc
-đóng hư
-lỗi)
+thất thoát
+mất
+hao hụt
+lệch
+bị nhăn
+không sử dụng
+bẩn
+mất)

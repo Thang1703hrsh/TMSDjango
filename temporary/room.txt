@@ -6,6 +6,8 @@ TỔ CẮT
 TỔ PHỐI
 TỔ THÊU
 phòng cắt
+phòng phối
+phòng thêu
 gia công
 Phòng Thêu
 kho)

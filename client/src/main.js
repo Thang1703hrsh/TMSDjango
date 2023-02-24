@@ -42,9 +42,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import VueLoading from 'vue-loading-template'
 import vSelect from "vue-select";
 import Multiselect from 'vue-multiselect'
+import "vue-select/dist/vue-select.css";
+
 
 Vue.component('multiselect', Multiselect)
 Vue.use(VueLoading, /** options **/)
+// Vue.component("v-select", VueSelect);
 
 library.add(fas, far, fab)
 Vue.component('font-awesome-icon', FontAwesomeIcon)

@@ -6,6 +6,7 @@ import Dashboard from '../views/Dashboard.vue'
 import test from '../views/test.vue' 
 import tabs from '../views/tabs.vue' 
 import loading from '../views/loading.vue'
+import search from '../views/search.vue'
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,8 @@ const router = new VueRouter({
         { path:'/dashboard', component: Dashboard },
         { path:'/test', component: test }, 
         { path:'/tabs', component: tabs },
-        { path:'/loading', component: loading }
+        { path:'/loading', component: loading },
+        { path:'/search', component: search }
     ]
     
 })

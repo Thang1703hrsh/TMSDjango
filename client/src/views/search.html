@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-11" viewBox="0 0 40 40">
+      <path d="M15.553 31.106c8.59 0 15.553-6.963 15.553-15.553S24.143 0 15.553 0 0 6.963 0 15.553s6.963 15.553 15.553 15.553zm0-3.888c6.443 0 11.665-5.222 11.665-11.665 0-6.442-5.222-11.665-11.665-11.665-6.442 0-11.665 5.223-11.665 11.665 0 6.443 5.223 11.665 11.665 11.665zM27.76 31.06c-.78-.78-.778-2.05.004-2.833l.463-.463c.783-.783 2.057-.78 2.834-.003l8.168 8.17c.782.78.78 2.05-.003 2.832l-.463.463c-.783.783-2.057.78-2.833.003l-8.17-8.167z"
+      fill-rule="evenodd" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-2" viewBox="0 0 20 20">
+      <path d="M8.96 10L.52 1.562 0 1.042 1.04 0l.522.52L10 8.96 18.438.52l.52-.52L20 1.04l-.52.522L11.04 10l8.44 8.438.52.52L18.96 20l-.522-.52L10 11.04l-8.438 8.44-.52.52L0 18.96l.52-.522L8.96 10z" fill-rule="evenodd" />
+    </symbol>
+  </svg>
+  
+  <form novalidate="novalidate" onsubmit="return false;" class="searchbox sbx-amazon">
+    <div role="search" class="sbx-amazon__wrapper">
+      <input type="search" name="search" placeholder="Search your website" autocomplete="off" required="required" class="sbx-amazon__input">
+      <button type="submit" title="Submit your search query." class="sbx-amazon__submit">
+        <svg role="img" aria-label="Search">
+          <use xlink:href="#sbx-icon-search-11"></use>
+        </svg>
+      </button>
+      <button type="reset" title="Clear the search query." class="sbx-amazon__reset">
+        <svg role="img" aria-label="Reset">
+          <use xlink:href="#sbx-icon-clear-2"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+  <script type="text/javascript">
+    document.querySelector('.searchbox [type="reset"]').addEventListener('click', function() {  this.parentNode.querySelector('input').focus();});
+  </script>
+
+<style scoped lang = "scss">
+
+.vue-instant__suggestions li.highlighted__custom {
+  background-color: "your decision";
+  color: "your decision";
+}
+.vue-instant__suggestions {
+  margin-top: "your decision";
+}
+$custom:(
+	input-width: 600px,
+	input-height: 38px,
+	border-width: 1px,
+	border-radius: 3px,
+	input-border-color: #FFFFFF,
+	input-focus-border-color: #FFBF58,
+	input-background: #FFFFFF,
+	input-focus-background: #FFFFFF,
+	font-size: 14px,
+	placeholder-color: #AAAAAA,
+	icon: sbx-icon-search-11,
+	icon-size: 20px,
+	icon-position: right,
+	icon-color: #202F40,
+	icon-background: #FFBF58,
+	icon-background-opacity: 1,
+	icon-clear: sbx-icon-clear-2,
+	icon-clear-size: 12px
+);
+
+
+@function even-px($value) {
+  @if type-of($value) == 'number' {
+    @if (unitless($value)) {
+      $value: $value * 1px;
+    } @else if unit($value) == 'em' {
+      $value: ($value / 1em * 16px);
+    } @else if unit($value) == 'pts' {
+      $value: $value * 1.3333 * 1px;
+    } @else if unit($value) == '%' {
+      $value: $value * 16 / 100% * 1px;
+    };
+    $value: round($value);
+    @if ($value % 2 != 0) {
+      $value: $value + 1;
+    }
+    @return $value;
+  }
+}
+
+@mixin searchbox(
+  $font-size: 90%,
+  $input-width: 350px,
+  $input-height: $font-size * 2.4,
+  $border-width: 1px,
+  $border-radius: $input-height / 2,
+  $input-border-color: #ccc,
+  $input-focus-border-color: #1ec9ea,
+  $input-background: #f8f8f8,
+  $input-focus-background: #fff,
+  $placeholder-color: #aaa,
+  $icon: 'sbx-icon-search-1',
+  $icon-size: $input-height / 1.6,
+  $icon-position: left,
+  $icon-color: #888,
+  $icon-background: $input-focus-border-color,
+  $icon-background-opacity: .1,
+  $icon-clear: 'sbx-icon-clear-1',
+  $icon-clear-size: $font-size / 1.1
+) {
+  display: inline-block;
+  position: relative;
+  width: $input-width;
+  height: even-px($input-height);
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-size: $font-size;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__input {
+    display: inline-block;
+    transition: box-shadow .4s ease, background .4s ease;
+    border: 0;
+    border-radius: even-px($border-radius);
+    box-shadow: inset 0 0 0 $border-width $input-border-color;
+    background: $input-background;
+    padding: 0;
+    padding-right: if($icon-position == 'right', even-px($input-height) + even-px($icon-clear-size) + 8px, even-px($input-height * .8))
+              + if($icon-background-opacity == 0, 0, even-px($font-size));
+    padding-left: if($icon-position == 'right',
+              even-px($font-size / 2) + even-px($border-radius / 2),
+              even-px($input-height) + if($icon-background-opacity == 0, 0, even-px($font-size * 1.2)));
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    white-space: normal;
+    font-size: inherit;
+    appearance: none;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: inset 0 0 0 $border-width darken($input-border-color, 10%);
+    }
+
+    &:focus,
+    &:active {
+      outline: 0;
+      box-shadow: inset 0 0 0 $border-width $input-focus-border-color;
+      background: $input-focus-background;
+    }
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+
+  }
+
+  &__submit {
+    position: absolute;
+    top: 0;
+    @if $icon-position == 'right' {
+      right: 0;
+      left: inherit;
+    } @else {
+      right: inherit;
+      left: 0;
+    }
+    margin: 0;
+    border: 0;
+    border-radius: if($icon-position == 'right', 0 $border-radius $border-radius 0, $border-radius 0 0 $border-radius);
+    background-color: rgba($icon-background, $icon-background-opacity);
+    padding: 0;
+    width: even-px($input-height) + if($icon-background-opacity == 0, 0, even-px($font-size / 2));
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: inherit;
+    user-select: none;
+
+    // Helper for vertical alignement of the icon
+    &::before {
+      display: inline-block;
+      margin-right: -4px;
+      height: 100%;
+      vertical-align: middle;
+      content: '';
+    }
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    svg {
+      width: even-px($icon-size);
+      height: even-px($icon-size);
+      vertical-align: middle;
+      fill: $icon-color;
+    }
+  }
+
+  &__reset {
+    display: none;
+    position: absolute;
+    top: (even-px($input-height) - even-px($icon-clear-size)) / 2 - 4px;
+    right: if($icon-position == 'right',
+      even-px($input-height) + if($icon-background-opacity == 0, 0 , even-px($font-size)),
+      (even-px($input-height) - even-px($icon-clear-size)) / 2 - 4px);
+    margin: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    user-select: none;
+    fill: rgba(#000, .5);
+
+    &:focus {
+      outline: 0;
+    }
+
+    svg {
+      display: block;
+      margin: 4px;
+      width: even-px($icon-clear-size);
+      height: even-px($icon-clear-size);
+    }
+  }
+
+  &__input:valid ~ &__reset {
+    display: block;
+    animation-name: sbx-reset-in;
+    animation-duration: .15s;
+  }
+
+  @at-root{
+    @keyframes sbx-reset-in {
+      0% {
+        transform: translate3d(-20%, 0, 0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.sbx-amazon{
+	@include searchbox($custom...);
+}
+</style>

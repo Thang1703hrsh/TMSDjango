@@ -22,7 +22,8 @@ Xuat
 xuất
 cấp
  Xuất
-keo lỗi
+ Xuất bù
+Xuất bù
 Đổi
 Hủy
 Thêm
@@ -34,4 +35,5 @@ bổ sung
 Cắt
 gửi
 thêm
+hủy
 TEST MẪU)
