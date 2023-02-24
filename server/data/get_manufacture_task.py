@@ -34,3 +34,14 @@ dfManufactureTaskDetail = pd.DataFrame([item.__dict__ for item in dfManufactureT
 print(dfManufactureTaskDetail)
 
 
+
+dfManufactureTaskLink = ProductDetail.objects.raw("""  
+        SELECT *
+        FROM manufacture_task_link MTL
+        WHERE MTL.deleted_at IS NULL
+        """)
+
+dfManufactureTaskLink = pd.DataFrame([item.__dict__ for item in dfManufactureTaskLink]).drop(['_state', 'id'], axis=1)
+print(dfManufactureTaskLink)
+
+
