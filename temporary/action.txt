@@ -1,4 +1,9 @@
-(Xuất
+(XUẤT ĐIỀU CHỈNH
+Bù
+Xuất bổ sung
+Bù hàng
+Xuất
+Yêu cầu
 Xuất hủy
 Xuất điều chỉnh
 Cấp
@@ -14,14 +19,19 @@ Bù thêm định mức
  Bù
 BÙ
 Xuat
-xuất 
+xuất
 cấp
  Xuất
-May hư
-MAY HƯ
-may hư
+keo lỗi
 Đổi
 Hủy
-May
+Thêm
 làm mẫu
-Lấy)
+Ép keo
+ép
+Lấy
+bổ sung
+Cắt
+gửi
+thêm
+TEST MẪU)

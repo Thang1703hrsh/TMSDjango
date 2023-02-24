@@ -185,11 +185,10 @@
             <form class="search-form d-flex align-items-center">
                 <!-- <input v-if = "filteredChild.length == 0" type="text" placeholder="Nhập mã NPL" title="Enter search keyword">
                 <input v-else type="text" placeholder="Nhập mã NPL" title="Enter search keyword" @keydown.enter="selectItem(material)"> -->
-                <v-select :options="books" label="title"></v-select>
+                <!-- <v-select label="Select" :item="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"></v-select> -->
+                <!-- <multiselect v-model="value" :options="options"></multiselect> -->
                 <div class = "dropdown-wrapper">
-                  <div @click="isVisible = !isVisible">
-                    <!-- <span v-if = "selectedItem" >{{ selectedItem.name }}</span> -->
-        
+                  <div @click="isVisible = !isVisible">        
                     <input v-model = "searchQuery" type = "text" placeholder="Tìm nguyên phụ liệu" title="Enter search keyword">
                     <button title="Search"><b-icon icon="search"></b-icon></button>
                   </div>
@@ -206,8 +205,7 @@
                       </ul>
                     </div>
                   </div>
-                </div>
-              
+                </div> 
             </form>
           </div>
         </div>
@@ -282,6 +280,7 @@ import axios from 'axios'
 import AppTabs from "../components/Tabs";
 import { VueLoading } from 'vue-loading-template'
 
+
 export default {
   components: {
     OrgChart,
@@ -290,6 +289,16 @@ export default {
   },
   data () {
     return {
+      select: { state: 'Florida', abbr: 'FL' },
+      items: [
+          { state: 'Florida', abbr: 'FL' },
+          { state: 'Georgia', abbr: 'GA' },
+          { state: 'Nebraska', abbr: 'NE' },
+          { state: 'California', abbr: 'CA' },
+          { state: 'New York', abbr: 'NY' },
+        ],
+      value: null,
+      options: ['9-MICRIN-WHI-L2-78', '9-GIA80G-WHI-30-TA', '9-GOLDAI-WHI-30-TA'],
       active: false,
       tabList: ["Chi tiết NPL", "NPL gia công"],
       tabListConstitutive: ["Cấu thành NPL"],
@@ -542,6 +551,7 @@ export default {
 }
 </script>
 
+
 <style>
 #app {
   font-family: "Roboto",sans-serif;
@@ -576,6 +586,8 @@ export default {
 }
 
 </style>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style scoped lang = "scss">
 

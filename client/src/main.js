@@ -41,7 +41,9 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import VueLoading from 'vue-loading-template'
 import vSelect from "vue-select";
+import Multiselect from 'vue-multiselect'
 
+Vue.component('multiselect', Multiselect)
 Vue.use(VueLoading, /** options **/)
 
 library.add(fas, far, fab)

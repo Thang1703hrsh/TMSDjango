@@ -1,5 +1,5 @@
-(lỗi vải 
-thêu hư
+(CHỈ THÊU
+vải mẫu
 NPL
 vật tư
 Vải
@@ -7,14 +7,17 @@ vải
 Chỉ thêu
 két
 ĐM
-ĐH
 Kim thêu
 Thêu
+THÊU
 đơn hàng
-lỗi vải
-Lỗi vải
-thêu hư
 Vật tư
 vật tư
-cắt
-phụ liệu)
+VẢI
+định mức
+phụ liệu
+Dự Trữ
+mẫu
+hàng
+ĐH
+THẺ BÀI)
