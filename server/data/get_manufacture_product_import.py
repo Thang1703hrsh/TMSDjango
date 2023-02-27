@@ -9,7 +9,7 @@ dfManufactureProdImport = ProductDetail.objects.raw("""
 
 dfManufactureProdImport = pd.DataFrame([item.__dict__ for item in dfManufactureProdImport]).drop(['_state', 'id'], axis=1)
 print(dfManufactureProdImport)
-# dfManufacture.to_csv('data_csv/MaterialReports.csv', index= False)
+dfManufactureProdImport.to_csv('../data_csv/ManufactureProdImport.csv', index= False)
 
 
 dfManufactureProdImportDetail = ProductDetail.objects.raw("""  
@@ -20,7 +20,7 @@ dfManufactureProdImportDetail = ProductDetail.objects.raw("""
 
 dfManufactureProdImportDetail = pd.DataFrame([item.__dict__ for item in dfManufactureProdImportDetail]).drop(['_state', 'id'], axis=1)
 print(dfManufactureProdImportDetail)
-# dfManufacture.to_csv('data_csv/MaterialReports.csv', index= False)
+dfManufactureProdImportDetail.to_csv('../data_csv/ManufactureProdImportDetail.csv', index= False)
 
 dfManufactureProdWarehouse = ProductDetail.objects.raw("""  
         SELECT *
@@ -30,7 +30,7 @@ dfManufactureProdWarehouse = ProductDetail.objects.raw("""
 
 dfManufactureProdWarehouse = pd.DataFrame([item.__dict__ for item in dfManufactureProdWarehouse]).drop(['_state', 'id'], axis=1)
 print(dfManufactureProdWarehouse)
-# dfManufacture.to_csv('data_csv/MaterialReports.csv', index= False)
+dfManufactureProdWarehouse.to_csv('../data_csv/ManufactureProdWarehouse.csv', index= False)
 
 
 

@@ -1,5 +1,5 @@
 
-# from .models import *
+# from .models_data import *
 # import pandas as pd
 
 # dfUsers= ProductDetail.objects.raw("""  

@@ -9,7 +9,7 @@ dfManufactureProdExport = ProductDetail.objects.raw("""
 
 dfManufactureProdExport = pd.DataFrame([item.__dict__ for item in dfManufactureProdExport]).drop(['_state', 'id'], axis=1)
 print(dfManufactureProdExport)
-# dfManufacture.to_csv('data_csv/MaterialReports.csv', index= False)
+dfManufactureProdExport.to_csv('../data_csv/ManufactureProdExport.csv', index= False)
 
 
 dfManufactureProdExportDetail = ProductDetail.objects.raw("""  
@@ -20,6 +20,6 @@ dfManufactureProdExportDetail = ProductDetail.objects.raw("""
 
 dfManufactureProdExportDetail = pd.DataFrame([item.__dict__ for item in dfManufactureProdExportDetail]).drop(['_state', 'id'], axis=1)
 print(dfManufactureProdExportDetail)
-# dfManufacture.to_csv('data_csv/MaterialReports.csv', index= False)
+dfManufactureProdExportDetail.to_csv('../data_csv/ManufactureProdExportDetail.csv', index= False)
 
 

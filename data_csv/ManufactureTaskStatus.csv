@@ -1,0 +1,5 @@
+code,name,description,created_at,updated_at,deleted_at
+review,Chờ sản xuất,,,,
+approval,Đang sản xuất,,,,
+completed,Hoàn tất,,,,
+imported,Đã nhập đủ,Đã nhập đủ,,,
