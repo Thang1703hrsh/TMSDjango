@@ -1,5 +1,5 @@
-code,name,description,created_at,updated_at,deleted_at
-review,Chờ sản xuất,,,,
-approval,Đang sản xuất,,,,
-completed,Hoàn tất,,,,
-imported,Đã nhập đủ,Đã nhập đủ,,,
+id,code,name,description,created_at,updated_at,deleted_at
+1,review,Chờ sản xuất,,,,
+2,approval,Đang sản xuất,,,,
+3,completed,Hoàn tất,,,,
+4,imported,Đã nhập đủ,Đã nhập đủ,,,

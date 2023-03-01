@@ -102,65 +102,65 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
-# staging
-DATABASES = {
-    "default": {
-    },
-    'auth_db':{
-        "NAME": "ttd_staging_auth",
-        "ENGINE": "django.db.backends.mysql",
-        "USER": 'django',
-        "PASSWORD": "ttd2021!",
-        "HOST": "118.69.153.36",
-        "PORT": "33064"
-    },
-    'data_db':{
-        "NAME": "ttd_staging_data",
-        "ENGINE": "django.db.backends.mysql",
-        "USER": 'django',
-        "PASSWORD": "ttd2021!",
-        "HOST": "118.69.153.36",
-        "PORT": "33064"
-    },
-    'report_db':{
-        "NAME": "ttd_staging_report",
-        "ENGINE": "django.db.backends.mysql",
-        "USER": 'django',
-        "PASSWORD": "ttd2021!",
-        "HOST": "118.69.153.36",
-        "PORT": "33064"
-    },
-}
-
-# # product
+# # staging
 # DATABASES = {
 #     "default": {
 #     },
 #     'auth_db':{
-#         "NAME": "ttd",
+#         "NAME": "ttd_staging_auth",
 #         "ENGINE": "django.db.backends.mysql",
-#         "USER": 'ttd',
-#         "PASSWORD": "ftc2018",
-#         "HOST": "captain.app.ftcjsc.com",
+#         "USER": 'django',
+#         "PASSWORD": "ttd2021!",
+#         "HOST": "118.69.153.36",
 #         "PORT": "33064"
 #     },
 #     'data_db':{
-#         "NAME": "ttd_data",
+#         "NAME": "ttd_staging_data",
 #         "ENGINE": "django.db.backends.mysql",
-#         "USER": 'ttd',
-#         "PASSWORD": "ftc2018",
-#         "HOST": "captain.app.ftcjsc.com",
+#         "USER": 'django',
+#         "PASSWORD": "ttd2021!",
+#         "HOST": "118.69.153.36",
 #         "PORT": "33064"
 #     },
 #     'report_db':{
-#         "NAME": "ttd_report",
+#         "NAME": "ttd_staging_report",
 #         "ENGINE": "django.db.backends.mysql",
-#         "USER": 'ttd',
-#         "PASSWORD": "ftc2018",
-#         "HOST": "captain.app.ftcjsc.com",
+#         "USER": 'django',
+#         "PASSWORD": "ttd2021!",
+#         "HOST": "118.69.153.36",
 #         "PORT": "33064"
 #     },
 # }
+
+# product
+DATABASES = {
+    "default": {
+    },
+    'auth_db':{
+        "NAME": "ttd",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": 'ttd',
+        "PASSWORD": "ftc2018",
+        "HOST": "captain.app.ftcjsc.com",
+        "PORT": "33064"
+    },
+    'data_db':{
+        "NAME": "ttd_data",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": 'ttd',
+        "PASSWORD": "ftc2018",
+        "HOST": "captain.app.ftcjsc.com",
+        "PORT": "33064"
+    },
+    'report_db':{
+        "NAME": "ttd_report",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": 'ttd',
+        "PASSWORD": "ftc2018",
+        "HOST": "captain.app.ftcjsc.com",
+        "PORT": "33064"
+    },
+}
 
 
 
