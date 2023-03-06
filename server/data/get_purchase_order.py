@@ -3,7 +3,7 @@ import pandas as pd
 
 # purchase order
 dfPurchaseOrder= ProductDetail.objects.raw("""  
-        SELECT 1 id, POD.code , POD.name AS name_po, POD.creator_id ,POD.total_amount , POD.purchase_order_id , POD.is_completed, POS.status as po_status, (CAST(PO.updated_at AS DATE)) AS time_create , (CAST(POD.delivery_at AS DATE)) AS estimated_delivery
+        SELECT 1 id, POD.code , POD.name AS name_po, POD.creator_id ,POD.total_amount , POD.purchase_order_id , POD.is_completed, POD.currency_id , POD.total_price ,POS.status as po_status, (CAST(PO.updated_at AS DATE)) AS time_create , (CAST(POD.delivery_at AS DATE)) AS estimated_delivery
                 ,  POD.supplier_delivery_id , POD.creator_id
                 FROM purchase_order_detail AS POD JOIN purchase_orders AS PO
                                 ON PO.id = POD.purchase_order_id
@@ -23,7 +23,7 @@ dfPurchaseOrder.to_csv('../data_csv/PurchaseOrder.csv', index= False)
 
 # purchase order detail
 dfPurchaseOrderDetail= ProductDetail.objects.raw("""  
-        SELECT 1 id, PD.code AS product_code, PD.product_id, PL.product_unit_id ,PL.quantity AS purchase_order_quantity, PL.purchase_order_id, PL.is_complete 
+        SELECT 1 id, PD.code AS product_code, PD.product_id, PL.product_unit_id ,PL.quantity AS purchase_order_quantity, PL.purchase_order_id, PL.is_complete , PL.amount , PL.vnd_exchange_rate, PL.vnd_exchange
                 FROM product_detail AS PD  JOIN packing_list AS PL 
                                                 ON PD.product_id = PL.product_id
     
